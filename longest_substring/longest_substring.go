@@ -1,23 +1,8 @@
-package main
+package longest_substring
 
 import (
-	"fmt"
 	"strings"
 )
-
-func main() {
-	m := lengthOfLongestSubstring(" ")
-	fmt.Println(m)
-
-	m = lengthOfLongestSubstring("abcabcbb")
-	fmt.Println(m)
-
-	m = lengthOfLongestSubstring("bbbbb")
-	fmt.Println(m)
-
-	m = lengthOfLongestSubstring("pwwkew")
-	fmt.Println(m)
-}
 
 func lengthOfLongestSubstring(s string) int {
 	var max int

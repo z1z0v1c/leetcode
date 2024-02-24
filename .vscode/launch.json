@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Longest Substring Test",
+            "name": "Longest Substring Tests",
             "type": "go",
             "request": "launch",
             "mode": "test",
@@ -23,7 +23,7 @@
             "program": "${workspaceFolder}/longest_substring/longest_substring.go"
         },
         {
-            "name": "Longest Palindrome Substring Test",
+            "name": "Longest Palindrome Substring Tests",
             "type": "go",
             "request": "launch",
             "mode": "test",
@@ -31,6 +31,17 @@
             "args": [
                 "-test.run",
                 "TestLongestPalindrome"
+            ]
+        },
+        {
+            "name": "Zigzag Conversion Tests",
+            "type": "go",
+            "request": "launch",
+            "mode": "test",
+            "program": "${workspaceFolder}/zigzag_conversion/zigzag_conversion_test.go",
+            "args": [
+                "-test.run",
+                "TestConvert"
             ]
         },
     ]

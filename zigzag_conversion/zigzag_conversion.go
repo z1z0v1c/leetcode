@@ -39,36 +39,52 @@
 package zigzagconversion
 
 func convert(s string, numRows int) string {
-	if numRows >= len(s) {
+	if numRows == 1 {
 		return s
 	}
 
-	str := ""
+	converted := ""
+	index := 0
 
-	char := 0
-	slice := make([][]byte, 0)
+	// TODO - use a slice instead of matrix
+	matrix := make([][]byte, 1)
+	matrix[0] = make([]byte, numRows)
 
 	i := 0
-while:
-	for {
-		row := make([]byte, numRows)
-		slice = append(slice, row)
-		for j := 0; j < numRows; j++ {
-			slice[i][j] = s[char]
-			char++
-			if char == len(s) {
-				break while
-			}
+	j := 0
+
+	endOfRow := false
+
+	for index < len(s) {
+		matrix[i][j] = s[index]
+		index++
+
+		if j == numRows-1 {
+			endOfRow = true
 		}
-		i++
+
+		if endOfRow {
+			row := make([]byte, numRows)
+			matrix = append(matrix, row)
+
+			j--
+			i++
+		} else {
+			j++
+		}
+
+		if j == 0 {
+			endOfRow = false
+		}
 	}
 
-	for i := 0; i < len(slice); i++ {
-		for j := 0; j < len(slice[i]); j++ {
-			if slice[j][i] != 0 {
-				str += string(slice[j][i])
+	for i := 0; i < numRows; i++ {
+		for j := 0; j < len(matrix); j++ {
+			if matrix[j][i] != 0 {
+				converted += string(matrix[j][i])
 			}
 		}
 	}
-	return str
+
+	return converted
 }

@@ -44,5 +44,16 @@
                 "TestConvert"
             ]
         },
+        {
+            "name": "Reverse Integer Tests",
+            "type": "go",
+            "request": "launch",
+            "mode": "test",
+            "program": "${workspaceFolder}/reverse_integer/reverse_integer_test.go",
+            "args": [
+                "-test.run",
+                "TestReverse"
+            ]
+        },
     ]
 }

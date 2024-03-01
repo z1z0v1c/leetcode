@@ -31,8 +31,15 @@ func reverse(x int) int {
 	xs := strconv.Itoa(x)
 
 	var rsd string
-	for i := range xs {
-		rsd += string(xs[len(xs)-1-i])
+	if x < 0 {
+		rsd += string(xs[0])
+		for i := 1; i < len(xs); i++ {
+			rsd += string(xs[len(xs)-i])
+		}
+	} else {
+		for i := range xs {
+			rsd += string(xs[len(xs)-1-i])
+		}
 	}
 
 	reversed, err := strconv.Atoi(rsd)

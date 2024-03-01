@@ -23,6 +23,22 @@
 
 package reverseinteger
 
+import (
+	"strconv"
+)
+
 func reverse(x int) int {
-	return 0
+	xs := strconv.Itoa(x)
+
+	var rsd string
+	for i := range xs {
+		rsd += string(xs[len(xs)-1-i])
+	}
+
+	reversed, err := strconv.Atoi(rsd)
+	if err != nil {
+		println(err)
+	}
+
+	return reversed
 }

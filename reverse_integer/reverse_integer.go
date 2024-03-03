@@ -31,6 +31,7 @@ import (
 func reverse(x int) int {
 	xs := strconv.Itoa(x)
 
+	// Reverse the string
 	var rsd string
 	if x < 0 {
 		rsd += string(xs[0])
@@ -43,11 +44,13 @@ func reverse(x int) int {
 		}
 	}
 
+	// Convert the reversed string to int, return 0 if overflows
 	reversed, err := strconv.Atoi(rsd)
 	if err != nil {
-		println(err)
+		return 0
 	}
 
+	// Return zero if overflows int32
 	if reversed > math.MaxInt32 || reversed < math.MinInt32 {
 		return 0
 	}

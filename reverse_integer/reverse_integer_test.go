@@ -1,6 +1,8 @@
 package reverseinteger
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestReverse(t *testing.T) {
 	x := 0
@@ -35,6 +37,7 @@ func TestReverse(t *testing.T) {
 		t.Errorf("reverse(%d) returned %d, expected %d", x, result, expected)
 	}
 
+	// Will cause int32 overflow after reversing
 	x = 1123123123
 	expected = 0
 	result = reverse(x)
@@ -43,7 +46,26 @@ func TestReverse(t *testing.T) {
 		t.Errorf("reverse(%d) returned %d, expected %d", x, result, expected)
 	}
 
+	// Will cause int32 overflow after reversing
 	x = -1123123123
+	expected = 0
+	result = reverse(x)
+
+	if result != expected {
+		t.Errorf("reverse(%d) returned %d, expected %d", x, result, expected)
+	}
+
+	// Will cause int64 overflow after reversing
+	x = 1234567891234567899
+	expected = 0
+	result = reverse(x)
+
+	if result != expected {
+		t.Errorf("reverse(%d) returned %d, expected %d", x, result, expected)
+	}
+
+	// Will cause int64 overflow after reversing
+	x = -1234567891234567899
 	expected = 0
 	result = reverse(x)
 

@@ -24,6 +24,7 @@
 package reverseinteger
 
 import (
+	"math"
 	"strconv"
 )
 
@@ -45,6 +46,10 @@ func reverse(x int) int {
 	reversed, err := strconv.Atoi(rsd)
 	if err != nil {
 		println(err)
+	}
+
+	if reversed > math.MaxInt32 || reversed < math.MinInt32 {
+		return 0
 	}
 
 	return reversed

@@ -55,5 +55,16 @@
                 "TestReverse"
             ]
         },
+        {
+            "name": "String to Integer Tests",
+            "type": "go",
+            "request": "launch",
+            "mode": "test",
+            "program": "${workspaceFolder}/string_to_integer/string_to_integer_test.go",
+            "args": [
+                "-test.run",
+                "TestMyAtoi"
+            ]
+        }
     ]
 }

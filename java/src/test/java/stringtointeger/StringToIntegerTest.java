@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class StringToIntegerTest {
     private StringToInteger stringToInteger;
 
-   @BeforeEach
+    @BeforeEach
     void setUp() {
         stringToInteger = new StringToInteger();
     }
@@ -31,5 +31,14 @@ class StringToIntegerTest {
     void testMyAtoiWhiteSpaces() {
         assertEquals(0, stringToInteger.myAtoi("   "),
                 "White spaces should return 0");
+    }
+
+    @Test
+    @DisplayName("Sign")
+    void testMyAtoiSign() {
+        assertEquals(1, stringToInteger.myAtoi("+"),
+                "Positive should return 1");
+        assertEquals(-1, stringToInteger.myAtoi("-"),
+                "Negative should return -1");
     }
 }

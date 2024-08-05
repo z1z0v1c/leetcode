@@ -1,4 +1,4 @@
-package org.example;
+package stringtointeger;
 
 public class StringToInteger {
     public static void main(String[] args) {

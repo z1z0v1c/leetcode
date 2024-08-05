@@ -25,4 +25,11 @@ class StringToIntegerTest {
         assertEquals(0, stringToInteger.myAtoi(""),
                 "Empty string should return 0");
     }
+
+    @Test
+    @DisplayName("White spaces")
+    void testMyAtoiWhiteSpaces() {
+        assertEquals(0, stringToInteger.myAtoi("   "),
+                "White spaces should return 0");
+    }
 }

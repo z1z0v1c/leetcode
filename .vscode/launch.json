@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "StringToInteger",
+            "request": "launch",
+            "mainClass": "stringtointeger.StringToInteger",
+            "projectName": "java"
+        },
+        {
             "name": "Longest Substring Tests",
             "type": "go",
             "request": "launch",

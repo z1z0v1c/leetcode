@@ -6,6 +6,7 @@ public class StringToInteger {
 
         System.out.println(sti.myAtoi(""));
         System.out.println(sti.myAtoi("   "));
+        System.out.println(sti.myAtoi("-"));
     }
 
     public int myAtoi(String s) {
@@ -19,7 +20,7 @@ public class StringToInteger {
                 return -1;
             }
             if (c == '+') {
-                return 1;
+                return 0;
             }
         }
 

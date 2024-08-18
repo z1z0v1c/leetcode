@@ -36,8 +36,8 @@ class StringToIntegerTest {
     @Test
     @DisplayName("Sign")
     void testMyAtoiSign() {
-        assertEquals(1, stringToInteger.myAtoi("+"),
-                "Positive should return 1");
+        assertEquals(0, stringToInteger.myAtoi("+"),
+                "Positive should return 0");
         assertEquals(-1, stringToInteger.myAtoi("-"),
                 "Negative should return -1");
     }

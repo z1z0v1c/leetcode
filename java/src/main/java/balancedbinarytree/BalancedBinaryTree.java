@@ -1,6 +1,6 @@
 // Difficulty - Easy
 //
-// Given a binary tree, determine if it is height-balanced
+// Given a binary tree, determine if it is height-balanced.
 //
 // Example 1:
 //      Input: root = [3,9,20,null,null,15,7]
@@ -20,24 +20,11 @@
 
 package balancedbinarytree;
 
-/**
- * Definition for a binary tree node.
- */
-class TreeNode {
-     int val;
-     TreeNode left;
-     TreeNode right;
-     TreeNode() {}
-     TreeNode(int val) { this.val = val; }
-     TreeNode(int val, TreeNode left, TreeNode right) {
-         this.val = val;
-         this.left = left;
-         this.right = right;
-     }
- }
+import commonclasses.TreeNode;
 
 public class BalancedBinaryTree {
     public boolean isBalanced(TreeNode root) {
-    return false;
+
+        return false;
     }
 }

@@ -33,7 +33,7 @@ class PascalsTriangleTest {
         );
         var actual = pascalsTriangle.generate(rowIndex);
 
-        assertEquals(expected, actual, "[[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]");
+        assertEquals(expected, actual, "Should return [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]");
     }
 
     @Test
@@ -45,6 +45,6 @@ class PascalsTriangleTest {
         );
         var actual = pascalsTriangle.generate(rowIndex);
 
-        assertEquals(expected, actual, "[[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]");
+        assertEquals(expected, actual, "Should return [[1]]");
     }
 }

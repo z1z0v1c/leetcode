@@ -22,8 +22,8 @@ class PascalsTriangleIITest {
     @DisplayName("Fourth row")
     void testGetRowForFourthRow() {
         int rowIndex = 3;
-        List<Integer> expected = new ArrayList<>(Arrays.asList(1, 3, 3, 1));
-        List<Integer> actual = pascalsTriangleII.getRow(rowIndex);
+        var expected = new ArrayList<>(Arrays.asList(1, 3, 3, 1));
+        var actual = pascalsTriangleII.getRow(rowIndex);
 
         assertEquals(expected, actual, "Should return [1, 3, 3, 1]");
     }
@@ -32,8 +32,8 @@ class PascalsTriangleIITest {
     @DisplayName("First row")
     void testGetRowForFirstRow() {
         int rowIndex = 0;
-        List<Integer> expected = new ArrayList<>(List.of(1));
-        List<Integer> actual = pascalsTriangleII.getRow(rowIndex);
+        var expected = new ArrayList<>(List.of(1));
+        var actual = pascalsTriangleII.getRow(rowIndex);
 
         assertEquals(expected, actual, "Should return [1]");
     }
@@ -42,8 +42,8 @@ class PascalsTriangleIITest {
     @DisplayName("Second row")
     void testGetRowForSecondRow() {
         int rowIndex = 1;
-        List<Integer> expected = new ArrayList<>(Arrays.asList(1, 1));
-        List<Integer> actual = pascalsTriangleII.getRow(rowIndex);
+        var expected = new ArrayList<>(Arrays.asList(1, 1));
+        var actual = pascalsTriangleII.getRow(rowIndex);
 
         assertEquals(expected, actual, "Should return [1, 1]");
     }

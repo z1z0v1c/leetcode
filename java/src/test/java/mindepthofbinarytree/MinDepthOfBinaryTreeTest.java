@@ -54,4 +54,18 @@ class MinDepthOfBinaryTreeTest {
 
         assertEquals(5, minDepthOfBinaryTree.minDepth(root), "Should return 5");
     }
+
+    @Test
+    @DisplayName("Example three")
+    void testIsBalancedExampleThree() {
+        var root = new TreeNode(2);
+
+        assertEquals(1, minDepthOfBinaryTree.minDepth(root), "Should return 1");
+    }
+
+    @Test
+    @DisplayName("Example four")
+    void testIsBalancedExampleFour() {
+        assertEquals(0, minDepthOfBinaryTree.minDepth(null), "Should return 0");
+    }
 }

@@ -20,6 +20,24 @@ import commonclasses.TreeNode;
 
 public class MinDepthOfBinaryTree {
     public int minDepth(TreeNode root) {
-        return 0;
+        if (root == null) {
+            return 0;
+        }
+        if (root.left == null && root.right == null) {
+            return 1;
+        }
+
+        int minDepth = 1;
+
+        if (root.left == null) {
+            minDepth += minDepth(root.right);
+        } else if (root.right == null) {
+            minDepth += minDepth(root.left);
+        } else {
+            minDepth += Math.min(minDepth(root.left), minDepth(root.right));
+        }
+
+        return  minDepth;
     }
 }
+

@@ -17,10 +17,6 @@ class BalancedBinaryTreeTest {
     }
 
     @Test
-    void testIsBalanced() {
-    }
-
-    @Test
     @DisplayName("Example one")
     void testIsBalancedExampleOne() {
         var root = new TreeNode(
@@ -54,5 +50,11 @@ class BalancedBinaryTreeTest {
         );
 
         assertFalse(balancedBinaryTree.isBalanced(root), "Should return false");
+    }
+
+    @Test
+    @DisplayName("Example three")
+    void testIsBalancedExampleThree() {
+        assertTrue(balancedBinaryTree.isBalanced(null), "Should return true");
     }
 }

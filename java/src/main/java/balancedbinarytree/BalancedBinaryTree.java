@@ -24,7 +24,34 @@ import commonclasses.TreeNode;
 
 public class BalancedBinaryTree {
     public boolean isBalanced(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
 
-        return false;
+        int leftHeight = getHeight(root.left);
+        int rightHeight = getHeight(root.right);
+
+        boolean isLeftBalanced = isBalanced(root.left);
+        if(!isLeftBalanced) {
+            return false;
+        }
+
+        boolean isRightBalanced = isBalanced(root.right);
+        if (!isRightBalanced) {
+            return false;
+        }
+
+        return Math.abs(leftHeight - rightHeight) <= 1;
+    }
+
+    private static int getHeight(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+
+        int leftHeight = getHeight(node.left);
+        int rightHeight = getHeight(node.right);
+
+        return Math.max(leftHeight, rightHeight) + 1;
     }
 }

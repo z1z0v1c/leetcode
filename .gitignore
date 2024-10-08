@@ -2,3 +2,5 @@ csharp/Solutions/bin
 csharp/Solutions/obj
 csharp/Tests/bin
 csharp/Tests/obj
+
+.vscode

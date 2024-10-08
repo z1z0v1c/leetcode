@@ -1,3 +1,4 @@
 {
+    "dotnet.defaultSolution": "csharp.sln",
     "workbench.colorCustomizations": {}
 }

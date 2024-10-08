@@ -2,7 +2,7 @@ package balancedbinarytree;
 
 import commonclasses.TreeNode;
 
-/** Difficulty - Easy
+/** 110 - Easy
 
  Given a binary tree, determine if it is height-balanced.
 

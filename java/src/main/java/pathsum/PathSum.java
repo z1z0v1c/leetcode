@@ -34,7 +34,33 @@ import commonclasses.TreeNode;
  */
 
 public class PathSum {
+    private int pathSum;
+
     public boolean hasPathSum(TreeNode root, int targetSum) {
+        if (root == null) {
+            return false;
+        }
+
+        pathSum += root.val;
+
+        if(root.left == null && root.right == null) {
+            if (pathSum == targetSum) {
+                return true;
+            }
+        }
+
+        boolean hasPathSum = hasPathSum(root.left, targetSum);
+        if (hasPathSum) {
+            return true;
+        }
+
+        hasPathSum = hasPathSum(root.right, targetSum);
+        if (hasPathSum) {
+            return true;
+        }
+
+        pathSum -= root.val;
+
         return false;
     }
 }

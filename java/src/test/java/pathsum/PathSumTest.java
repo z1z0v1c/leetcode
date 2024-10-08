@@ -66,4 +66,30 @@ class PathSumTest {
 
         assertFalse(pathSum.hasPathSum(root, targetSum), "Should return true");
     }
+
+    @Test
+    @DisplayName("Example four")
+    void testIsBalancedExampleFour() {
+        int targetSum = 3;
+        var root = new TreeNode(
+                1,
+                new TreeNode(
+                        -2,
+                        new TreeNode(
+                                1,
+                                new TreeNode(-1),
+                                null
+                        ),
+                        new TreeNode(3)
+
+                ),
+                new TreeNode(
+                        -3,
+                        new TreeNode(-2),
+                       null
+                )
+        );
+
+        assertFalse(pathSum.hasPathSum(root, targetSum), "Should return false");
+    }
 }

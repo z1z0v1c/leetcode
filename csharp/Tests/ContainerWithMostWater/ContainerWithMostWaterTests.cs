@@ -1,6 +1,6 @@
 using Solutions.ContainerWithMostWater;
 
-namespace ContainerWithMostWaterTests;
+namespace Tests.ContainerWithMostWaterTests;
 
 public class ContainerWithMostWaterTests
 {

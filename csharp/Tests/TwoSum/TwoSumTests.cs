@@ -1,6 +1,6 @@
 using Solutions.TwoSum;
 
-namespace TwoSumTests;
+namespace Tests.TwoSumTests;
 
 public class TwoSumTests
 {

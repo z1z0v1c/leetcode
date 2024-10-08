@@ -1,6 +1,6 @@
 using Solutions.PalindromeNumber;
 
-namespace PalindromeNumberTests;
+namespace Tests.PalindromeNumberTests;
 
 public class PalindromeNumberTests
 {

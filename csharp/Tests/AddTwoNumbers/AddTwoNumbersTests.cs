@@ -1,7 +1,7 @@
 using Solutions.AddTwoNumbers;
 using Solutions.CommonClases;
 
-namespace AddTwoNumbersTests;
+namespace Tests.AddTwoNumbersTests;
 
 public class AddTwoNumbersTests
 {

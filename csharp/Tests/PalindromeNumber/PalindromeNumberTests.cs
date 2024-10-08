@@ -1,15 +1,15 @@
-using PalindromeNumber;
+using Solutions.PalindromeNumber;
 
 namespace PalindromeNumberTests;
 
 public class PalindromeNumberTests
 {
-    private PalindromeNumberSolution palindromeNumber;
+    private PalindromeNumber palindromeNumber;
 
     [SetUp]
     public void Setup()
     {
-        palindromeNumber = new PalindromeNumberSolution();
+        palindromeNumber = new PalindromeNumber();
     }
 
     [Test]

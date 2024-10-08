@@ -1,3 +1,7 @@
+package longestpalindromicsubstring
+
+// 5 - Medium
+//
 // Given a string s, return the longest
 // palindromic substring in s.
 //
@@ -15,8 +19,6 @@
 //
 // 1 <= s.length <= 1000
 // s consist of only digits and English letters.
-
-package longestpalindromesubstring
 
 func longestPalindrome(s string) string {
 	if len(s) <= 1 {

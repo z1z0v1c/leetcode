@@ -1,4 +1,4 @@
-package longestpalindromesubstring
+package longestpalindromicsubstring
 
 import (
 	"testing"
@@ -110,5 +110,4 @@ func TestIsPalindrome(t *testing.T) {
 	if result != expected {
 		t.Errorf("lengthOfLongestSubstring(%s) returned %v, expected %v", s, result, expected)
 	}
-
 }

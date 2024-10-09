@@ -8,10 +8,7 @@ public class AddTwoNumbersTests
     private AddTwoNumbersSolution addTwoNumbers;
 
     [SetUp]
-    public void Setup()
-    {
-        addTwoNumbers = new AddTwoNumbersSolution();
-    }
+    public void Setup() => addTwoNumbers = new();
 
     [Test]
     public void TestExampleOne()

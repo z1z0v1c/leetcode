@@ -7,10 +7,7 @@ public class PalindromeNumberTests
     private PalindromeNumber palindromeNumber;
 
     [SetUp]
-    public void Setup()
-    {
-        palindromeNumber = new PalindromeNumber();
-    }
+    public void Setup() => palindromeNumber = new();
 
     [Test]
     public void TestExampleOne()

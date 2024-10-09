@@ -7,10 +7,7 @@ public class TwoSumTests
     private TwoSumSolution twoSum;
 
     [SetUp]
-    public void Setup()
-    {
-        twoSum = new TwoSumSolution();
-    }
+    public void Setup() => twoSum = new();
 
     [Test]
     public void TestExampleOne()

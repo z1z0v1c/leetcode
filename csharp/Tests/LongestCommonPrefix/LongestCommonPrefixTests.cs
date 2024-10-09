@@ -7,10 +7,7 @@ public class LittleLongestCommonPrefixTests
     private LongestCommonPrefixSolution longestCommonPrefix;
 
     [SetUp]
-    public void Setup()
-    {
-        longestCommonPrefix = new LongestCommonPrefixSolution();
-    }
+    public void Setup() => longestCommonPrefix = new();
 
     [Test]
     public void TestExampleOne()

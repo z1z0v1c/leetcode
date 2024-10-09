@@ -7,10 +7,7 @@ public class RomToIntegerTests
     private RomanToInteger romanToInteger;
 
     [SetUp]
-    public void Setup()
-    {
-        romanToInteger = new RomanToInteger();
-    }
+    public void Setup() => romanToInteger = new();
 
     [Test]
     public void TestExampleOne()

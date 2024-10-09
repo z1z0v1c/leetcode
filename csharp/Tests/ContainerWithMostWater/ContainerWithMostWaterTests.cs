@@ -7,10 +7,7 @@ public class ContainerWithMostWaterTests
     private ContainerWithMostWater containerWithMostWater;
 
     [SetUp]
-    public void Setup()
-    {
-        containerWithMostWater = new ContainerWithMostWater();
-    }
+    public void Setup() => containerWithMostWater = new();
 
     [Test]
     public void TestExampleOne()

@@ -41,7 +41,7 @@ public class TwoSumSolution
 			{
 				if (nums[j] + nums[i] == target)
 				{
-					return new int[] { i, j };
+					return [i, j];
 				}
 			}
 		}

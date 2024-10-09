@@ -31,9 +31,9 @@ namespace Solutions.AddTwoNumbers;
 
 public class AddTwoNumbersSolution
 {
-    public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
+    public ListNode AddTwoNumbers(ListNode? l1, ListNode? l2)
     {
-        var l3 = new ListNode();
+        ListNode? l3 = new();
         var start = l3;
 
         int reminder = 0;
@@ -45,14 +45,14 @@ public class AddTwoNumbersSolution
             reminder = sum / 10;
             sum = sum % 10;
 
-            l3.val = sum;
+            if (l3 != null) { l3.val = sum; };
 
             l1 = l1?.next;
             l2 = l2?.next;
 
             if (l1 != null || l2 != null || reminder != 0)
             {
-                l3.next = new ListNode();
+                if (l3 != null) { l3.next = new ListNode(); };
                 l3 = l3?.next;
             }
         }

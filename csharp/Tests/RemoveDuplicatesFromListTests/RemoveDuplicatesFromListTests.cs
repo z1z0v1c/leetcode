@@ -15,14 +15,14 @@ public class RemoveDuplicatesFromListTests
     {
         ListNode head = new(1, new(1, new(2)));
 
-        ListNode expected = new(1, new(2));
+        ListNode? expected = new(1, new(2));
         ListNode? actual = removeDuplicates.DeleteDuplicates(head);
 
         while (expected != null)
         {
             Assert.That(expected.val, Is.EqualTo(actual?.val));
 
-            expected = expected.next;
+            expected = expected?.next;
             actual = actual?.next;
         }
     }
@@ -32,14 +32,14 @@ public class RemoveDuplicatesFromListTests
     {
         ListNode head = new(1, new(1, new(2, new(3, new(3)))));
 
-        ListNode expected = new(1, new(2, new(3)));
+        ListNode? expected = new(1, new(2, new(3)));
         ListNode? actual = removeDuplicates.DeleteDuplicates(head);
 
         while (expected != null)
         {
             Assert.That(expected.val, Is.EqualTo(actual?.val));
 
-            expected = expected.next;
+            expected = expected?.next;
             actual = actual?.next;
         }
     }

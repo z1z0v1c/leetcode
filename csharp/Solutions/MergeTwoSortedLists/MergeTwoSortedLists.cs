@@ -29,7 +29,7 @@ namespace Solutions.MergeTwoSortedLists;
 
 public class MergeTwoSortedLists
 {
-    public ListNode MergeTwoLists(ListNode list1, ListNode list2) {
+    public ListNode? MergeTwoLists(ListNode? list1, ListNode? list2) {
         ListNode result = new();
 
         if (list1 == null && list2 == null)
@@ -40,8 +40,8 @@ public class MergeTwoSortedLists
         {
             if (list1 == null)
             {
-                result.val = list2.val;
-                result.next = MergeTwoLists(list1, list2.next);
+                if (list2 != null) result.val = list2.val;
+                result.next = MergeTwoLists(list1, list2?.next);
             }
             else if (list2 == null)
             {

@@ -16,15 +16,15 @@ public class MergeTwoSortedListsTests
         ListNode l1 = new(1, new(2, new(4)));
         ListNode l2 = new(1, new(3, new(4)));
 
-        ListNode expected = new(1, new(1, new(2, new(3, new(4, new(4))))));
-        ListNode actual = mergeTwoSortedLists.MergeTwoLists(l1, l2);
+        ListNode? expected = new(1, new(1, new(2, new(3, new(4, new(4))))));
+        ListNode? actual = mergeTwoSortedLists.MergeTwoLists(l1, l2);
 
         while (expected != null)
         {
-            Assert.That(expected.val, Is.EqualTo(actual.val));
+            Assert.That(expected.val, Is.EqualTo(actual?.val));
 
             expected = expected.next;
-            actual = actual.next;
+            actual = actual?.next;
         }
     }
 
@@ -39,9 +39,9 @@ public class MergeTwoSortedListsTests
     {
         ListNode l2 = new(0);
 
-        ListNode expected = new(0);
-        ListNode actual = mergeTwoSortedLists.MergeTwoLists(null, l2);
+        ListNode? expected = new(0);
+        ListNode? actual = mergeTwoSortedLists.MergeTwoLists(null, l2);
 
-        Assert.That(expected.val, Is.EqualTo(actual.val));
+        Assert.That(expected.val, Is.EqualTo(actual?.val));
     }
 }

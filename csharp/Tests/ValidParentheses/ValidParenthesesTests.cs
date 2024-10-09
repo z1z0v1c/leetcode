@@ -7,7 +7,7 @@ public class ValidParenthesesTests
     private ValidParentheses validParentheses;
 
     [SetUp]
-    public void Setup() => validParentheses = new ValidParentheses();
+    public void Setup() => validParentheses = new();
 
     [Test]
     public void TestExampleOne()

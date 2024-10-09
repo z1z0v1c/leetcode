@@ -8,7 +8,7 @@ public class MergeTwoSortedListsTests
     private MergeTwoSortedLists mergeTwoSortedLists;
 
     [SetUp]
-    public void Setup() => mergeTwoSortedLists = new MergeTwoSortedLists();
+    public void Setup() => mergeTwoSortedLists = new();
 
     [Test]
     public void TestExampleOne()

@@ -300,11 +300,11 @@ class ThreeSumTest {
 
         int expectedSize = 16248;
         List<List<Integer>> expected = new ArrayList<>();
-        expected.add(Arrays.asList(-99927,2246,97681));
-        expected.add(Arrays.asList(-99927,12687,87240));
-        expected.add(Arrays.asList(-99927,14861,85066));
-        expected.add(Arrays.asList(-99927,17307,82620));
-        expected.add(Arrays.asList(-99927,24208,75719));
+        expected.add(Arrays.asList(-99927, 2246, 97681));
+        expected.add(Arrays.asList(-99927, 12687, 87240));
+        expected.add(Arrays.asList(-99927, 14861, 85066));
+        expected.add(Arrays.asList(-99927, 17307, 82620));
+        expected.add(Arrays.asList(-99927, 24208, 75719));
 
         var actual = threeSum.threeSum(nums);
 

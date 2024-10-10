@@ -86,7 +86,7 @@ class PathSumTest {
                 new TreeNode(
                         -3,
                         new TreeNode(-2),
-                       null
+                        null
                 )
         );
 

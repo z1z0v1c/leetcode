@@ -68,4 +68,24 @@ class SameTreeTest {
 
         assertFalse(sameTree.isSameTree(p, q));
     }
+
+    @Test
+    @DisplayName("Example four")
+    void testExampleFour() {
+        var p = new TreeNode(
+                10,
+                new TreeNode(5,
+                    null,
+                    new TreeNode(15)),
+                null
+        );
+
+        var q = new TreeNode(
+                10,
+                new TreeNode(5),
+                new TreeNode(2)
+        );
+
+        assertFalse(sameTree.isSameTree(p, q));
+    }
 }

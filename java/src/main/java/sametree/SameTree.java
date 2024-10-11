@@ -26,6 +26,24 @@ import commonclasses.TreeNode;
  */
 public class SameTree {
     public boolean isSameTree(TreeNode p, TreeNode q) {
-        return false;
+        if (p == null && q == null) {
+            return true;
+        }
+
+        if (p == null || q == null) {
+            return false;
+        }
+
+        if(p.val != q.val) {
+            return false;
+        }
+
+        boolean isSame = isSameTree(p.left, q.left);
+        if (!isSame) {
+            return false;
+        }
+        isSame = isSameTree(p.right, q.right);
+
+        return isSame;
     }
 }

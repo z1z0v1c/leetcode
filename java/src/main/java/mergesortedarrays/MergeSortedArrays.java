@@ -56,12 +56,19 @@ public class MergeSortedArrays {
 
         int i = 0;
         int j = 0;
-        int a = nums1[i];
-        int b = nums2[j];
 
-        if (a > b) {
-            nums1[i] = b;
-            nums1[i + 1] = a;
+        while (i < (m+n)) {
+            int a = nums1[i];
+            int b = nums2[j];
+
+            if (a > b) {
+                nums1[i] = b;
+                nums1[++i] = a;
+            } else if (a == 0 && i >= m) {
+                nums1[i] = b;
+            } else {
+                i++;
+            }
         }
     }
 }

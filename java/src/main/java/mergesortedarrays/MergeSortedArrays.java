@@ -50,25 +50,19 @@ public class MergeSortedArrays {
             return;
         }
 
-        if (m == 0) {
-            System.arraycopy(nums2, 0, nums1, 0, n);
-        }
+        int i = m - 1;
+        int j = n - 1;
+        int k = m + n - 1;
 
-        int i = 0;
-        int j = 0;
-
-        while (i < (m+n)) {
-            int a = nums1[i];
-            int b = nums2[j];
-
-            if (a > b) {
-                nums1[i] = b;
-                nums1[++i] = a;
-            } else if (a == 0 && i >= m) {
-                nums1[i] = b;
+        while (j >= 0) {
+            if (i < 0 || nums1[i] < nums2[j]) {
+                nums1[k] = nums2[j];
+                j--;
             } else {
-                i++;
+                nums1[k] = nums1[i];
+                i--;
             }
+            k--;
         }
     }
 }

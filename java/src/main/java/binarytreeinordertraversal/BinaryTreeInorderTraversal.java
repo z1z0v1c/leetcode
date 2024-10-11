@@ -4,8 +4,11 @@ import commonclasses.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
+ * 94 - Easy
+ * <p>
  * Given the root of a binary tree, return the inorder traversal of its nodes' values.
  * <p>
  * Example 1:
@@ -33,19 +36,22 @@ import java.util.List;
 
 public class BinaryTreeInorderTraversal {
     public List<Integer> inorderTraversal(TreeNode root) {
-        var nodes = new ArrayList<Integer>();
+        var values = new ArrayList<Integer>();
+        var subtrees = new Stack<TreeNode>();
 
-        inorderTraversal(root, nodes);
+        var current = root;
+        while (current != null || !subtrees.isEmpty()) {
+            while (current != null) {
+                subtrees.push(current);
+                current = current.left;
+            }
 
-        return nodes;
-    }
+            current = subtrees.pop();
+            values.add(current.val);
 
-    public void inorderTraversal(TreeNode root, List<Integer> nodes) {
-        if (root == null) {
-            return;
+            current = current.right;
         }
-        inorderTraversal(root.left, nodes);
-        nodes.add(root.val);
-        inorderTraversal(root.right, nodes);
+
+        return values;
     }
 }

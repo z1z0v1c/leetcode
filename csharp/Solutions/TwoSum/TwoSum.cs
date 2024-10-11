@@ -35,17 +35,55 @@ public class TwoSumSolution
 {
 	public int[] TwoSum(int[] nums, int target)
 	{
-		for (int i = 0; i < nums.Length - 1; i++)
+		// Store indexes
+		Dictionary<int, List<int>> dict = PopulateDict(nums);
+
+		Array.Sort(nums);
+
+		int sum = 0;
+
+		int left = 0;
+		int right = nums.Length - 1;
+
+		while (left <= right)
 		{
-			for (int j = i + 1; j < nums.Length; j++)
+			sum = nums[left] + nums[right];
+
+			if (sum == target)
 			{
-				if (nums[j] + nums[i] == target)
-				{
-					return [i, j];
-				}
+				int first = dict.GetValueOrDefault(nums[left]).FirstOrDefault();
+				int second = dict.GetValueOrDefault(nums[right]).LastOrDefault();
+				return [first, second];
+			}
+			else if (sum > target)
+			{
+				right--;
+			}
+			else 
+			{
+				left++;
 			}
 		}
 
 		return [-1, -1];
+	}
+
+	private Dictionary<int, List<int>> PopulateDict(int[] nums)
+	{
+		Dictionary<int, List<int>> dict = [];
+		for (int i = 0; i < nums.Length; i++) {
+			if (dict.ContainsKey(nums[i])) {
+				dict.GetValueOrDefault(nums[i]).Add(i);
+			}
+			else
+			{
+				List<int> value = [];
+				value.Add(i);
+				dict.TryAdd(nums[i], value);
+			}
+			
+		}
+
+		return dict;
 	}
 }

@@ -33,7 +33,19 @@ import java.util.List;
 
 public class BinaryTreeInorderTraversal {
     public List<Integer> inorderTraversal(TreeNode root) {
-        var list = new ArrayList<Integer>();
-        return list;
+        var nodes = new ArrayList<Integer>();
+
+        inorderTraversal(root, nodes);
+
+        return nodes;
+    }
+
+    public void inorderTraversal(TreeNode root, List<Integer> nodes) {
+        if (root == null) {
+            return;
+        }
+        inorderTraversal(root.left, nodes);
+        nodes.add(root.val);
+        inorderTraversal(root.right, nodes);
     }
 }

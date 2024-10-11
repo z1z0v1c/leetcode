@@ -53,5 +53,13 @@ public class MergeSortedArrays {
         if (m == 0) {
             System.arraycopy(nums2, 0, nums1, 0, n);
         }
+
+        int a = nums1[0];
+        int b = nums2[0];
+
+        if (a > b) {
+            nums1[0] = b;
+            nums1[1] = a;
+        }
     }
 }

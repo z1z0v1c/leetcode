@@ -54,12 +54,14 @@ public class MergeSortedArrays {
             System.arraycopy(nums2, 0, nums1, 0, n);
         }
 
-        int a = nums1[0];
-        int b = nums2[0];
+        int i = 0;
+        int j = 0;
+        int a = nums1[i];
+        int b = nums2[j];
 
         if (a > b) {
-            nums1[0] = b;
-            nums1[1] = a;
+            nums1[i] = b;
+            nums1[i + 1] = a;
         }
     }
 }

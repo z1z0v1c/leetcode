@@ -8,7 +8,7 @@ import java.util.*;
  * You may assume that each input would have exactly one solution.
  * <p>
  * Example 1:
- * Input: nums = [-1,2,1,-4], target = 1                                        [-9, -4, -1, 1, 2, 7, 11]
+ * Input: nums = [-1,2,1,-4], target = 1
  * Output: 2
  * Explanation: The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
  * <p>
@@ -53,6 +53,7 @@ public class ThreeSumClosest {
                 }
             }
         }
+
         return min;
     }
 }

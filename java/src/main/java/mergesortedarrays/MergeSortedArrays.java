@@ -49,5 +49,9 @@ public class MergeSortedArrays {
         if (n == 0) {
             return;
         }
+
+        if (m == 0) {
+            System.arraycopy(nums2, 0, nums1, 0, n);
+        }
     }
 }

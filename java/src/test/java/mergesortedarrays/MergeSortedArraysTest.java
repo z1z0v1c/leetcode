@@ -27,4 +27,19 @@ class MergeSortedArraysTest {
             assertEquals(expected[i], nums1[i], "Elements should be equal");
         }
     }
+
+    @Test
+    void testExampleTwo() {
+        int[] nums1 = {0};
+        int m = 0;
+        int[] nums2 = {1};
+        int n = 1;
+
+        int[] expected = {1};
+        mergeSortedArrays.merge(nums1, m, nums2, n);
+
+        for (int i = 0; i < nums1.length; i++) {
+            assertEquals(expected[i], nums1[i], "Elements should be equal");
+        }
+    }
 }

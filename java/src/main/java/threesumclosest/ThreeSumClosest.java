@@ -28,20 +28,18 @@ public class ThreeSumClosest {
         Arrays.sort(nums);
 
         int min = Integer.MAX_VALUE;
-        int[] three = new int[3];
+        int sum = 0;
 
         for (int i = 0; i < nums.length - 2; i++) {
             for (int j = i + 1; j < nums.length - 1; j++) {
                 for (int k = j + 1; k < nums.length; k++) {
                     if (min > Math.abs(target - (nums[i] + nums[j] + nums[k]))) {
                         min = Math.abs(target - (nums[i] + nums[j] + nums[k]));
-                        three[0] = nums[i];
-                        three[1] = nums[j];
-                        three[2] = nums[k];
+                        sum = nums[i] + nums[j] + nums[k];
                     }
                 }
             }
         }
-        return three[0] + three[1] + three[2];
+        return sum;
     }
 }

@@ -67,4 +67,12 @@ class LinkedListCycleTest {
 
         assertFalse(linkedListCycle.hasCycle(head));
     }
+
+    @Test
+    @DisplayName("Example 5.")
+    void testExampleFive() {
+        ListNode head = null;
+
+        assertFalse(linkedListCycle.hasCycle(head));
+    }
 }

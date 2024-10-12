@@ -39,6 +39,26 @@ import java.util.*;
 
 public class LinkedListCycle {
     public boolean hasCycle(ListNode head) {
+        if (head == null) {
+            return false;
+        }
+
+        var turtle = head;
+        var rabbit = head.next;
+
+        while (turtle != rabbit) {
+            if (rabbit == null || rabbit.next == null) {
+                return false;
+            }
+
+            turtle = turtle.next;
+            rabbit = rabbit.next.next;
+        }
+
+        return true;
+    }
+
+    public boolean hasCycleWithSet(ListNode head) {
         Set<ListNode> nodes = new HashSet<>();
 
         while (head != null) {

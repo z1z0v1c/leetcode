@@ -25,7 +25,7 @@ import java.util.Stack;
  */
 
 public class SymmetricTree {
-    public boolean isSymmetricRecursive(TreeNode root) {
+    public boolean isSymmetric(TreeNode root) {
         boolean recursive = isSymmetricRecursive(root.left, root.right);
         boolean iterative = isSymmetricIterative(root.left, root.right);
 

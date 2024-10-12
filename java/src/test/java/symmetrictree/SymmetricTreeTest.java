@@ -32,7 +32,7 @@ class SymmetricTreeTest {
                 )
         );
 
-        assertTrue(symmetricTree.isSymmetricRecursive(root), "Should return true");
+        assertTrue(symmetricTree.isSymmetric(root), "Should return true");
     }
 
     @Test
@@ -52,6 +52,32 @@ class SymmetricTreeTest {
                 )
         );
 
-        assertFalse(symmetricTree.isSymmetricRecursive(root), "Should return false");
+        assertFalse(symmetricTree.isSymmetric(root), "Should return false");
+    }
+
+    @Test
+    @DisplayName("Example three")
+    void testIsBalancedExampleThree() {
+        assertTrue(symmetricTree.isSymmetric(new TreeNode(1)), "Should return true");
+    }
+
+    @Test
+    @DisplayName("Example four")
+    void testIsBalancedExampleFour() {
+        var root = new TreeNode(
+                1,
+                new TreeNode(
+                        2,
+                        new TreeNode(
+                                3,
+                                new TreeNode(4),
+                                new TreeNode(4)
+                        ),
+                        new TreeNode(3)
+                ),
+                new TreeNode(2)
+        );
+
+        assertFalse(symmetricTree.isSymmetric(root), "Should return false");
     }
 }

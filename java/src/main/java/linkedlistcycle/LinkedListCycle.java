@@ -2,6 +2,8 @@ package linkedlistcycle;
 
 import commonclasses.ListNode;
 
+import java.util.*;
+
 /**
  * 141 - Easy
  * <p>
@@ -37,6 +39,17 @@ import commonclasses.ListNode;
 
 public class LinkedListCycle {
     public boolean hasCycle(ListNode head) {
+        Set<ListNode> nodes = new HashSet<>();
+
+        while (head != null) {
+            if (nodes.contains(head)) {
+                return true;
+            }
+
+            nodes.add(head);
+            head = head.next;
+        }
+
         return false;
     }
 }

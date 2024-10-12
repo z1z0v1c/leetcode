@@ -2,6 +2,8 @@ package symmetrictree;
 
 import commonclasses.TreeNode;
 
+import java.util.Stack;
+
 /**
  * 101 - Easy
  * <p>
@@ -24,7 +26,7 @@ import commonclasses.TreeNode;
 
 public class SymmetricTree {
     public boolean isSymmetricRecursive(TreeNode root) {
-        return isSymmetricRecursive(root.left, root.right);
+        return isSymmetricIterative(root.left, root.right);
     }
 
     public boolean isSymmetricRecursive(TreeNode left, TreeNode right) {
@@ -47,5 +49,41 @@ public class SymmetricTree {
         symmetric = isSymmetricRecursive(left.right, right.left);
 
         return symmetric;
+    }
+
+    public boolean isSymmetricIterative(TreeNode left, TreeNode right) {
+        Stack<TreeNode> leftSubtrees = new Stack<>();
+        Stack<TreeNode> rightSubtrees = new Stack<>();
+
+        var currentLeft = left;
+        var currentRight = right;
+
+        while (currentLeft != null || currentRight != null || !leftSubtrees.isEmpty()  || !rightSubtrees.isEmpty()) {
+            while (currentLeft != null) {
+                leftSubtrees.push(currentLeft);
+                currentLeft = currentLeft.left;
+            }
+
+            while (currentRight != null) {
+                rightSubtrees.push(currentRight);
+                currentRight = currentRight.right;
+            }
+
+            if (leftSubtrees.size() != rightSubtrees.size()) {
+                return false;
+            }
+
+            currentLeft = leftSubtrees.pop();
+            currentRight = rightSubtrees.pop();
+
+            if (currentLeft.val != currentRight.val) {
+                return false;
+            }
+
+            currentLeft = currentLeft.right;
+            currentRight = currentRight.left;
+        }
+
+        return true;
     }
 }

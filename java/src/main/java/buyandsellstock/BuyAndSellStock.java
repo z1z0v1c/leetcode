@@ -21,23 +21,24 @@ package buyandsellstock;
  *      Explanation: In this case, no transactions are done and the max profit = 0.
  * <p>
  * Constraints:
- *      - 1 <= prices.length <= 105
- *      - 0 <= prices[i] <= 104
+ *      - 1 <= prices.length <= 10^5
+ *      - 0 <= prices[i] <= 10^4
  */
 
 public class BuyAndSellStock {
     public int maxProfit(int[] prices) {
-        int bestProfit = 0;
+        int maxProfit = 0;
+        int buyingPrice = Integer.MAX_VALUE;
 
-        for (int i = 0; i < prices.length - 1; i++) {
-            for (int j = i + 1; j < prices.length; j++) {
-                int profit = prices[j] - prices[i];
-                if (profit > bestProfit) {
-                    bestProfit = profit;
-                }
+        for (int price : prices) {
+            if (price < buyingPrice) {
+                buyingPrice = price;
             }
+
+            int profit = price - buyingPrice;
+            maxProfit = Math.max(maxProfit, profit);
         }
 
-        return bestProfit;
+        return maxProfit;
     }
 }

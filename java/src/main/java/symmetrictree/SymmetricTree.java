@@ -23,7 +23,29 @@ import commonclasses.TreeNode;
  */
 
 public class SymmetricTree {
-    public boolean isSymmetric(TreeNode root) {
-        return false;
+    public boolean isSymmetricRecursive(TreeNode root) {
+        return isSymmetricRecursive(root.left, root.right);
+    }
+
+    public boolean isSymmetricRecursive(TreeNode left, TreeNode right) {
+        if (left == null && right == null) {
+            return true;
+        }
+
+        if (left == null || right == null) {
+            return false;
+        }
+
+        if (left.val != right.val) {
+            return false;
+        }
+
+        boolean symmetric = isSymmetricRecursive(left.left, right.right);
+        if (!symmetric) {
+            return false;
+        }
+        symmetric = isSymmetricRecursive(left.right, right.left);
+
+        return symmetric;
     }
 }

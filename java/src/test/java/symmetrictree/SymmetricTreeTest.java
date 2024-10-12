@@ -32,7 +32,7 @@ class SymmetricTreeTest {
                 )
         );
 
-        assertTrue(symmetricTree.isSymmetric(root), "Should return true");
+        assertTrue(symmetricTree.isSymmetricRecursive(root), "Should return true");
     }
 
     @Test
@@ -52,6 +52,6 @@ class SymmetricTreeTest {
                 )
         );
 
-        assertTrue(symmetricTree.isSymmetric(root), "Should return true");
+        assertFalse(symmetricTree.isSymmetricRecursive(root), "Should return false");
     }
 }

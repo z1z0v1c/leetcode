@@ -35,4 +35,15 @@ class MajorityElementTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    @DisplayName("Example 3.")
+    void testExampleThree() {
+        int[] nums = {1};
+
+        int expected = 1;
+        int actual = majorityElement.majorityElement(nums);
+
+        assertEquals(expected, actual);
+    }
 }

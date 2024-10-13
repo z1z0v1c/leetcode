@@ -46,4 +46,15 @@ class ExcelSheetColumnTitleTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    @DisplayName("Example 4.")
+    void testExampleFour() {
+        var columnNumber = 2147483647;
+
+        var expected = "FXSHRXW";
+        var actual = excelSheetColumnTitle.convertToTitle(columnNumber);
+
+        assertEquals(expected, actual);
+    }
 }

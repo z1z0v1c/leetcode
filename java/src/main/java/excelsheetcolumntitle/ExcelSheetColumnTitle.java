@@ -34,6 +34,20 @@ package excelsheetcolumntitle;
 
 public class ExcelSheetColumnTitle {
     public String convertToTitle(int columnNumber) {
-        return null;
+        StringBuilder columnTitle = new StringBuilder();
+
+        while (columnNumber > 0) {
+            int offset = columnNumber % 26 - 1;
+
+            if (offset == - 1) {
+                columnTitle.append('Z');
+                columnNumber = columnNumber / 26 - 1;
+            } else {
+                columnTitle.append(Character.toString('A' + offset));
+                columnNumber /= 26;
+            }
+        }
+
+        return  columnTitle.reverse().toString();
     }
 }

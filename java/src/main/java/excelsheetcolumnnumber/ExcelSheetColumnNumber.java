@@ -8,14 +8,14 @@ package excelsheetcolumnnumber;
  * <p>
  * For example:
  * <p>
- *      qA -> 1
- *      qB -> 2
- *      qC -> 3
- *      q...
- *      qZ -> 26
- *      qAA -> 27
- *      qAB -> 28
- *      q...
+ *      A -> 1
+ *      B -> 2
+ *      C -> 3
+ *      ...
+ *      Z -> 26
+ *      AA -> 27
+ *      AB -> 28
+ *      ...
  * <p>
  * Example 1:
  *      Input: columnTitle = "A"
@@ -37,6 +37,13 @@ package excelsheetcolumnnumber;
 
 public class ExcelSheetColumnNumber {
     public int titleToNumber(String columnTitle) {
-        return 0;
+        int columnNumber = 0;
+        char[] chars = columnTitle.toCharArray();
+
+        for (int i = chars.length - 1, j = 0; i >= 0; i--, j++) {
+            columnNumber += (chars[i] - 'A' + 1) * (int)Math.pow(26, j);
+        }
+
+        return columnNumber;
     }
 }

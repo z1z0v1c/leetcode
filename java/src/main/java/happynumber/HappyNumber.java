@@ -1,5 +1,8 @@
 package happynumber;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 202 - Easy
  * <p>
@@ -30,6 +33,31 @@ package happynumber;
 
 public class HappyNumber {
     public boolean isHappy(int n) {
+        if (n <= 1) {
+            return true;
+        }
+
+        Set<Integer> checked = new HashSet<>();
+        while (n > 1) {
+            if (checked.contains(n)) {
+                return false;
+            }
+            checked.add(n);
+
+            int mod;
+            int sum = 0;
+            while (n > 0) {
+                mod = n % 10;
+                sum += (int) Math.pow(mod, 2);
+                n /= 10;
+            }
+
+            if (sum == 1) {
+                return true;
+            }
+            n = sum;
+        }
+
         return false;
     }
 }

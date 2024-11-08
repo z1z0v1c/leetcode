@@ -37,7 +37,7 @@ class RemoveElementsTest {
 
         var actual = removeElements.removeElements(head, val);
 
-        while (actual.next != null) {
+        while (expected.next != null || actual.next != null) {
             assertEquals(expected.val, actual.val);
 
             expected = expected.next;
@@ -65,5 +65,26 @@ class RemoveElementsTest {
                                         new ListNode(7))));
 
         assertNull(removeElements.removeElements(head, val));
+    }
+
+    @Test
+    @DisplayName("Example 4.")
+    void testExampleFour() {
+        int val = 1;
+        var head =
+                new ListNode(1,
+                        new ListNode(2));
+
+        var expected =
+                new ListNode(2);
+
+        var actual = removeElements.removeElements(head, val);
+
+        while (expected.next != null || actual.next != null) {
+            assertEquals(expected.val, actual.val);
+
+            expected = expected.next;
+            actual = actual.next;
+        }
     }
 }

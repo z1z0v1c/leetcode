@@ -27,6 +27,27 @@ import commonclasses.ListNode;
 
 public class RemoveElements {
     public ListNode removeElements(ListNode head, int val) {
+        if (head == null) {
+            return null;
+        }
+
+        while (head != null && head.val == val) {
+            head = head.next;
+        }
+
+        ListNode current = head;
+        ListNode prev = null;
+
+        while (current != null) {
+            if (current.val != val) {
+                prev = current;
+            } else {
+                prev.next = current.next;
+            }
+
+            current = current.next;
+        }
+
         return head;
     }
 }

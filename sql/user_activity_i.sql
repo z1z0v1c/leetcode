@@ -59,22 +59,32 @@ Example 1:
 		- Note that we do not care about days with zero active users.
 */
 
-with user_activity(activity_date, user_activity) as (
-    select
-        activity_date,
-        count(*) as user_activity
-    from
-        Activity
-    group by
-        user_id,
-        activity_date
-    having
-        activity_date between '2019-06-28' and '2019-07-27'
-)
 select
     activity_date as day,
-    count(*) as active_users
-from user_activity
+    count(distinct user_id) as active_users
+from
+    Activity
 group by
     activity_date
+having
+    activity_date between '2019-06-28' and '2019-07-27'
+
+-- with user_activity(activity_date, user_activity) as (
+--     select
+--         activity_date,
+--         count(*) as user_activity
+--     from
+--         Activity
+--     group by
+--         user_id,
+--         activity_date
+--     having
+--         activity_date between '2019-06-28' and '2019-07-27'
+-- )
+-- select
+--     activity_date as day,
+--     count(*) as active_users
+-- from user_activity
+-- group by
+--     activity_date
 

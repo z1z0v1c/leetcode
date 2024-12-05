@@ -74,7 +74,7 @@ import (
 // 		s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.
 
 func myAtoi(s string) int {
-	s = strings.Trim(s, " +")
+	s = strings.Trim(s, " ")
 	if len(s) == 0 {
 		return 0
 	}
@@ -88,6 +88,8 @@ func myAtoi(s string) int {
 		// Determine signedness
 		if i == 0 && s[i] == '-' {
 			isNegative = true
+			continue
+		} else if i == 0 && s[i] == '+' {
 			continue
 		}
 
@@ -111,7 +113,7 @@ func myAtoi(s string) int {
 		sum = -sum
 	}
 
-	// Round to the 32-bit signed integer
+	// Round to a 32-bit signed integer
 	if sum > math.MaxInt32 {
 		return math.MaxInt32
 	} else if sum < math.MinInt32 {

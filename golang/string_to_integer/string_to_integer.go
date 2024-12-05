@@ -1,12 +1,16 @@
 package stringtointeger
 
-import "strings"
+import (
+	"strconv"
+	"strings"
+	"unicode"
+)
 
 // UNSOLVED
 // 8 - Medium
-// 
+//
 // Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer.
-// 
+//
 // The algorithm for myAtoi(string s) is as follows:
 // 		Whitespace: Ignore any leading whitespace (" ").
 // 		Signedness: Determine the sign by checking if the next character is '-' or '+', assuming positivity is neither present.
@@ -14,9 +18,9 @@ import "strings"
 //				If no digits were read, then the result is 0.
 // 		Rounding: If the integer is out of the 32-bit signed integer range [-231, 231 - 1], then round the integer to remain in the range.
 // 				Specifically, integers less than -231 should be rounded to -231, and integers greater than 231 - 1 should be rounded to 231 - 1.
-// 
+//
 // Return the integer as the final result.
-// 
+//
 // Example 1:
 // 		Input: s = "42"
 // 		Output: 42
@@ -63,47 +67,48 @@ import "strings"
 // 		Output: 0
 // 		Explanation:
 // 				Reading stops at the first non-digit character 'w'.
-// 
+//
 // Constraints:
 // 		0 <= s.length <= 200
 // 		s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.
 
 func myAtoi(s string) int {
-	var digits []byte = []byte{
-		0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39,
-	}
-
-	s = strings.Trim(s, " ")
+	s = strings.Trim(s, " +")
 	if len(s) == 0 {
 		return 0
 	}
 
-	var negative bool
-	if s[0] == '-' {
-		negative = true
-	}
+	var digs []byte
 
-	s = strings.Trim(s, "+-")
-	if len(s) == 0 {
-		return 0
-	}
+	isNegative := false
+	isFirst := true
 
-	if s[0] == digits[0] {
-		return 0
-	}
-
-	var i int = 1
-	for j := range s {
-		for d := range digits {
-			if s[j] == digits[d] {
-				i *= d
-			}
+	for i := 0; i < len(s); i++ {
+		// Determine signedness
+		if i == 0 && s[i] == '-' {
+			isNegative = true
+			continue
 		}
+
+		if !unicode.IsDigit(rune(s[i])) {
+			break
+		}
+
+		// Ignore leading zeros
+		if isFirst && s[i] == '0' {
+			continue
+		} else {
+			isFirst = false
+		}
+
+		digs = append(digs, s[i])
 	}
 
-	if negative {
-		return -1
+	sum, _ := strconv.Atoi(string(digs))
+
+	if isNegative {
+		return -sum
 	}
 
-	return 1
+	return sum
 }

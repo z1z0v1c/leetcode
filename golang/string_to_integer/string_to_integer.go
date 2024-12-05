@@ -74,7 +74,7 @@ import (
 // 		s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.
 
 func myAtoi(s string) int {
-	s = strings.Trim(s, " ")
+	s = strings.TrimSpace(s)
 	if len(s) == 0 {
 		return 0
 	}
@@ -93,6 +93,7 @@ func myAtoi(s string) int {
 			continue
 		}
 
+		// Skip all non-digit characters
 		if !unicode.IsDigit(rune(s[i])) {
 			break
 		}

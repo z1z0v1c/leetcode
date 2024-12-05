@@ -98,4 +98,12 @@ func TestMyAtoi(t *testing.T) {
 	if result != expected {
 		t.Errorf("reverse(%s) returned %d, expected %d", s, result, expected)
 	}
+
+	s = "-91283472332"
+	expected = -2147483648
+	result = myAtoi(s)
+
+	if result != expected {
+		t.Errorf("reverse(%s) returned %d, expected %d", s, result, expected)
+	}
 }

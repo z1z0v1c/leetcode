@@ -1,6 +1,7 @@
 package stringtointeger
 
 import (
+	"math"
 	"strconv"
 	"strings"
 	"unicode"
@@ -107,7 +108,14 @@ func myAtoi(s string) int {
 	sum, _ := strconv.Atoi(string(digs))
 
 	if isNegative {
-		return -sum
+		sum = -sum
+	}
+
+	// Round to the 32-bit signed integer
+	if sum > math.MaxInt32 {
+		return math.MaxInt32
+	} else if sum < math.MinInt32 {
+		return math.MinInt32
 	}
 
 	return sum

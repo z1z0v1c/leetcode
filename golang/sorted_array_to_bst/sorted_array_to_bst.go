@@ -31,8 +31,17 @@ Constraints:
 */
 
 func sortedArrayToBST(nums []int) *cs.TreeNode {
-	var head cs.TreeNode
-	
-	return &head
-}
+	if len(nums) == 0 {
+		return nil
+	} else if len(nums) == 1 {
+		return &cs.TreeNode{Val: nums[0]}
+	}
 
+	middle := len(nums) / 2
+	head := &cs.TreeNode{Val: nums[middle]}
+
+	head.Left = sortedArrayToBST(nums[:middle])
+	head.Right = sortedArrayToBST(nums[middle+1:])
+
+	return head
+}

@@ -9,7 +9,7 @@ import (
 func TestSortedArrayToBST(t *testing.T) {
 
 	// Example one
-	nums := []int{-10,-3,0,5,9}
+	nums := []int{-10, -3, 0, 5, 9}
 
 	tn0 := &cs.TreeNode{Val: 0}
 	tn1 := &cs.TreeNode{Val: -3}
@@ -23,11 +23,11 @@ func TestSortedArrayToBST(t *testing.T) {
 	tn2.Left = tn4
 
 	expected := tn0
-	actual := sortedArrayToBST(nums) 
+	actual := sortedArrayToBST(nums)
 
 	// Test first option
 	failed := false
-	if (actual != expected) {
+	if actual.Equals(expected) {
 		failed = true
 	}
 
@@ -43,10 +43,10 @@ func TestSortedArrayToBST(t *testing.T) {
 	tn2.Right = tn4
 
 	expected = tn0
-	actual = sortedArrayToBST(nums) 
+	actual = sortedArrayToBST(nums)
 
 	// Test second option
-	if (failed && actual != expected) {
+	if failed && actual.Equals(expected) {
 		t.Errorf("sortedArrayToBST() retund incorrect value.")
 	}
 
@@ -58,11 +58,11 @@ func TestSortedArrayToBST(t *testing.T) {
 	tn0.Left = tn1
 
 	expected = tn0
-	actual = sortedArrayToBST(nums) 
+	actual = sortedArrayToBST(nums)
 
 	// Test first option
 	failed = false
-	if (actual != expected) {
+	if actual.Equals(expected) {
 		failed = true
 	}
 
@@ -74,7 +74,7 @@ func TestSortedArrayToBST(t *testing.T) {
 	actual = sortedArrayToBST(nums)
 
 	// Test second option
-	if (failed && actual != expected) {
+	if failed && actual.Equals(expected) {
 		t.Errorf("sortedArrayToBST() retund incorrect value.")
 	}
-} 
+}

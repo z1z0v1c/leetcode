@@ -36,10 +36,29 @@ package binarytreepreordertraversal
 
 import (
 	cs "github.com/z1z0v1c/leetcode/commonstructs"
+	// "github.com/zeroflucs-given/generics/collections/stack"
 )
 
 func preorderTraversal(root *cs.TreeNode) []int {
-   var values []int
-   
-   return values
+	if root == nil {
+		return nil
+	}
+
+	var values []int
+
+	return values
+}
+
+func preorderTraversalResursive(root *cs.TreeNode) []int {
+	if root == nil {
+		return nil
+	}
+
+	var values []int
+
+	values = append(values, root.Val)
+	values = append(values, preorderTraversalResursive(root.Left)...)
+	values = append(values, preorderTraversalResursive(root.Right)...)
+
+	return values
 }

@@ -41,7 +41,7 @@ func TestPreorderTraversal(t *testing.T) {
 	tn2.Left = tn7
 	tn2.Right = tn8
 
-	expected = []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	expected = []int{1, 2, 4, 5, 6, 7, 3, 8, 9}
 	actual = preorderTraversal(tn0)
 
 	if !slices.Equal(actual, expected) {
@@ -50,6 +50,6 @@ func TestPreorderTraversal(t *testing.T) {
 
 	// Test nil input
 	if preorderTraversal(nil) != nil {
-		t.Errorf("preorderTraversal(nil) should return nil.")
+	 	t.Errorf("preorderTraversal(nil) should return nil.")
 	}
 }

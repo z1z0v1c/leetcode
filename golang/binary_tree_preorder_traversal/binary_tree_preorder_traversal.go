@@ -47,6 +47,35 @@ func preorderTraversal(root *cs.TreeNode) []int {
 	var values []int
 	values = append(values, root.Val)
 
+	nodes := []*cs.TreeNode{}
+	nodes = append(nodes, root)
+
+	for len(nodes) != 0 {
+		node := nodes[len(nodes)-1]
+
+		if node.Left != nil {
+			values = append(values, node.Left.Val)
+			nodes = append(nodes, node.Left)
+			node.Left = nil
+		} else if node.Right != nil {
+			values = append(values, node.Right.Val)
+			nodes = append(nodes, node.Right)
+			node.Right = nil
+		} else {
+			nodes = nodes[:len(nodes)-1]
+		}
+	}
+	return values
+}
+
+func preorderTraversalStack(root *cs.TreeNode) []int {
+	if root == nil {
+		return nil
+	}
+
+	var values []int
+	values = append(values, root.Val)
+
 	nodes := stack.NewStack[*cs.TreeNode](100)
 	nodes.Push(root)
 
@@ -68,17 +97,16 @@ func preorderTraversal(root *cs.TreeNode) []int {
 	return values
 }
 
-//
-// func preorderTraversalResursive(root *cs.TreeNode) []int {
-// 	if root == nil {
-// 		return nil
-// 	}
-//
-// 	var values []int
-//
-// 	values = append(values, root.Val)
-// 	values = append(values, preorderTraversalResursive(root.Left)...)
-// 	values = append(values, preorderTraversalResursive(root.Right)...)
-//
-// 	return values
-// }
+func preorderTraversalResursive(root *cs.TreeNode) []int {
+	if root == nil {
+		return nil
+	}
+
+	var values []int
+
+	values = append(values, root.Val)
+	values = append(values, preorderTraversalResursive(root.Left)...)
+	values = append(values, preorderTraversalResursive(root.Right)...)
+
+	return values
+}

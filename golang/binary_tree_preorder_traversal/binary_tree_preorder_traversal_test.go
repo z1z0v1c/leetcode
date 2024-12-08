@@ -48,6 +48,15 @@ func TestPreorderTraversal(t *testing.T) {
 		t.Errorf("preorderTraversal() retund incorrect value.")
 	}
 
+	tn0 = &cs.TreeNode{Val: 1}
+
+	expected = []int{1}
+	actual = preorderTraversal(tn0)
+
+	if !slices.Equal(actual, expected) {
+		t.Errorf("preorderTraversal() retund incorrect value.")
+	}
+
 	// Test nil input
 	if preorderTraversal(nil) != nil {
 	 	t.Errorf("preorderTraversal(nil) should return nil.")

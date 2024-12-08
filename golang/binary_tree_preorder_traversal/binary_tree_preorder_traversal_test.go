@@ -59,6 +59,6 @@ func TestPreorderTraversal(t *testing.T) {
 
 	// Test nil input
 	if preorderTraversal(nil) != nil {
-	 	t.Errorf("preorderTraversal(nil) should return nil.")
+		t.Errorf("preorderTraversal(nil) should return nil.")
 	}
 }

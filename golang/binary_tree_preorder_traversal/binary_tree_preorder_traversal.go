@@ -65,6 +65,7 @@ func preorderTraversal(root *cs.TreeNode) []int {
 			nodes = nodes[:len(nodes)-1]
 		}
 	}
+
 	return values
 }
 
@@ -94,6 +95,7 @@ func preorderTraversalStack(root *cs.TreeNode) []int {
 			nodes.Pop()
 		}
 	}
+
 	return values
 }
 

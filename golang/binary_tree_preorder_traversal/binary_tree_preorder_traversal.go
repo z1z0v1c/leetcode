@@ -36,7 +36,7 @@ package binarytreepreordertraversal
 
 import (
 	cs "github.com/z1z0v1c/leetcode/commonstructs"
-	// "github.com/zeroflucs-given/generics/collections/stack"
+	"github.com/zeroflucs-given/generics/collections/stack"
 )
 
 func preorderTraversal(root *cs.TreeNode) []int {
@@ -45,20 +45,40 @@ func preorderTraversal(root *cs.TreeNode) []int {
 	}
 
 	var values []int
-
-	return values
-}
-
-func preorderTraversalResursive(root *cs.TreeNode) []int {
-	if root == nil {
-		return nil
-	}
-
-	var values []int
-
 	values = append(values, root.Val)
-	values = append(values, preorderTraversalResursive(root.Left)...)
-	values = append(values, preorderTraversalResursive(root.Right)...)
 
+	nodes := stack.NewStack[*cs.TreeNode](100)
+	nodes.Push(root)
+
+	for nodes.Count() != 0 {
+		_, node := nodes.Peek()
+
+		if node.Left != nil {
+			values = append(values, node.Left.Val)
+			nodes.Push(node.Left)
+			node.Left = nil
+		} else if node.Right != nil {
+			values = append(values, node.Right.Val)
+			nodes.Push(node.Right)
+			node.Right = nil
+		} else {
+			nodes.Pop()
+		}
+	}
 	return values
 }
+
+//
+// func preorderTraversalResursive(root *cs.TreeNode) []int {
+// 	if root == nil {
+// 		return nil
+// 	}
+//
+// 	var values []int
+//
+// 	values = append(values, root.Val)
+// 	values = append(values, preorderTraversalResursive(root.Left)...)
+// 	values = append(values, preorderTraversalResursive(root.Right)...)
+//
+// 	return values
+// }

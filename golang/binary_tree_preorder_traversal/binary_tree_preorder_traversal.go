@@ -36,7 +36,7 @@ package binarytreepreordertraversal
 
 import (
 	cs "github.com/z1z0v1c/leetcode/commonstructs"
-	"github.com/zeroflucs-given/generics/collections/stack"
+	// "github.com/zeroflucs-given/generics/collections/stack"
 )
 
 func preorderTraversal(root *cs.TreeNode) []int {

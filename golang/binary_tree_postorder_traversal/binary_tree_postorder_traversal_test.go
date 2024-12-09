@@ -37,9 +37,9 @@ func TestPostorderTraversal(t *testing.T) {
 	tn1.Left = tn3
 	tn1.Right = tn4
 	tn4.Left = tn5
-	tn5.Right = tn6
-	tn2.Left = tn7
-	tn2.Right = tn8
+	tn4.Right = tn6
+	tn2.Right = tn7
+	tn7.Left = tn8
 
 	expected = []int{4, 6, 7, 5, 2, 9, 8, 3, 1}
 	actual = postorderTraversal(tn0)

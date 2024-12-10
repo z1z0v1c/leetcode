@@ -28,5 +28,14 @@ Constraints:
 package containsduplicateii
 
 func containsNearbyDuplicate(nums []int, k int) bool {
+	indexes := make(map[int]int, len(nums))
+
+	for i, num := range nums {
+		if j, ok := indexes[num]; ok && i-j <= k {
+			return true
+		}
+		indexes[num] = i
+	}
+
 	return false
 }

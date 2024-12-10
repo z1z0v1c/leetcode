@@ -48,7 +48,8 @@ func TestGetIntersectionNode(t *testing.T) {
 	expected = &cs.ListNode{
 		Val: 2,
 		Next: &cs.ListNode{
-			Val: 4},
+			Val: 4,
+		},
 	}
 
 	listA = &cs.ListNode{
@@ -94,6 +95,20 @@ func TestGetIntersectionNode(t *testing.T) {
 	actual = getIntersectionNode(listA, listB)
 
 	if actual != nil {
+		t.Errorf("getIntersectionNode func returned incorrect value.")
+	}
+
+	// Example four
+	expected = &cs.ListNode{
+		Val: 1,
+	}
+
+	listA = expected
+	listB = expected
+
+	actual = getIntersectionNode(listA, listB)
+
+	if actual != expected {
 		t.Errorf("getIntersectionNode func returned incorrect value.")
 	}
 }

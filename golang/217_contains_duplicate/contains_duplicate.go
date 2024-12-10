@@ -29,5 +29,15 @@ Constraints:
 package containsduplicate
 
 func containsDuplicate(nums []int) bool {
+	counts := make(map[int]int, len(nums))
+
+	for _, num := range nums {
+		if counts[num] != 0 {
+			return true
+		}
+
+		counts[num]++
+	}
+
 	return false
 }

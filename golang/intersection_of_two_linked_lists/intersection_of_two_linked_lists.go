@@ -79,20 +79,40 @@ package intersectionoftwolinkedlists
 import cs "github.com/z1z0v1c/leetcode/commonstructs"
 
 func getIntersectionNode(headA, headB *cs.ListNode) *cs.ListNode {
-	nodes := make(map[*cs.ListNode]int)
-	
-	for headA.Next != nil {
-		nodes[headA]++ 
-		headA = headA.Next
-	}
+	ptrA, ptrB := headA, headB
 
-	for headB.Next != nil {
-		_, ok := nodes[headB]
-		if ok {
-			return headB
+	for ptrA != ptrB {
+		if ptrA == nil {
+			ptrA = headB
+		} else {
+			ptrA = ptrA.Next
 		}
-		headB = headB.Next
+
+		if ptrB == nil {
+			ptrB = headA
+		} else {
+			ptrB = ptrB.Next
+		}
 	}
 
-	return nil
+	return ptrA
 }
+
+// func getIntersectionNodeWithMap(headA, headB *cs.ListNode) *cs.ListNode {
+// 	nodes := make(map[*cs.ListNode]int)
+// 	
+// 	for headA != nil {
+// 		nodes[headA]++ 
+// 		headA = headA.Next
+// 	}
+// 
+// 	for headB != nil {
+// 		_, ok := nodes[headB]
+// 		if ok {
+// 			return headB
+// 		}
+// 		headB = headB.Next
+// 	}
+// 
+// 	return nil
+// }

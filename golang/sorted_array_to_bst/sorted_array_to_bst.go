@@ -1,9 +1,3 @@
-package sortedarraytobst
-
-import (
-	cs "github.com/z1z0v1c/leetcode/commonstructs"
-)
-
 /*
 
 108 -Easy
@@ -29,6 +23,12 @@ Constraints:
 	- -10^4 <= nums[i] <= 10^4
 	- nums is sorted in a strictly increasing order.
 */
+
+package sortedarraytobst
+
+import (
+	cs "github.com/z1z0v1c/leetcode/commonstructs"
+)
 
 func sortedArrayToBST(nums []int) *cs.TreeNode {
 	if len(nums) == 0 {

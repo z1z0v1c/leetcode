@@ -29,3 +29,4 @@ func (node1 *TreeNode) Equals(node2 *TreeNode) bool {
 
 	return equals
 }
+

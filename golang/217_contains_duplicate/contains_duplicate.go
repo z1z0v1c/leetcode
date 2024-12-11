@@ -35,7 +35,6 @@ func containsDuplicate(nums []int) bool {
 		if counts[num] != 0 {
 			return true
 		}
-
 		counts[num]++
 	}
 

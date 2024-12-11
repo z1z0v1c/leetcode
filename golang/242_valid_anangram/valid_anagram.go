@@ -22,24 +22,23 @@ Follow up: What if the inputs contain Unicode characters? How would you adapt yo
 
 package validanagram
 
-import (
-	"sort"
-	"strings"
-)
-
 func isAnagram(s string, t string) bool {
 	if len(s) != len(t) {
 		return false
 	}
 
-	s1 := strings.Split(s, "")
-	sort.Strings(s1)
+	runes1 := make(map[rune]int, len(s))
+	for _, rn := range s {
+		runes1[rn]++
+	}
 
-	s2 := strings.Split(t, "")
-	sort.Strings(s2)
+	runes2 := make(map[rune]int, len(t))
+	for _, rn := range t {
+		runes2[rn]++
+	}
 
-	for i, v := range s1 {
-		if v != s2[i] {
+	for k, v := range runes1 {
+		if v != runes2[k] {
 			return false
 		}
 	}

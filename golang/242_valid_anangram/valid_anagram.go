@@ -22,6 +22,27 @@ Follow up: What if the inputs contain Unicode characters? How would you adapt yo
 
 package validanagram
 
+import (
+	"sort"
+	"strings"
+)
+
 func isAnagram(s string, t string) bool {
-	return false
+	if len(s) != len(t) {
+		return false
+	}
+
+	s1 := strings.Split(s, "")
+	sort.Strings(s1)
+
+	s2 := strings.Split(t, "")
+	sort.Strings(s2)
+
+	for i, v := range s1 {
+		if v != s2[i] {
+			return false
+		}
+	}
+
+	return true
 }

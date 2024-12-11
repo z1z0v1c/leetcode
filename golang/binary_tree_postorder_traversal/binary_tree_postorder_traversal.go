@@ -34,7 +34,7 @@ Follow up: Recursive solution is trivial, could you do it iteratively?
 
 package binarytreepostordertraversal
 
-import cs "github.com/z1z0v1c/leetcode/commonstructs"
+import cs "github.com/z1z0v1c/leetcode/common_structs"
 
 func postorderTraversal(root *cs.TreeNode) []int {
 	if root == nil {

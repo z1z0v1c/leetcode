@@ -77,7 +77,7 @@ Follow up: Could you write a solution that runs in O(m + n) time and use only O(
 
 package intersectionoftwolinkedlists
 
-import cs "github.com/z1z0v1c/leetcode/commonstructs"
+import cs "github.com/z1z0v1c/leetcode/common_structs"
 
 func getIntersectionNode(headA, headB *cs.ListNode) *cs.ListNode {
 	ptrA, ptrB := headA, headB

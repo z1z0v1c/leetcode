@@ -35,7 +35,7 @@ Follow up: Recursive solution is trivial, could you do it iteratively?
 package binarytreepreordertraversal
 
 import (
-	cs "github.com/z1z0v1c/leetcode/commonstructs"
+	cs "github.com/z1z0v1c/leetcode/common_structs"
 	// "github.com/zeroflucs-given/generics/collections/stack"
 )
 

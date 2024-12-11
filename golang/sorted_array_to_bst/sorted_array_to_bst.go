@@ -27,7 +27,7 @@ Constraints:
 package sortedarraytobst
 
 import (
-	cs "github.com/z1z0v1c/leetcode/commonstructs"
+	cs "github.com/z1z0v1c/leetcode/common_structs"
 )
 
 func sortedArrayToBST(nums []int) *cs.TreeNode {

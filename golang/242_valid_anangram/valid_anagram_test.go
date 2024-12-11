@@ -18,4 +18,12 @@ func TestIsAnagram(t *testing.T) {
 	if result {
 		t.Errorf("testAnagram(%s, %s) should return false.", s1, s2)
 	}
+	
+	// Example three
+	s1, s2 = "областспунокрволока", "балканскополуострво"
+	result = isAnagram(s1, s2)
+
+	if !result {
+		t.Errorf("testAnagram(%s, %s) should return false.", s1, s2)
+	}
 }

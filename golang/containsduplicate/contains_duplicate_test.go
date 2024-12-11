@@ -27,3 +27,4 @@ func TestContainsDuplicate(t *testing.T) {
 		t.Errorf("containsDuplicate function should return true.")
 	}
 }
+

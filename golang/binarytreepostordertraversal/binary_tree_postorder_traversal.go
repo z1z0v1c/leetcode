@@ -1,5 +1,4 @@
 /*
-
 145 - Easy
 
 Given the root of a binary tree, return the postorder traversal of its nodes' values.
@@ -31,7 +30,6 @@ Constraints:
 
 Follow up: Recursive solution is trivial, could you do it iteratively?
 */
-
 package binarytreepostordertraversal
 
 import cs "github.com/z1z0v1c/leetcode/commonstructs"
@@ -68,3 +66,4 @@ func postorderTraversal(root *cs.TreeNode) []int {
 
 	return values
 }
+

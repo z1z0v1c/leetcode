@@ -1,5 +1,4 @@
 /*
-
 108 -Easy
 
 Given an integer array nums where the elements are sorted in ascending order, convert it to a
@@ -23,7 +22,6 @@ Constraints:
 	- -10^4 <= nums[i] <= 10^4
 	- nums is sorted in a strictly increasing order.
 */
-
 package sortedarraytobst
 
 import (
@@ -45,3 +43,4 @@ func sortedArrayToBST(nums []int) *cs.TreeNode {
 
 	return head
 }
+

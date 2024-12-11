@@ -1,5 +1,4 @@
 /*
-
 160 - Easy
 
 Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect.
@@ -74,7 +73,6 @@ Constraints:
 
 Follow up: Could you write a solution that runs in O(m + n) time and use only O(1) memory?
 */
-
 package intersectionoftwolinkedlists
 
 import cs "github.com/z1z0v1c/leetcode/commonstructs"
@@ -117,3 +115,4 @@ func getIntersectionNode(headA, headB *cs.ListNode) *cs.ListNode {
 // 
 // 	return nil
 // }
+

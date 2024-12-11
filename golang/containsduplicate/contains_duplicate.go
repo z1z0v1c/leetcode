@@ -26,7 +26,6 @@ Constraints:
 	- 1 <= nums.length <= 105
 	- -109 <= nums[i] <= 109
 */
-
 package containsduplicate
 
 func containsDuplicate(nums []int) bool {
@@ -41,3 +40,4 @@ func containsDuplicate(nums []int) bool {
 
 	return false
 }
+

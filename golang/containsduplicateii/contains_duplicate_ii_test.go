@@ -27,3 +27,4 @@ func TestContainsNearbyDuplicate(t *testing.T) {
 		t.Errorf("containsNearbyDuplicate fuction should return false.")
 	}
 }
+

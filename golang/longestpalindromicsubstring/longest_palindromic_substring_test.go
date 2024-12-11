@@ -111,3 +111,4 @@ func TestIsPalindrome(t *testing.T) {
 		t.Errorf("lengthOfLongestSubstring(%s) returned %v, expected %v", s, result, expected)
 	}
 }
+

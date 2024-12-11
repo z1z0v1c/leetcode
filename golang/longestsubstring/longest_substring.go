@@ -1,5 +1,4 @@
 /*
-
 3 - Medium
 
 Given a string s, find the length of the longest substring without repeating characters.
@@ -29,8 +28,7 @@ Constraints:
 	- 0 <= s.length <= 5 * 104
 	- s consists of English letters, digits, symbols and spaces.
 */
-
-package longest_substring
+package longestsubstring
 
 import (
 	"strings"
@@ -57,3 +55,4 @@ func lengthOfLongestSubstring(s string) int {
 
 	return max
 }
+

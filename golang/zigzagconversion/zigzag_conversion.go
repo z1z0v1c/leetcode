@@ -1,5 +1,4 @@
 /*
-
 6 - Medium
 
 The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this:
@@ -43,7 +42,6 @@ Constraints:
 	- s consists of English letters (lower-case and upper-case), ',' and '.'.
 	- 1 <= numRows <= 1000
 */
-
 package zigzagconversion
 
 func convert(s string, numRows int) string {
@@ -96,3 +94,4 @@ func convert(s string, numRows int) string {
 
 	return converted
 }
+

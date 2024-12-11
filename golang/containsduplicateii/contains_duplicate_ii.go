@@ -25,7 +25,6 @@ Constraints:
 	- -109 <= nums[i] <= 109
 	- 0 <= k <= 105
 */
-
 package containsduplicateii
 
 func containsNearbyDuplicate(nums []int, k int) bool {
@@ -40,3 +39,4 @@ func containsNearbyDuplicate(nums []int, k int) bool {
 
 	return false
 }
+

@@ -1,5 +1,4 @@
 /*
-
 7 - Medium
 
 Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes
@@ -25,7 +24,6 @@ Constraints:
 
 	-231 <= x <= 231 - 1
 */
-
 package reverseinteger
 
 import (
@@ -62,3 +60,4 @@ func reverse(x int) int {
 
 	return reversed
 }
+

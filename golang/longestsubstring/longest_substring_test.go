@@ -36,3 +36,4 @@ func testLengthOfLongestSubstring(s string, expected int) error {
 
 	return nil
 }
+

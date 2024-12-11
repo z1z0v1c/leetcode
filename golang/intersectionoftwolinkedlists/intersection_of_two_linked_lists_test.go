@@ -112,3 +112,4 @@ func TestGetIntersectionNode(t *testing.T) {
 		t.Errorf("getIntersectionNode func returned incorrect value.")
 	}
 }
+

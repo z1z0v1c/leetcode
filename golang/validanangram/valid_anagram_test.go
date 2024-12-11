@@ -27,3 +27,4 @@ func TestIsAnagram(t *testing.T) {
 		t.Errorf("testAnagram(%s, %s) should return false.", s1, s2)
 	}
 }
+

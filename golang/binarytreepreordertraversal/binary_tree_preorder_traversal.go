@@ -1,5 +1,4 @@
 /*
-
 144 - Easy
 
 Given the root of a binary tree, return the preorder traversal of its nodes' values.
@@ -31,7 +30,6 @@ Constraints:
 
 Follow up: Recursive solution is trivial, could you do it iteratively?
 */
-
 package binarytreepreordertraversal
 
 import (
@@ -98,7 +96,7 @@ func preorderTraversal(root *cs.TreeNode) []int {
 // 
 // 	return values
 // }
-// 
+
 // func preorderTraversalResursive(root *cs.TreeNode) []int {
 // 	if root == nil {
 // 		return nil
@@ -112,3 +110,4 @@ func preorderTraversal(root *cs.TreeNode) []int {
 // 
 // 	return values
 // }
+

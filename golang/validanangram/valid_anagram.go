@@ -20,7 +20,6 @@ Constraints:
 
 Follow up: What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
 */
-
 package validanagram
 
 func isAnagram(s string, t string) bool {
@@ -46,3 +45,4 @@ func isAnagram(s string, t string) bool {
 
 	return true
 }
+

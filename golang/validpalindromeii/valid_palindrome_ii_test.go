@@ -31,3 +31,4 @@ func TestValidPalindrome(t *testing.T) {
 		t.Errorf("validPalindrome(%s) should return true.", s)
 	}
 }
+

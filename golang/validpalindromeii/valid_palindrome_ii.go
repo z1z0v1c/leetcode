@@ -24,7 +24,6 @@ Constraints:
 	- 1 <= s.length <= 105
 	- s consists of lowercase English letters.
 */
-
 package validpalindromeii
 
 func validPalindrome(s string) bool {
@@ -50,3 +49,4 @@ func validPalindrome(s string) bool {
 
 	return true
 }
+

@@ -23,4 +23,11 @@ func TestValidPalindrome(t *testing.T) {
 	if result {
 		t.Errorf("validPalindrome(%s) should return false.", s)
 	}
+
+	s = "eceec"
+	result = validPalindrome(s)
+
+	if !result {
+		t.Errorf("validPalindrome(%s) should return true.", s)
+	}
 }

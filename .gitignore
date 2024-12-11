@@ -15,3 +15,5 @@ java/.idea
 java/
 java/### VS Code ###
 java/.vscode/
+
+golang/.vscode

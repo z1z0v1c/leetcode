@@ -1,8 +1,3 @@
-package pascalstriangle;
-
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * 118 - Easy
  * <p>
@@ -20,6 +15,10 @@ import java.util.List;
  * Constraints:
  *      - 1 <= numRows <= 30
  */
+package pascalstriangle;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PascalsTriangle {
     public List<List<Integer>> generate(int numRows) {
@@ -44,3 +43,4 @@ public class PascalsTriangle {
         return pyramid;
     }
 }
+

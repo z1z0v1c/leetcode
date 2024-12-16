@@ -1,10 +1,3 @@
-package linkedlistcycleii;
-
-import commonclasses.ListNode;
-
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * 141 - Easy
  * <p>
@@ -37,6 +30,12 @@ import java.util.Set;
  * <p>
  * Follow up: Can you solve it using O(1) (i.e. constant) memory?
  */
+package linkedlistcycleii;
+
+import commonclasses.ListNode;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class LinkedListCycleII {
     public ListNode detectCycle(ListNode head) {
@@ -77,3 +76,4 @@ public class LinkedListCycleII {
         return beforeRabbit;
     }
 }
+

@@ -1,5 +1,3 @@
-package excelsheetcolumntitle;
-
 /**
  * 168 - Easy
  * <p>
@@ -31,6 +29,7 @@ package excelsheetcolumntitle;
  * Constraints:
  *      - 1 <= columnNumber <= 231 - 1
  */
+package excelsheetcolumntitle;
 
 public class ExcelSheetColumnTitle {
     public String convertToTitle(int columnNumber) {
@@ -51,3 +50,4 @@ public class ExcelSheetColumnTitle {
         return  columnTitle.reverse().toString();
     }
 }
+

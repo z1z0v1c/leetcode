@@ -1,7 +1,3 @@
-package mindepthofbinarytree;
-
-import commonclasses.TreeNode;
-
 /**
  * 111 - Easy
  * <p>
@@ -22,6 +18,9 @@ import commonclasses.TreeNode;
  *      - The number of nodes in the tree is in the range [0, 105].
  *      - -1000 <= Node.val <= 1000
  */
+package mindepthofbinarytree;
+
+import commonclasses.TreeNode;
 
 public class MinDepthOfBinaryTree {
     public int minDepth(TreeNode root) {

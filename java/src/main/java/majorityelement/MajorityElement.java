@@ -1,7 +1,3 @@
-package majorityelement;
-
-import java.util.Arrays;
-
 /**
  * Given an array nums of size n, return the majority element.
  * <p>
@@ -23,6 +19,9 @@ import java.util.Arrays;
  * <p>
  * Follow-up: Could you solve the problem in linear time and in O(1) space?
  */
+package majorityelement;
+
+import java.util.Arrays;
 
 public class MajorityElement {
     public int majorityElement(int[] nums) {
@@ -47,3 +46,4 @@ public class MajorityElement {
         return num;
     }
 }
+

@@ -1,5 +1,3 @@
-package mergesortedarrays;
-
 /**
  * 88 - Easy
  * <p>
@@ -44,6 +42,8 @@ package mergesortedarrays;
  * <p>
  * Follow up: Can you come up with an algorithm that runs in O(m + n) time?
  */
+package mergesortedarrays;
+
 public class MergeSortedArrays {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         if (n == 0) {
@@ -66,3 +66,4 @@ public class MergeSortedArrays {
         }
     }
 }
+

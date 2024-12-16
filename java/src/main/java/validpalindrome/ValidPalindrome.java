@@ -1,5 +1,3 @@
-package validpalindrome;
-
 /**
  * 125 - Easy
  * <p>
@@ -30,6 +28,7 @@ package validpalindrome;
  *      - 1 <= s.length <= 2 * 105
  *      - s consists only of printable ASCII characters.
  */
+package validpalindrome;
 
 public class ValidPalindrome {
     public boolean isPalindrome(String s) {
@@ -57,3 +56,4 @@ public class ValidPalindrome {
         return true;
     }
 }
+

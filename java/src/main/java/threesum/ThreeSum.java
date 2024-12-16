@@ -1,7 +1,3 @@
-package threesum;
-
-import java.util.*;
-
 /**
  * 15 - Medium
  * <p>
@@ -34,6 +30,9 @@ import java.util.*;
  *      - 3 <= nums.length <= 3000
  *      - -105 <= nums[i] <= 105
  */
+package threesum;
+
+import java.util.*;
 
 public class ThreeSum {
     public List<List<Integer>> threeSum(int[] nums) {
@@ -63,3 +62,4 @@ public class ThreeSum {
         return threes.stream().toList();
     }
 }
+

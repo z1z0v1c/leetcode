@@ -1,7 +1,3 @@
-package smallestpositiveinteger;
-
-import java.util.Arrays;
-
 /**
  * Codility demo
  * <p>
@@ -16,6 +12,9 @@ import java.util.Arrays;
  *      - N is an integer within the range [1..100,000];
  *      - each element of array A is an integer within the range [−1,000,000..1,000,000].
  */
+package smallestpositiveinteger;
+
+import java.util.Arrays;
 
 public class SmallestPositiveInteger {
     public int smallestPositiveInteger(int[] A) {
@@ -37,3 +36,4 @@ public class SmallestPositiveInteger {
         return highest + 1;
     }
 }
+

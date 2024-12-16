@@ -1,7 +1,3 @@
-package threesumclosest;
-
-import java.util.*;
-
 /**
  * 16 Medium
  * <p>
@@ -24,6 +20,9 @@ import java.util.*;
  *      - -1000 <= nums[i] <= 1000
  *      - -104 <= target <= 104
  */
+package threesumclosest;
+
+import java.util.*;
 
 public class ThreeSumClosest {
     public int threeSumClosest(int[] nums, int target) {
@@ -59,3 +58,4 @@ public class ThreeSumClosest {
         return min;
     }
 }
+

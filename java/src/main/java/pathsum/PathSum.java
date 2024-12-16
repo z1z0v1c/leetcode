@@ -1,7 +1,3 @@
-package pathsum;
-
-import commonclasses.TreeNode;
-
 /**
  * 112 - Easy
  * <p>
@@ -34,6 +30,9 @@ import commonclasses.TreeNode;
  *      - -1000 <= Node.val <= 1000
  *      - -1000 <= targetSum <= 1000
  */
+package pathsum;
+
+import commonclasses.TreeNode;
 
 public class PathSum {
     private int pathSum;
@@ -66,3 +65,4 @@ public class PathSum {
         return false;
     }
 }
+

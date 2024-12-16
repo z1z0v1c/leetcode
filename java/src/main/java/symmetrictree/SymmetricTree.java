@@ -1,9 +1,3 @@
-package symmetrictree;
-
-import commonclasses.TreeNode;
-
-import java.util.Stack;
-
 /**
  * 101 - Easy
  * <p>
@@ -23,6 +17,11 @@ import java.util.Stack;
  * <p>
  * Follow up: Could you solve it both recursively and iteratively?
  */
+package symmetrictree;
+
+import commonclasses.TreeNode;
+
+import java.util.Stack;
 
 public class SymmetricTree {
     public boolean isSymmetric(TreeNode root) {
@@ -94,3 +93,4 @@ public class SymmetricTree {
         return true;
     }
 }
+

@@ -1,11 +1,3 @@
-package binarytreeinordertraversal;
-
-import commonclasses.TreeNode;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
-
 /**
  * 94 - Easy
  * <p>
@@ -33,6 +25,13 @@ import java.util.Stack;
  * <p>
  * Follow up: Recursive solution is trivial, could you do it iteratively?
  */
+package binarytreeinordertraversal;
+
+import commonclasses.TreeNode;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
 public class BinaryTreeInorderTraversal {
     public List<Integer> inorderTraversal(TreeNode root) {
@@ -55,3 +54,4 @@ public class BinaryTreeInorderTraversal {
         return values;
     }
 }
+

@@ -1,7 +1,3 @@
-package removeelements;
-
-import commonclasses.ListNode;
-
 /**
  * 203 - Easy
  * <p>
@@ -24,6 +20,9 @@ import commonclasses.ListNode;
  *      - 1 <= Node.val <= 50
  *      - 0 <= val <= 50
  */
+package removeelements;
+
+import commonclasses.ListNode;
 
 public class RemoveElements {
     public ListNode removeElements(ListNode head, int val) {
@@ -51,3 +50,4 @@ public class RemoveElements {
         return head;
     }
 }
+

@@ -1,7 +1,3 @@
-package sametree;
-
-import commonclasses.TreeNode;
-
 /**
  * 100 - Easy
  * <p>
@@ -24,6 +20,10 @@ import commonclasses.TreeNode;
  *      - The number of nodes in both trees is in the range [0, 100].
  *      - -104 <= Node.val <= 104
  */
+package sametree;
+
+import commonclasses.TreeNode;
+
 public class SameTree {
     public boolean isSameTree(TreeNode p, TreeNode q) {
         if (p == null && q == null) {
@@ -47,3 +47,4 @@ public class SameTree {
         return isSame;
     }
 }
+

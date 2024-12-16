@@ -1,5 +1,3 @@
-package buyandsellstock;
-
 /**
  * 121 - Easy
  * <p>
@@ -24,6 +22,7 @@ package buyandsellstock;
  *      - 1 <= prices.length <= 10^5
  *      - 0 <= prices[i] <= 10^4
  */
+package buyandsellstock;
 
 public class BuyAndSellStock {
     public int maxProfit(int[] prices) {
@@ -42,3 +41,4 @@ public class BuyAndSellStock {
         return maxProfit;
     }
 }
+

@@ -1,9 +1,3 @@
-package linkedlistcycle;
-
-import commonclasses.ListNode;
-
-import java.util.*;
-
 /**
  * 141 - Easy
  * <p>
@@ -36,6 +30,11 @@ import java.util.*;
  * <p>
  * Follow up: Can you solve it using O(1) (i.e. constant) memory?
  */
+package linkedlistcycle;
+
+import commonclasses.ListNode;
+
+import java.util.*;
 
 public class LinkedListCycle {
     public boolean hasCycle(ListNode head) {
@@ -73,3 +72,4 @@ public class LinkedListCycle {
         return false;
     }
 }
+

@@ -1,8 +1,8 @@
-package commonclasses;
-
 /**
  * Definition for singly-linked list.
  */
+package commonclasses;
+
 public class ListNode {
     public int val;
     public ListNode next;
@@ -16,3 +16,4 @@ public class ListNode {
         this.next = next;
     }
 }
+

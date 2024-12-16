@@ -1,8 +1,3 @@
-package pascalstriangleii;
-
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * 119 - Easy
  * <p>
@@ -24,6 +19,10 @@ import java.util.List;
  * Constraints:
  *      - 0 <= rowIndex <= 33
  */
+package pascalstriangleii;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PascalsTriangleII {
     public List<Integer> getRow(int rowIndex) {
@@ -47,3 +46,4 @@ public class PascalsTriangleII {
         return row.isEmpty() ? previousRow : row;
     }
 }
+

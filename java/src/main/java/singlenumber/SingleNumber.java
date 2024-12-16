@@ -1,5 +1,3 @@
-package singlenumber;
-
 /**
  * 136 - Easy
  * <p>
@@ -23,6 +21,7 @@ package singlenumber;
  *      - -3 * 10^4 <= nums[i] <= 3 * 10^4
  *      - Each element in the array appears twice except for one element which appears only once.
  */
+package singlenumber;
 
 public class SingleNumber {
     public int singleNumber(int[] nums) {
@@ -35,3 +34,4 @@ public class SingleNumber {
         return result;
     }
 }
+

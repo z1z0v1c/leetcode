@@ -1,5 +1,3 @@
-package excelsheetcolumnnumber;
-
 /**
  * 171 - Easy
  * <p>
@@ -34,6 +32,7 @@ package excelsheetcolumnnumber;
  *      - columnTitle consists only of uppercase English letters.
  *      - columnTitle is in the range ["A", "FXSHRXW"].
  */
+package excelsheetcolumnnumber;
 
 public class ExcelSheetColumnNumber {
     public int titleToNumber(String columnTitle) {
@@ -47,3 +46,4 @@ public class ExcelSheetColumnNumber {
         return columnNumber;
     }
 }
+

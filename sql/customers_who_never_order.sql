@@ -1,5 +1,4 @@
 /*
-
 183 - Easy
 
 Table: Customers

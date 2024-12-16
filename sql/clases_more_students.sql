@@ -1,5 +1,4 @@
 /*
-
 596 - Easy
 
 Table: Courses

@@ -1,5 +1,4 @@
 /*
-
 1148 - Easy
 
 Table: Views

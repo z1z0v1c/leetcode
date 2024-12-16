@@ -1,5 +1,4 @@
 /*
-
 577 - Easy
 
 Table: Employee

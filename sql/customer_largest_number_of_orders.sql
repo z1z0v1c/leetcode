@@ -1,5 +1,4 @@
 /*
-
 586 - Easy
 
 Table: Orders

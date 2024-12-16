@@ -1,5 +1,4 @@
 /*
-
 584 - Easy
 
 Table: Customer

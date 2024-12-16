@@ -1,5 +1,4 @@
 /*
-
 595 - Easy
 
 Table: World

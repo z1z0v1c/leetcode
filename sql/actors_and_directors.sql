@@ -1,5 +1,4 @@
 /*
-
 1050 - Easy
 
 Table: ActorDirector

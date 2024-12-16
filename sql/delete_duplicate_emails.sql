@@ -1,5 +1,4 @@
 /*
-
 196 - Easy
 
 Table: Person

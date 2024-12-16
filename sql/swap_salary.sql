@@ -1,5 +1,4 @@
 /*
-
 627 - Easy
 
 Table: Salary

@@ -1,5 +1,4 @@
 /*
-
 610 - Easy
 
 Table: Triangle

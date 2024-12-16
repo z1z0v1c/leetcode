@@ -1,5 +1,4 @@
 /*
-
 511 - Easy
 
 Table: Activity

@@ -1,5 +1,4 @@
 /*
-
 1075 - Easy
 
 Table: Project

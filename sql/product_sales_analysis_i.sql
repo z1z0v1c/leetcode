@@ -1,5 +1,4 @@
 /*
-
 1068 - Easy
 
 Table: Sales

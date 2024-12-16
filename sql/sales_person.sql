@@ -1,5 +1,4 @@
 /*
-
 607 - Easy
 
 Table: SalesPerson

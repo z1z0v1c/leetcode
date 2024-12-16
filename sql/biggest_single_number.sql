@@ -1,5 +1,4 @@
 /*
-
 619 - Easy
 
 Table: MyNumbers

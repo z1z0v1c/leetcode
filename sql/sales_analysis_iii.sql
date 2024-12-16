@@ -1,5 +1,4 @@
 /*
-
 1084 - Easy
 
 Table: Product

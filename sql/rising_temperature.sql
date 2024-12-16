@@ -1,5 +1,4 @@
 /*
-
 197 - Easy
 
 Table: Weather

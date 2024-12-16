@@ -42,3 +42,4 @@ public class LengthOfLastWordTests
         Assert.That(actual, Is.EqualTo(expected));
     }
 }
+

@@ -1,7 +1,3 @@
-using System.Numerics;
-
-namespace Solutions.AddBinary;
-
 /// <summary>
 /// 67 - Easy
 /// 
@@ -20,6 +16,9 @@ namespace Solutions.AddBinary;
 ///      - a and b consist only of '0' or '1' characters.
 ///      - Each string does not contain leading zeros except for the zero itself.
 /// </summary>
+using System.Numerics;
+
+namespace Solutions.AddBinary;
 
 public class AddBinarySolution {
     public string AddBinary(string a, string b) {
@@ -60,3 +59,4 @@ public class AddBinarySolution {
         return binary;
     }
 }
+

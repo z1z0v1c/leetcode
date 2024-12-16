@@ -1,5 +1,3 @@
-namespace Solutions.SqrtX;
-
 /// <summary>
 /// 69 - Easy
 /// 
@@ -24,6 +22,7 @@ namespace Solutions.SqrtX;
 /// Constraints:
 ///      - 0 <= x <= 231 - 1
 /// </summary>
+namespace Solutions.SqrtX;
 
 public class SqrtX
 {
@@ -68,3 +67,4 @@ public class SqrtX
         return end;
     }
 }
+

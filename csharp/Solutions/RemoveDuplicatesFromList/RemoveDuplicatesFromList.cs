@@ -1,7 +1,3 @@
-using Solutions.CommonClases;
-
-namespace Solutions.RemoveDuplicatesFromList;
-
 /// <summary>
 /// 83 - Easy
 /// 
@@ -21,6 +17,9 @@ namespace Solutions.RemoveDuplicatesFromList;
 ///      - -100 <= Node.val <= 100
 ///      - The list is guaranteed to be sorted in ascending order.
 /// </summary>
+using Solutions.CommonClases;
+
+namespace Solutions.RemoveDuplicatesFromList;
 
 public class RemoveDuplicatesFromList
 {
@@ -48,3 +47,4 @@ public class RemoveDuplicatesFromList
         return head;
     }
 }
+

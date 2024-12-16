@@ -1,5 +1,3 @@
-namespace Solutions.SearchInsertPosition;
-
 /// <summary>
 /// 35 - Easy
 /// 
@@ -26,6 +24,7 @@ namespace Solutions.SearchInsertPosition;
 ///      - nums contains distinct values sorted in ascending order.
 ///      - -104 <= target <= 104
 /// </summary>
+namespace Solutions.SearchInsertPosition;
 
 public class SearchInsertPosition
 {
@@ -75,3 +74,4 @@ public class SearchInsertPosition
         return -1;
     }
 }
+

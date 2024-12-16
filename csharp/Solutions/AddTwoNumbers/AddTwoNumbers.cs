@@ -1,7 +1,3 @@
-using Solutions.CommonClases;
-
-namespace Solutions.AddTwoNumbers;
-
 /// <summary>
 /// 2 - Medium
 /// 
@@ -28,6 +24,9 @@ namespace Solutions.AddTwoNumbers;
 ///      - 0 <= Node.val <= 9
 ///      - It is guaranteed that the list represents a number that does not have leading zeros.
 /// </summary>
+using Solutions.CommonClases;
+
+namespace Solutions.AddTwoNumbers;
 
 public class AddTwoNumbersSolution
 {
@@ -60,3 +59,4 @@ public class AddTwoNumbersSolution
         return start;
     }
 }
+

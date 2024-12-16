@@ -31,3 +31,4 @@ public class ClimbingStairsTests
         Assert.That(actual, Is.EqualTo(expected));
     }
 }
+

@@ -1,5 +1,3 @@
-namespace Solutions.RemoveElement;
-
 /// <summary>
 /// 27 - Easy
 /// 
@@ -52,6 +50,7 @@ namespace Solutions.RemoveElement;
 ///      - 0 <= nums[i] <= 50
 ///      - 0 <= val <= 100
 /// </summary>
+namespace Solutions.RemoveElement;
 
 public class RemoveElementSolution
 {
@@ -79,3 +78,4 @@ public class RemoveElementSolution
         return k;
     }
 }
+

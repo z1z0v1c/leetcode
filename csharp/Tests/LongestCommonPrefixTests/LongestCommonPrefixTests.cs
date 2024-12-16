@@ -31,3 +31,4 @@ public class LittleLongestCommonPrefixTests
         Assert.That(actual, Is.EqualTo(expected));
     }
 }
+

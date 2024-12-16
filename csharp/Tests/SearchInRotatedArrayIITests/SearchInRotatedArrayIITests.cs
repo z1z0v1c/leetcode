@@ -27,3 +27,4 @@ public class SearchInRotatedArrayIITests
         Assert.That(searchInRotatedArrayII.Search(nums, target), Is.False);
     }
 }
+

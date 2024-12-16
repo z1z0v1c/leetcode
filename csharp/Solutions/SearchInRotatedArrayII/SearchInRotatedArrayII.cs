@@ -1,5 +1,3 @@
-namespace Solutions.SearchInRotatedArrayII;
-
 /// <summary>
 /// 81 - Medium
 /// 
@@ -31,6 +29,7 @@ namespace Solutions.SearchInRotatedArrayII;
 /// Follow up: This problem is similar to Search in Rotated Sorted Array, but nums may contain duplicates.
 ///  Would this affect the runtime complexity? How and why?
 /// </summary>
+namespace Solutions.SearchInRotatedArrayII;
 
 public class SearchInRotatedArrayII
 {
@@ -67,3 +66,4 @@ public class SearchInRotatedArrayII
         return false;
     }
 }
+

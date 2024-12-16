@@ -1,5 +1,3 @@
-namespace Solutions.ValidParentheses;
-
 /// <summary>
 /// 20 - Easy
 /// 
@@ -31,6 +29,7 @@ namespace Solutions.ValidParentheses;
 ///      - 1 <= s.length <= 104
 ///      - s consists of parentheses only '()[]{}'.
 /// </summary>
+namespace Solutions.ValidParentheses;
 
 public class ValidParentheses
 {
@@ -75,3 +74,4 @@ public class ValidParentheses
         return true;
     }
 }
+

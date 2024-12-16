@@ -45,3 +45,4 @@ public class SearchInsertPositionTests
         Assert.That(actual, Is.EqualTo(expected));
     }
 }
+

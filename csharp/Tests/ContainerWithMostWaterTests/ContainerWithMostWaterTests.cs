@@ -31,3 +31,4 @@ public class ContainerWithMostWaterTests
         Assert.That(actual, Is.EqualTo(expected));
     }
 }
+

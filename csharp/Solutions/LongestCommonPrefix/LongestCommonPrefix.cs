@@ -1,5 +1,3 @@
-namespace Solutions.LongestCommonPrefix;
-
 /// <summary>
 /// 14 - Easy
 /// 
@@ -20,6 +18,7 @@ namespace Solutions.LongestCommonPrefix;
 ///      - 0 <= strs[i].length <= 200
 ///      - strs[i] consists of only lowercase English letters.
 /// </summary>
+namespace Solutions.LongestCommonPrefix;
 
 public class LongestCommonPrefixSolution
 {
@@ -42,3 +41,4 @@ public class LongestCommonPrefixSolution
         return prefix;
     }
 }
+

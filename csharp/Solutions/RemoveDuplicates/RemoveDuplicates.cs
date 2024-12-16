@@ -1,5 +1,3 @@
-namespace Solutions.RemoveDuplicates;
-
 /// <summary>
 /// 26 - Easy
 /// 
@@ -45,6 +43,7 @@ namespace Solutions.RemoveDuplicates;
 ///      - -100 <= nums[i] <= 100
 ///      - nums is sorted in non-decreasing order.
 /// </summary>
+namespace Solutions.RemoveDuplicates;
 
 public class RemoveDuplicatesSolution
 {
@@ -64,3 +63,4 @@ public class RemoveDuplicatesSolution
         return k;
     }
 }
+

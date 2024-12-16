@@ -1,8 +1,8 @@
-namespace Solutions.CommonClases;
-
 /// <summary>
 /// Definition for singly-linked list.
 /// </summary>
+namespace Solutions.CommonClases;
+
 public class ListNode
 {
     public int val;
@@ -13,3 +13,4 @@ public class ListNode
         this.next = next;
     }
 }
+

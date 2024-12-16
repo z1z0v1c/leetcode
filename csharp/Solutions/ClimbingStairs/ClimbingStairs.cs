@@ -1,5 +1,3 @@
-namespace Solutions.ClimbingStairs;
-
 /// <summary>
 /// 70 - Easy
 /// 
@@ -26,6 +24,7 @@ namespace Solutions.ClimbingStairs;
 /// Constraints:
 ///      - 1 <= n <= 45
 /// </summary>
+namespace Solutions.ClimbingStairs;
 
 public class ClimbingStairs {
     private static int[] dp = new int[46];
@@ -48,3 +47,4 @@ public class ClimbingStairs {
         return dp[n];
     }
 }
+

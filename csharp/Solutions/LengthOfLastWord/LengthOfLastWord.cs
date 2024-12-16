@@ -1,5 +1,3 @@
-namespace Solutions.LengthOfLastWord;
-
 /// <summary>
 /// 58 - Easy
 /// 
@@ -27,6 +25,7 @@ namespace Solutions.LengthOfLastWord;
 ///      - s consists of only English letters and spaces ' '.
 ///      - There will be at least one word in s.
 /// </summary>
+namespace Solutions.LengthOfLastWord;
 
 public class LengthOfLastWordSolution
 {
@@ -60,3 +59,4 @@ public class LengthOfLastWordSolution
         return length;
     }
 }
+

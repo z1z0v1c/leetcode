@@ -1,5 +1,3 @@
-namespace Solutions.PalindromeNumber;
-
 /// <summary>
 /// 9 - Easy
 /// 
@@ -26,6 +24,7 @@ namespace Solutions.PalindromeNumber;
 ///  
 /// Follow up: Could you solve it without converting the integer to a string?
 /// </summary>
+namespace Solutions.PalindromeNumber;
 
 public class PalindromeNumber
 {
@@ -46,3 +45,4 @@ public class PalindromeNumber
         return true;
     }
 }
+

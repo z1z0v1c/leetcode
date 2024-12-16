@@ -53,3 +53,4 @@ public class RomToIntegerTests
         Assert.That(actual, Is.EqualTo(expected));
     }
 }
+

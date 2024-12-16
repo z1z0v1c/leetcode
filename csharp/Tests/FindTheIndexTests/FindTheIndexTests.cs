@@ -33,3 +33,4 @@ public class FindTheIndexTests
         Assert.That(actual, Is.EqualTo(expected));
     }
 }
+

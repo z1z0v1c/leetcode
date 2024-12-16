@@ -30,3 +30,4 @@ public class PalindromeNumberTests
         Assert.That(palindromeNumber.IsPalindrome(input), Is.False);
     }
 }
+

@@ -33,3 +33,4 @@ public class AddBinaryTests
         Assert.That(actual, Is.EqualTo(expected));
     }
 }
+

@@ -41,3 +41,4 @@ public class ValidParenthesesTests
         Assert.That(validParentheses.IsValid(s), Is.True);
     }
 }
+

@@ -1,5 +1,3 @@
-namespace Solutions.PlusOne;
-
 /// <summary>
 /// 66 - Easy
 /// 
@@ -38,6 +36,7 @@ namespace Solutions.PlusOne;
 ///      - 0 <= digits[i] <= 9
 ///      - digits does not contain any leading 0's.
 /// </summary>
+namespace Solutions.PlusOne;
 
 public class PlusOneSolution
 {
@@ -58,3 +57,4 @@ public class PlusOneSolution
             return digits;
     }
 }
+

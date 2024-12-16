@@ -1,5 +1,3 @@
-namespace Solutions.FindTheIndex;
-
 /// <summary>
 /// 18 - Easy
 /// 
@@ -21,6 +19,7 @@ namespace Solutions.FindTheIndex;
 ///      - 1 <= haystack.length, needle.length <= 104
 ///      - haystack and needle consist of only lowercase English characters.
 /// </summary>
+namespace Solutions.FindTheIndex;
 
 public class FindTheIndex
 {
@@ -51,3 +50,4 @@ public class FindTheIndex
         return -1;
     }
 }
+

@@ -31,3 +31,4 @@ public class SqrtXTests
         Assert.That(actual, Is.EqualTo(expected));
     }
 }
+

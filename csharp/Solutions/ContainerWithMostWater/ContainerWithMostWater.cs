@@ -1,5 +1,3 @@
-namespace Solutions.ContainerWithMostWater;
-
 /// <summary>
 /// 11 - Medium
 /// 
@@ -24,6 +22,7 @@ namespace Solutions.ContainerWithMostWater;
 ///      2 <= n <= 105
 ///      0 <= height[i] <= 104
 /// </summary>
+namespace Solutions.ContainerWithMostWater;
 
 public class ContainerWithMostWater
 {
@@ -50,3 +49,4 @@ public class ContainerWithMostWater
         return maxArea;
     }
 }
+

@@ -445,3 +445,4 @@ class BuyAndSellStockTest {
         assertEquals(expected, actual, "Should return " + expected);
     }
 }
+

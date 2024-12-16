@@ -42,3 +42,4 @@ class StringToIntegerTest {
                 "Negative should return -1");
     }
 }
+

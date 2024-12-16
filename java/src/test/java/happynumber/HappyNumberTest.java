@@ -30,3 +30,4 @@ class HappyNumberTest {
         assertFalse(happyNumber.isHappy(n));
     }
 }
+

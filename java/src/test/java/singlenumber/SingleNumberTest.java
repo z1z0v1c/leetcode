@@ -46,3 +46,4 @@ class SingleNumberTest {
         assertEquals(expected, actual);
     }
 }
+

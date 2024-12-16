@@ -42,3 +42,4 @@ class SmallestPositiveIntegerTest {
                 "Should return 1");
     }
 }
+

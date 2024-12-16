@@ -58,3 +58,4 @@ class BalancedBinaryTreeTest {
         assertTrue(balancedBinaryTree.isBalanced(null), "Should return true");
     }
 }
+

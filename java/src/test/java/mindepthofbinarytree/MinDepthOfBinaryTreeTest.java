@@ -69,3 +69,4 @@ class MinDepthOfBinaryTreeTest {
         assertEquals(0, minDepthOfBinaryTree.minDepth(null), "Should return 0");
     }
 }
+

@@ -47,3 +47,4 @@ class MajorityElementTest {
         assertEquals(expected, actual);
     }
 }
+

@@ -76,3 +76,4 @@ class LinkedListCycleTest {
         assertFalse(linkedListCycle.hasCycle(head));
     }
 }
+

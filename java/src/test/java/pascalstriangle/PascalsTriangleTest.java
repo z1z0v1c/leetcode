@@ -48,3 +48,4 @@ class PascalsTriangleTest {
         assertEquals(expected, actual, "Should return [[1]]");
     }
 }
+

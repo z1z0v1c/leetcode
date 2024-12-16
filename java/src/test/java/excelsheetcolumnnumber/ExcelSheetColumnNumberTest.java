@@ -58,3 +58,4 @@ class ExcelSheetColumnNumberTest {
         assertEquals(expected, actual);
     }
 }
+

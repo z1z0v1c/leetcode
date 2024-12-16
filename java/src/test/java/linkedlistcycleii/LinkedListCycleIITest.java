@@ -92,3 +92,4 @@ class LinkedListCycleTest {
         assertEquals(head, linkedListCycleII.detectCycle(head));
     }
 }
+

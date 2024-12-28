@@ -1,4 +1,4 @@
-package longest_substring
+package longestsubstring
 
 import (
 	"fmt"
@@ -8,22 +8,22 @@ import (
 func TestLengthOfLongestSubstring(t *testing.T) {
 	err := testLengthOfLongestSubstring(" ", 1)
 	if err != nil {
-		t.Errorf(err.Error())
+		t.Error(err.Error())
 	}
 
 	err = testLengthOfLongestSubstring("abcabcbb", 3)
 	if err != nil {
-		t.Errorf(err.Error())
+		t.Error(err.Error())
 	}
 
 	err = testLengthOfLongestSubstring("bbbbb", 1)
 	if err != nil {
-		t.Errorf(err.Error())
+		t.Error(err.Error())
 	}
 
 	err = testLengthOfLongestSubstring("pwwkew", 3)
 	if err != nil {
-		t.Errorf(err.Error())
+		t.Error(err.Error())
 	}
 }
 

@@ -29,22 +29,28 @@ package validpalindromeii
 func validPalindrome(s string) bool {
 	start := 0
 	end := len(s) - 1
-	deleted := false
 
 	for start < end {
-		if s[start] == s[end] {
-			start++
-			end--
-		} else if !deleted {
-			if s[start] == s[end-1] {
-				end--
-			} else {
-				start++
-			}
-			deleted = true
-		} else {
+		if s[start] != s[end] {
+			return isPalindrome(s[start+1:end+1]) || isPalindrome(s[start:end])
+		}
+		start++
+		end--
+	}
+
+	return true
+}
+
+func isPalindrome(s string) bool {
+	start := 0
+	end := len(s) - 1
+
+	for start < end {
+		if s[start] != s[end] {
 			return false
 		}
+		start++
+		end--
 	}
 
 	return true

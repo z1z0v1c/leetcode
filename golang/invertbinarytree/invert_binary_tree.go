@@ -28,5 +28,15 @@ package invertbinarytree
 import cs "github.com/z1z0v1c/leetcode/commonstructs"
 
 func invertTree(root *cs.TreeNode) *cs.TreeNode {
+	if root == nil {
+		return nil
+	}
+	
+	if root.Left == nil && root.Right == nil {
+		return root
+	}
+
+	root.Left, root.Right = invertTree(root.Right), invertTree(root.Left)
+
 	return root
 }

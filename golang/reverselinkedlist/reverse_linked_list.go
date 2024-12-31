@@ -30,5 +30,18 @@ package reverselinkedlist
 import cs "github.com/z1z0v1c/leetcode/commonstructs"
 
 func reverseList(head *cs.ListNode) *cs.ListNode {
-	return head
+	if head == nil {
+		return head
+	}
+
+	var prev *cs.ListNode
+
+	for head != nil {
+		next := head.Next
+		head.Next = prev
+		prev = head
+		head = next
+	}
+
+	return prev
 }

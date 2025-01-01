@@ -19,13 +19,36 @@ Example 2:
 
 Constraints:
 
-	- The number of nodes in the tree is in the range [1, 10^4].
-	- -100 <= Node.val <= 100
+  - The number of nodes in the tree is in the range [1, 10^4].
+  - -100 <= Node.val <= 100
 */
 package diameterofbinarytree
 
 import cs "github.com/z1z0v1c/leetcode/commonstructs"
 
 func diameterOfBinaryTree(root *cs.TreeNode) int {
-	return root.Val
+	diameter := 0
+
+	maxDiameter(root, &diameter)
+	
+	return diameter
+}
+
+func maxDiameter(root *cs.TreeNode, diameter *int) int {
+	if root == nil {
+		return 0
+	}
+
+	left := maxDiameter(root.Left, diameter)
+	right := maxDiameter(root.Right, diameter)
+
+	if *diameter < left + right {
+		*diameter = left + right
+	}
+	
+	if left > right {
+		return left + 1
+	}
+	 
+	return right + 1
 }

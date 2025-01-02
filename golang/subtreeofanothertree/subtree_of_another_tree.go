@@ -34,12 +34,9 @@ func isSubtree(root *cs.TreeNode, subRoot *cs.TreeNode) bool {
 		return false
 	}
 
-	if root.Val == subRoot.Val {
-		isSame := equals(root, subRoot)
-
-		if isSame {
-			return true
-		}
+	isSame := equals(root, subRoot)
+	if isSame {
+		return true
 	}
 	
 	left := isSubtree(root.Left, subRoot)

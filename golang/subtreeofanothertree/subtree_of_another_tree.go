@@ -28,5 +28,46 @@ package subtreeofanothertree
 import cs "github.com/z1z0v1c/leetcode/commonstructs"
 
 func isSubtree(root *cs.TreeNode, subRoot *cs.TreeNode) bool {
-	return root.Val > subRoot.Val
+	if root == nil && subRoot == nil {
+		return true
+	} else if root == nil || subRoot == nil {
+		return false
+	}
+
+	if root.Val != subRoot.Val {
+		left := isSubtree(root.Left, subRoot)
+		right := isSubtree(root.Right, subRoot) 
+
+		return left || right
+	} else {
+		isSame := equals(root, subRoot)
+
+		if isSame {
+			return true
+		}
+
+		left := isSubtree(root.Left, subRoot)
+		right := isSubtree(root.Right, subRoot) 
+
+		return left || right
+	}
+}
+
+func equals(root1 *cs.TreeNode, root2 *cs.TreeNode) bool {
+	if root1 == nil && root2 == nil {
+		return true
+	} else if root1 == nil || root2 == nil {
+		return false
+	}
+
+	if root1.Val != root2.Val {
+		return false
+	}	
+
+	isSame := equals(root1.Left, root2.Left)
+	if !isSame {
+		return false
+	}
+
+	return equals(root1.Right, root2.Right)
 }

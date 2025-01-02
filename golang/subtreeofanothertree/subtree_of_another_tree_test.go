@@ -7,6 +7,7 @@ import (
 )
 
 func TestIsSubtree(t *testing.T) {
+	// Example one
 	root := &cs.TreeNode{
 		Val: 3,
 		Left: &cs.TreeNode{
@@ -37,6 +38,7 @@ func TestIsSubtree(t *testing.T) {
 		t.Error("isSubtree(root, subRoot) should return true.")
 	}
 
+	// Example two
 	root = &cs.TreeNode{
 		Val: 3,
 		Left: &cs.TreeNode{
@@ -68,5 +70,21 @@ func TestIsSubtree(t *testing.T) {
 
 	if isSubtree(root, subRoot) {
 		t.Error("isSubtree(root, subRoot) should return false.")
+	}
+
+	// Example three
+	root = &cs.TreeNode{
+		Val: 1,
+		Left: &cs.TreeNode{
+			Val: 1,
+		},
+	}
+
+	subRoot = &cs.TreeNode{
+		Val: 1,
+	}
+
+	if !isSubtree(root, subRoot) {
+		t.Error("isSubtree(root, subRoot) should return true.")
 	}
 }

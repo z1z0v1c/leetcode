@@ -59,6 +59,60 @@ Constraints:
 */
 package kthlargestelementinastream
 
+import "container/heap"
+
+type Heap []int
+
+func (h Heap) Len() int { return len(h) } 
+func (h Heap) Less(i, j int) bool { return h[i] < h[j] } 
+func (h Heap) Swap(i, j int) { h[i], h[j] = h[j], h[i] } 
+
+func (h *Heap) Push(val any) {
+	*h = append(*h, val.(int))
+}
+
+func (h *Heap) Pop() any {
+	val := (*h)[h.Len()-1]
+	*h = (*h)[:h.Len()-1]
+	return val	
+}
+
+type KthLargest struct {
+	K int
+	Heap *Heap
+}
+
+
+func Constructor(k int, nums []int) KthLargest {
+	h := &Heap{}
+	heap.Init(h)
+
+	kthLargest := KthLargest{ K: k, Heap: h }
+
+	for _, num := range nums {
+		kthLargest.Add(num)
+	}
+
+	return kthLargest
+}
+
+func (this *KthLargest) Add(val int) int {
+	if this.Heap.Len() < this.K {
+		heap.Push(this.Heap, val)
+	} else if (*this.Heap)[0] < val {
+		heap.Pop(this.Heap)
+		heap.Push(this.Heap, val)	
+	}
+	
+	if this.Heap.Len() > 0 {
+		return (*this.Heap)[0]
+	}
+	
+	return 0
+}
+
+/* ---- Slice sorting solution ----
+
 import (
 	"sort"
 )
@@ -92,6 +146,7 @@ func (this *KthLargest) Add(val int) int {
 
 	return this.Nums[0]
 }
+*/
 
 /**
  * Your KthLargest object will be instantiated and called as such:

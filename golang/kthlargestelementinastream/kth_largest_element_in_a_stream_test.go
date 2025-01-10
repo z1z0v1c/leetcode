@@ -59,4 +59,35 @@ func TestAdd(t *testing.T) {
 	if param_1 != 8 {
 		t.Error("Add(9) should return 8.")
 	}
+
+	// Example three
+	k = 1
+	nums = []int{}
+
+	obj = Constructor(k, nums);
+	
+	param_1 = obj.Add(-3)
+	if param_1 != -3 {
+		t.Error("Add(-3) should return -3.")
+	}
+
+	param_1 = obj.Add(-2)
+	if param_1 != -2 {
+		t.Error("Add(-2) should return -2.")
+	}
+
+	param_1 = obj.Add(-4)
+	if param_1 != -2 {
+		t.Error("Add(-2) should return -2.")
+	}
+
+	param_1 = obj.Add(0)
+	if param_1 != 0 {
+		t.Error("Add(0) should return 0.")
+	}
+
+	param_1 = obj.Add(4)
+	if param_1 != 4 {
+		t.Error("Add(4) should return 4.")
+	}
 }

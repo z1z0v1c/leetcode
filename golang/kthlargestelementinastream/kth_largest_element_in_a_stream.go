@@ -8,8 +8,8 @@ test score after a new score has been submitted. More specifically, we are looki
 
 Implement the KthLargest class:
 
-	- KthLargest(int k, int[] nums) Initializes the object with the integer k and the stream of test scores nums.
-	- int add(int val) Adds a new test score val to the stream and returns the element representing the kth largest element in the pool of test scores so far.
+  - KthLargest(int k, int[] nums) Initializes the object with the integer k and the stream of test scores nums.
+  - int add(int val) Adds a new test score val to the stream and returns the element representing the kth largest element in the pool of test scores so far.
 
 Example 1:
 
@@ -17,13 +17,13 @@ Example 1:
 
 		["KthLargest", "add", "add", "add", "add", "add"]
 		[[3, [4, 5, 8, 2]], [3], [5], [10], [9], [4]]
-	
+
 	Output:
-	
+
 		[null, 4, 5, 5, 8, 8]
-	
+
 	Explanation:
-	
+
 		KthLargest kthLargest = new KthLargest(3, [4, 5, 8, 2]);
 		kthLargest.add(3); // return 4
 		kthLargest.add(5); // return 5
@@ -39,7 +39,7 @@ Example 2:
 		[[4, [7, 7, 7, 7, 8, 3]], [2], [10], [9], [9]]
 
 	Output:
-	
+
 		[null, 7, 7, 7, 8]
 
 	Explanation:
@@ -51,26 +51,38 @@ Example 2:
 
 Constraints:
 
-	- 0 <= nums.length <= 10^4
-	- 1 <= k <= nums.length + 1
-	- -10^4 <= nums[i] <= 10^4
-	- -10^4 <= val <= 10^4
-	- At most 10^4 calls will be made to add.
+  - 0 <= nums.length <= 10^4
+  - 1 <= k <= nums.length + 1
+  - -10^4 <= nums[i] <= 10^4
+  - -10^4 <= val <= 10^4
+  - At most 10^4 calls will be made to add.
 */
 package kthlargestelementinastream
 
+import (
+	"sort"
+)
+
 type KthLargest struct {
-    
+	K int
+	Nums []int
 }
 
 
 func Constructor(k int, nums []int) KthLargest {
-	return KthLargest{}
+	sort.Ints(nums)
+	return KthLargest{
+		K: k,
+		Nums: nums,
+	}
 }
 
 
 func (this *KthLargest) Add(val int) int {
-	return val
+	this.Nums = append(this.Nums, val)
+	sort.Ints(this.Nums)
+
+	return this.Nums[len(this.Nums)-this.K]
 }
 
 /**

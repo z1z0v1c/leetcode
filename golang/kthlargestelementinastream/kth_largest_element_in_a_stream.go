@@ -71,18 +71,26 @@ type KthLargest struct {
 
 func Constructor(k int, nums []int) KthLargest {
 	sort.Ints(nums)
+
+	if len(nums)-k > 0 {
+		nums = nums[len(nums)-k:]
+	}
+
 	return KthLargest{
 		K: k,
 		Nums: nums,
 	}
 }
 
-
 func (this *KthLargest) Add(val int) int {
-	this.Nums = append(this.Nums, val)
+	if len(this.Nums) < this.K || len(this.Nums) == 0 {
+		this.Nums = append(this.Nums, val)
+	} else if val > this.Nums[0] {
+		this.Nums[0] = val
+	}
 	sort.Ints(this.Nums)
 
-	return this.Nums[len(this.Nums)-this.K]
+	return this.Nums[0]
 }
 
 /**

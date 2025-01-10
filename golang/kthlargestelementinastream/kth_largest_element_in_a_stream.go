@@ -96,16 +96,16 @@ func Constructor(k int, nums []int) KthLargest {
 	return kthLargest
 }
 
-func (this *KthLargest) Add(val int) int {
-	if this.Heap.Len() < this.K {
-		heap.Push(this.Heap, val)
-	} else if (*this.Heap)[0] < val {
-		heap.Pop(this.Heap)
-		heap.Push(this.Heap, val)	
+func (kl *KthLargest) Add(val int) int {
+	if kl.Heap.Len() < kl.K {
+		heap.Push(kl.Heap, val)
+	} else if (*kl.Heap)[0] < val {
+		heap.Pop(kl.Heap)
+		heap.Push(kl.Heap, val)	
 	}
 	
-	if this.Heap.Len() > 0 {
-		return (*this.Heap)[0]
+	if kl.Heap.Len() > 0 {
+		return (*kl.Heap)[0]
 	}
 	
 	return 0
@@ -136,15 +136,15 @@ func Constructor(k int, nums []int) KthLargest {
 	}
 }
 
-func (this *KthLargest) Add(val int) int {
-	if len(this.Nums) < this.K || len(this.Nums) == 0 {
-		this.Nums = append(this.Nums, val)
-	} else if val > this.Nums[0] {
-		this.Nums[0] = val
+func (kl *KthLargest) Add(val int) int {
+	if len(kl.Nums) < kl.K || len(kl.Nums) == 0 {
+		kl.Nums = append(kl.Nums, val)
+	} else if val > kl.Nums[0] {
+		kl.Nums[0] = val
 	}
-	sort.Ints(this.Nums)
+	sort.Ints(kl.Nums)
 
-	return this.Nums[0]
+	return kl.Nums[0]
 }
 */
 

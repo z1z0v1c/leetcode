@@ -5,7 +5,7 @@ import "testing"
 func TestMinCostClimbingStairs(t *testing.T) {
 	// Example one
 	cost := []int{10, 25, 20}
-	
+
 	expected := 15
 	actual := minCostClimbingStairs(cost)
 
@@ -14,8 +14,8 @@ func TestMinCostClimbingStairs(t *testing.T) {
 	}
 
 	// Example two
-	cost = []int{1,100,1,1,1,100,1,1,100,1}
-	
+	cost = []int{1, 100, 1, 1, 1, 100, 1, 1, 100, 1}
+
 	expected = 6
 	actual = minCostClimbingStairs(cost)
 

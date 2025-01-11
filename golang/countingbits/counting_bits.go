@@ -47,8 +47,8 @@ func countBits(n int) []int {
 		num := i
 
 		for num > 0 {
-			counts[i] += num & 1
-			num >>= 1
+			num &= num - 1
+			counts[i]++
 		}
 	} 
 
@@ -56,15 +56,37 @@ func countBits(n int) []int {
 }
 
 /**
-import "math/bits"
+ * ======> Bitwise operations solution <======
+ *
+ * func countBits2(n int) []int {
+ * 	counts := []int{}
+ * 
+ * 	for i := 0; i <= n; i++ {
+ * 		counts = append(counts, 0)
+ * 		num := i
+ * 
+ * 		for num > 0 {
+ * 			counts[i] += num & 1
+ * 			num >>= 1
+ * 		}
+ * 	} 
+ * 
+ * 	return counts
+ * }
+ */
 
-func countBits(n int) []int {
-	counts := []int{}
-
-	for i := 0; i <= n; i++ {
-		counts = append(counts, bits.OnesCount(uint(i)))
-	} 
-
-	return counts
-}
-*/
+/**
+ * ======> math/bits OnesCount solution <======
+ *
+ * import "math/bits"
+ * 
+ * func countBits(n int) []int {
+ * 	counts := []int{}
+ * 
+ * 	for i := 0; i <= n; i++ {
+ * 		counts = append(counts, bits.OnesCount(uint(i)))
+ * 	} 
+ * 
+ * 	return counts
+ * }
+ */

@@ -34,5 +34,12 @@
 package numberof1bits
 
 func hammingWeight(n int) int {
-	return n
+	count := 0
+
+	for n > 0 {
+		count += n & 1
+		n >>= 1
+	}
+	
+	return count
 }

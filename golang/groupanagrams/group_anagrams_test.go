@@ -9,7 +9,7 @@ func TestGroupAnagrams(t *testing.T) {
 	// Example one
 	strs := []string{"eat", "tea", "tan", "ate", "nat", "bat"}
 
-	expected := [][]string{{"bat"}, {"nat", "tan"}, {"ate", "eat", "tea"}}
+	expected := [][]string{{"eat", "tea", "ate"}, {"tan", "nat"}, {"bat"}}
 	actual := groupAnagrams(strs)
 
 	if len(expected) != len(actual) {

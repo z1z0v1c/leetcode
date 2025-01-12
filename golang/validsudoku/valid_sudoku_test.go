@@ -36,4 +36,21 @@ func TestIsValidSudoku(t *testing.T) {
 	if isValidSudoku(board) {
 		t.Error("isValidSudoku(board) shoud return false in example 2.")
 	}
+
+	// Example three
+	board = [][]byte{
+		{'5','3','.','.','7','.','.','.','.'},
+		{'6','.','.','1','9','5','.','.','.'},
+		{'.','9','8','.','.','.','.','6','.'},
+		{'8','.','.','.','6','.','.','.','3'},
+		{'4','.','.','8','.','3','.','.','1'},
+		{'7','.','.','.','2','.','.','1','6'},
+		{'.','6','.','.','.','.','2','8','.'},
+		{'.','.','.','4','1','9','.','.','5'},
+		{'.','.','.','.','8','.','.','7','9'},
+	}
+
+	if isValidSudoku(board) {
+		t.Error("isValidSudoku(board) shoud return false in example 3.")
+	}
 }

@@ -34,8 +34,7 @@
 package groupanagrams
 
 import (
-	"sort"
-	"strings"
+	"slices"
 )
 
 func groupAnagrams(strs []string) [][]string {
@@ -47,7 +46,7 @@ func groupAnagrams(strs []string) [][]string {
 		groups[sorted] = append(groups[sorted], str)
 	}
 	
-	values := [][]string{}
+	values := make([][]string, 0, len(groups))
 
 	for _, v := range groups {
 		values = append(values, v)
@@ -57,9 +56,9 @@ func groupAnagrams(strs []string) [][]string {
 }
 
 func sortAString(str string) string {
-	strs := strings.Split(str, "")
+	runes := []rune(str)
+	
+	slices.Sort(runes)
 
-	sort.Strings(strs)
-
-	return strings.Join(strs, "")
+	return string(runes)
 }

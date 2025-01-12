@@ -58,6 +58,7 @@
 package validsudoku
 
 func isValidSudoku(board [][]byte) bool {
+	// Check rows and columns
 	for i := 0; i < len(board); i++ {
 		row := make(map[byte]int, len(board))
 		col := make(map[byte]int, len(board))
@@ -87,6 +88,7 @@ func isValidSudoku(board [][]byte) bool {
 		}
 	}
 
+	// Check all squares
 	for k := 0; k < 3; k++ {
 		for z := 0; z < 3; z++ {
 			square := make(map[byte]int, len(board))

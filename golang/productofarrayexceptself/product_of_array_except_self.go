@@ -28,5 +28,21 @@
 package productofarrayexceptself
 
 func productExceptSelf(nums []int) []int {
-	return nums
+	answer := make([]int, len(nums))
+
+	// Set answer[i] as the product of all previous numbers
+	prev := 1
+	for i := 0; i < len(nums); i++ {
+		answer[i] = prev
+		prev *= nums[i]	
+	} 
+
+	// Multiply answer[i] by all previous numbers in opposite direction
+	prev = 1
+	for i := len(nums) - 1; i >= 0; i-- {
+		answer[i] *= prev
+		prev *= nums[i]
+	}
+
+	return answer
 }

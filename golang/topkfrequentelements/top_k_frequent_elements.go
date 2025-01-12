@@ -33,21 +33,18 @@ func topKFrequent(nums []int, k int) []int {
 		freq[num]++
 	}
 
-	vals := make([]int, 0, len(freq))
-	keys := make([]int, 0, k)
+	keys := make([]int, 0, len(freq))
 
-	for _, val := range freq {
-		vals = append(vals, val)
+	for key := range freq {
+		keys = append(keys, key)
 	}
 
-	slices.Sort(vals)
-	vals = vals[len(vals)-k:]
-
-	for k, v := range freq {
-		if slices.Contains(vals, v) {
-			keys = append(keys, k)
+	slices.SortFunc(keys, func(a, b int) int {
+		if freq[a] > freq[b] {
+			return -1
 		}
-	}
+		return 1
+	})
 
-	return keys
+	return keys[:k]
 }

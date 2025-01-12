@@ -48,13 +48,25 @@ package missingnumber
 func missingNumber(nums []int) int {
 	var res int
 
-	for i := 0; i <= len(nums); i++ {
-		res ^= i
-	}
-	
 	for i := 0; i < len(nums); i++ {
-		res ^= nums[i]
+		res ^= i ^ nums[i]
 	}
 	
-	return res
+	return res ^ len(nums)
 }
+
+/**
+ * func missingNumber(nums []int) int {
+ * 	var res int
+ * 
+ * 	for i := 0; i <= len(nums); i++ {
+ * 		res ^= i
+ * 	}
+ * 	
+ * 	for i := 0; i < len(nums); i++ {
+ * 		res ^= nums[i]
+ * 	}
+ * 	
+ * 	return res
+ * }
+ */

@@ -25,4 +25,14 @@ func TestTopKFrequent(t *testing.T) {
 	if !slices.Equal(expected, actual) {
 		t.Error("topKFrequent(nums, k) returned incorrect result in example 1.")
 	}
+
+	// Example three
+	nums, k = []int{3, 0, 1, 0}, 1
+
+	expected = []int{0}
+	actual = topKFrequent(nums, k)
+
+	if !slices.Equal(expected, actual) {
+		t.Error("topKFrequent(nums, k) returned incorrect result in example 1.")
+	}
 }

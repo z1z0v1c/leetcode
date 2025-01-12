@@ -29,22 +29,24 @@ import "slices"
 func topKFrequent(nums []int, k int) []int {
 	freq := make(map[int]int)
 
+	// Count frequencies
 	for _, num := range nums {
 		freq[num]++
 	}
 
-	keys := make([]int, 0, len(freq))
-
-	for key := range freq {
-		keys = append(keys, key)
+	elements := make([]int, 0, len(freq))
+	for element := range freq {
+		elements = append(elements, element)
 	}
 
-	slices.SortFunc(keys, func(a, b int) int {
+	// Sort elements by frequencies in descending order
+	slices.SortFunc(elements, func(a, b int) int {
 		if freq[a] > freq[b] {
 			return -1
 		}
 		return 1
 	})
 
-	return keys[:k]
+	// Return top k elements
+	return elements[:k]
 }

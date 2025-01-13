@@ -27,14 +27,16 @@ func longestConsecutive(nums []int) int {
 	longest := 0
 
 	for _, num := range nums {
+		// Skip duplicates
 		if _, ok := sequences[num]; !ok {
 			// Get neighbor sequences
 			left := sequences[num-1]
 			right := sequences[num+1]
 
 			new := left + right + 1
+			sequences[num] = new
 
-			// Update only boundaries
+			// Update boundaries
 			sequences[num-left] = new
 			sequences[num+right] = new
 

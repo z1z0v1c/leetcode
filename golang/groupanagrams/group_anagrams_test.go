@@ -1,7 +1,7 @@
 package groupanagrams
 
 import (
-	"slices"
+	"reflect"
 	"testing"
 )
 
@@ -16,10 +16,8 @@ func TestGroupAnagrams(t *testing.T) {
 		t.Error("groupAnagrams(strs) returned incorrect result for example 1.")
 	}
 	 
-	for i := 0; i < len(expected); i++ {
-		if !slices.Equal(expected[i], actual[i]) {
-			t.Error("groupAnagrams(strs) returned incorrect result for example 1.")
-		}
+	if !reflect.DeepEqual(expected, actual) {
+		t.Errorf("groupAnagrams(%v) returned %v instead of %v.", strs, actual, expected)
 	}
 
 	// Example two
@@ -28,8 +26,8 @@ func TestGroupAnagrams(t *testing.T) {
 	expected = [][]string{{""}}
 	actual = groupAnagrams(strs)
 
-	if !slices.Equal(expected[0], actual[0]) {
-		t.Error("groupAnagrams(strs) returned incorrect result for example 2.")
+	if !reflect.DeepEqual(expected, actual) {
+		t.Errorf("groupAnagrams(%v) returned %v instead of %v.", strs, actual, expected)
 	}
 
 	// Example three
@@ -38,7 +36,7 @@ func TestGroupAnagrams(t *testing.T) {
 	expected = [][]string{{"a"}}
 	actual = groupAnagrams(strs)
 
-	if !slices.Equal(expected[0], actual[0]) {
-		t.Error("groupAnagrams(strs) returned incorrect result for example 3.")
+	if !reflect.DeepEqual(expected, actual) {
+		t.Errorf("groupAnagrams(%v) returned %v instead of %v.", strs, actual, expected)
 	}
 }

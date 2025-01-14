@@ -51,7 +51,10 @@ type MinStack struct {
 
 
 func Constructor() MinStack {
-	return MinStack{[]int{}, []int{}}
+	return MinStack{
+		min: []int{},
+		stack: []int{},
+	}
 }
 
 

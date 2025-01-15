@@ -35,4 +35,14 @@ func TestDailyTemperatures(t *testing.T) {
 	if !slices.Equal(expected, actual) {
 		t.Errorf("dailyTemperatures(%#v) returned %#v instead of %#v.", temperatures, actual, expected)
 	}
+
+	// Example four
+	temperatures = []int{89, 62, 70, 58, 47, 47, 46, 76, 100, 70}
+
+	expected = []int{8, 1, 5, 4, 3, 2, 1, 1, 0, 0}
+	actual = dailyTemperatures(temperatures)
+
+	if !slices.Equal(expected, actual) {
+		t.Errorf("dailyTemperatures(%#v) returned %#v instead of %#v.", temperatures, actual, expected)
+	}
 }

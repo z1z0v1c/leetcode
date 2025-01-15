@@ -27,23 +27,18 @@
  */
 package dailytemperatures
 
-type IndexedTemperature struct {
-	index       int
-	temperature int
-}
-
 func dailyTemperatures(temperatures []int) []int {
 	answer := make([]int, len(temperatures))
-	stack := []IndexedTemperature{{0, temperatures[0]}}
+	stack := []int{0}
 
 	for i := 1; i < len(temperatures); i++ {
-		for len(stack) > 0 && stack[len(stack)-1].temperature < temperatures[i] {
+		for len(stack) > 0 && temperatures[stack[len(stack)-1]] < temperatures[i] {
 			last := stack[len(stack)-1]
-			answer[last.index] = i - last.index
+			answer[last] = i - last
 			stack = stack[:len(stack)-1]
 		}
 
-		stack = append(stack, IndexedTemperature{i, temperatures[i]})
+		stack = append(stack, i)
 	}
 
 	return answer

@@ -38,4 +38,28 @@ func TestCarFleet(t *testing.T) {
 	if expected != actual {
 		t.Errorf("carFleet(%d, %#v, %#v) returned %d instead of %d.", target, position, speed, actual, expected)
 	}
+
+	// Example four
+	target = 10
+	position = []int{6, 8}
+	speed = []int{3, 2}
+
+	expected = 2
+	actual = carFleet(target, position, speed)
+
+	if expected != actual {
+		t.Errorf("carFleet(%d, %#v, %#v) returned %d instead of %d.", target, position, speed, actual, expected)
+	}
+
+	// Example five
+	target = 10
+	position = []int{0, 4, 2}
+	speed = []int{2, 1, 3}
+
+	expected = 1
+	actual = carFleet(target, position, speed)
+
+	if expected != actual {
+		t.Errorf("carFleet(%d, %#v, %#v) returned %d instead of %d.", target, position, speed, actual, expected)
+	}
 }

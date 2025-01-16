@@ -59,6 +59,31 @@
  */
 package carfleet
 
+import "sort"
+
 func carFleet(target int, position []int, speed []int) int {
-	return target + position[0] + speed[0]
+	n := len(position)
+	times := make([]float64, 0, n)
+	positions := make(map[int]int, n)
+
+	for i := 0; i < n; i++ {
+		positions[position[i]] = i
+		time := float64(target-position[i]) / float64(speed[i])
+		times = append(times, time)
+	}
+
+	sort.Ints(position)
+
+	fleets := 0
+	prev :=  0.0
+
+	for i := n - 1; i >= 0; i-- {
+		index := positions[position[i]]
+		if times[index] > prev {
+			fleets++
+			prev = times[index]
+		}
+	}
+
+	return fleets
 }

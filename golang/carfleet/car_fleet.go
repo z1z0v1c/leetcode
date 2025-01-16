@@ -63,25 +63,24 @@ import "sort"
 
 func carFleet(target int, position []int, speed []int) int {
 	n := len(position)
-	times := make([]float64, 0, n)
-	positions := make(map[int]int, n)
 
+	indexes := make([]int, n)
 	for i := 0; i < n; i++ {
-		positions[position[i]] = i
-		time := float64(target-position[i]) / float64(speed[i])
-		times = append(times, time)
+		indexes[i] = i
 	}
 
-	sort.Ints(position)
+	sort.Slice(indexes, func(i, j int) bool {
+		return position[indexes[i]] < position[indexes[j]]
+	})
 
-	fleets := 0
-	prev :=  0.0
+	var fleets int
+	var prev float64
 
 	for i := n - 1; i >= 0; i-- {
-		index := positions[position[i]]
-		if times[index] > prev {
+		time := float64(target-position[indexes[i]]) / float64(speed[indexes[i]])
+		if time > prev {
 			fleets++
-			prev = times[index]
+			prev = time
 		}
 	}
 

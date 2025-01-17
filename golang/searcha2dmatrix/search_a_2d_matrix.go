@@ -1,10 +1,14 @@
-/**
- * 74 - Medium
- *
- * You are given an m x n integer matrix matrix with the following two properties:
+/*
+*
 
-	- Each row is sorted in non-decreasing order.
-	- The first integer of each row is greater than the last integer of the previous row.
+  - 74 - Medium
+    *
+
+  - You are given an m x n integer matrix matrix with the following two properties:
+
+  - Each row is sorted in non-decreasing order.
+
+  - The first integer of each row is greater than the last integer of the previous row.
 
 Given an integer target, return true if target is in matrix or false otherwise.
 You must write a solution in O(log(m * n)) time complexity.
@@ -21,13 +25,57 @@ Example 2:
 
 Constraints:
 
-	- m == matrix.length
-	- n == matrix[i].length
-	- 1 <= m, n <= 100
-	- -10^4 <= matrix[i][j], target <= 10^4
- */
+  - m == matrix.length
+  - n == matrix[i].length
+  - 1 <= m, n <= 100
+  - -10^4 <= matrix[i][j], target <= 10^4
+*/
 package searcha2dmatrix
 
 func searchMatrix(matrix [][]int, target int) bool {
-	return matrix[0][0] > target
+	m := len(matrix) - 1
+	n := len(matrix[0]) - 1
+
+	start := 0
+	end := m
+
+	if matrix[start][0] > target {
+		return false
+	}
+	if matrix[end][n] < target {
+		return false
+	}
+
+	for start <= end {
+		mid := (start + end) / 2
+
+		if matrix[mid][0] > target {
+			return searchMatrix(matrix[:mid], target)
+		} else if matrix[mid][n] < target {
+			return searchMatrix(matrix[mid+1:], target)
+		} else {
+			return searchRow(matrix[mid], target)
+		}
+	}
+
+	return false
+}
+
+func searchRow(row []int, target int) bool {
+	start := 0
+	end := len(row) - 1
+
+	for start <= end {
+		mid := (start + end) / 2
+
+		if (row[mid] < target) {
+			start = mid + 1
+		} else if (row[mid] > target) {
+			end = mid - 1
+		} else {
+			return true
+		}
+	}
+
+	return false
 }

@@ -24,4 +24,11 @@ func TestSearchMatrix(t *testing.T) {
 	if searchMatrix(matrix, target) {
 		t.Errorf("searchMatrix(%#v, %d) should return false.", matrix, target)
 	}
+
+	// Example three
+	matrix, target = [][]int{{1}}, 0
+	
+	if searchMatrix(matrix, target) {
+		t.Errorf("searchMatrix(%#v, %d) should return false.", matrix, target)
+	}
 }

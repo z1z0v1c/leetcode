@@ -64,4 +64,14 @@ func TestFindMin(t *testing.T) {
 	if expected != actual {
 		t.Errorf("findMin(%#v) returned %d instead of %d.", nums, actual, expected)
 	}
+	
+	// Example seven
+	nums = []int{5, 1, 2, 3, 4}
+
+	expected = 1
+	actual = findMin(nums)
+
+	if expected != actual {
+		t.Errorf("findMin(%#v) returned %d instead of %d.", nums, actual, expected)
+	}
 }

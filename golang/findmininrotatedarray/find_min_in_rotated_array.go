@@ -43,5 +43,21 @@
 package findmininrotatedarray
 
 func findMin(nums []int) int {
-	return nums[0]
+	start, end := 0, len(nums) - 1
+
+	for start <= end {
+		mid := (start + end) / 2
+
+		if end - start >= 2 && nums[mid] < nums[mid-1] && nums[mid] < nums[mid+1] {
+			return nums[mid]
+		}
+
+		if nums[mid] > nums[end] {
+			start = mid + 1
+		} else {
+			end = mid - 1
+		}
+	}
+
+	return nums[start]
 }

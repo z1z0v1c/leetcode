@@ -47,24 +47,45 @@
 package timebasedkeyvaluestore
 
 type TimeMap struct {
-    
+   values map[string]map[int]string    
 }
 
 
 func Constructor() TimeMap {
-   return TimeMap{}
+   values := make(map[string]map[int]string)
+   
+   return TimeMap{
+      values: values,
+   }
 }
 
 
 func (this *TimeMap) Set(key string, value string, timestamp int)  {
-    
+   timestamps, ok := this.values[key]
+   if !ok {
+      timestamps = make(map[int]string)
+   }
+
+   timestamps[timestamp] = value 
+   this.values[key] = timestamps
 }
 
 
 func (this *TimeMap) Get(key string, timestamp int) string {
+   timestamps, ok := this.values[key]
+   if !ok {
+      return ""
+   }
+
+   for ; timestamp > 0; timestamp-- {
+      value, ok := timestamps[timestamp]
+      if ok {
+         return value
+      }
+   }
+
 	return ""
 }
-
 
 /**
  * Your TimeMap object will be instantiated and called as such:

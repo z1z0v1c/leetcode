@@ -34,23 +34,24 @@ package longestrepeatingcharreplacement
 
 func characterReplacement(s string, k int) int {
 	// Keep track of char frequences
-	fq := make(map[byte]int)
+	// Use slice instead of map for improved performance
+	fq := make([]int, 26)
 	longest, maxfq := 0, 0
 
 	for start, end := 0, 0; end < len(s); end++ {
-		fq[s[end]]++
+		fq[int(s[end]-'A')]++
 
 		// Update max frequence
-		if fq[s[end]] > maxfq {
-			maxfq = fq[s[end]]
+		if fq[int(s[end]-'A')] > maxfq {
+			maxfq = fq[int(s[end]-'A')]
 		}
 
 		// Get current window size
 		size := end - start + 1
 
-		if size > maxfq + k {
+		if size > int(maxfq) + k {
 			// Move pointer and update frequency
-			fq[s[start]]--
+			fq[int(s[start]-'A')]--
 			start++
 		} else if longest < size {
 			// Update longest valid size

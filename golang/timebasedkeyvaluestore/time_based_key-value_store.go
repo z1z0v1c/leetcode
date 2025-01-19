@@ -56,52 +56,43 @@ type TimeMap struct {
 }
 
 func Constructor() TimeMap {
-   values := make(map[string][]TimeMapValue)
    return TimeMap{
-      values: values,
+      values: make(map[string][]TimeMapValue),
    }
 }
 
-func (this *TimeMap) Set(key string, value string, timestamp int)  {
-   timestamps, ok := this.values[key]
+func (tm *TimeMap) Set(key string, value string, timestamp int)  {
+   timestamps, ok := tm.values[key]
    if !ok {
       timestamps = make([]TimeMapValue, 0, 1)
    }
 
    timestamps = append(timestamps, TimeMapValue{timestamp: timestamp, value: value})
-   this.values[key] = timestamps
+   tm.values[key] = timestamps
 }
 
 
-func (this *TimeMap) Get(key string, timestamp int) string {
-   timestamps, ok := this.values[key]
+func (tm *TimeMap) Get(key string, timestamp int) string {
+   timestamps, ok := tm.values[key]
    if !ok {
       return ""
    }
 
-   var res TimeMapValue
-   left, right := 0, len(timestamps)-1
-
-   if timestamps[left].timestamp > timestamp {
-      return ""
-   }
-
-   if timestamps[right].timestamp <= timestamp {
-      return timestamps[right].value
-   }
+   var res string
+   left, right := 0, len(timestamps)
 
    for left < right {
       mid := (left + right) / 2
-      res = timestamps[mid]
-
-      if res.timestamp < timestamp {
+      val := timestamps[mid]
+      if val.timestamp <= timestamp {
+         res = val.value
          left = mid + 1
       } else {
          right = mid
       }
    }
 
-	return res.value
+	return res
 }
 
 /**

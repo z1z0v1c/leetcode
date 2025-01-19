@@ -38,23 +38,31 @@
 package searchinrotatedsortedarray
 
 func search(nums []int, target int) int {
-	min := findMin(nums)
+	left, right := 0, len(nums)-1
 
-	nums = append(nums, nums[:min]...)
-	nums = nums[min:]
+	for left <= right {
+		mid := (left + right) / 2
 
-	res := bianarySearch(nums, target)
+		if nums[mid] == target {
+			return mid
+		}
 
-	if res == -1 {
-		return res
+		if nums[left] <= nums[mid] {
+			if nums[left] <= target && target < nums[mid] {
+				right = mid - 1
+			} else {
+				left = mid + 1
+			}
+		} else {
+			if nums[mid] < target && target <= nums[right] {
+				left = mid + 1
+			} else {
+				right = mid - 1
+			}
+		}
 	}
 
-	res = res + min
-
-	if res > len(nums)-1 {
-		return res - len(nums)
-	}
-	return res
+	return -1
 }
 
 func bianarySearch(nums []int, target int) int {
@@ -62,7 +70,6 @@ func bianarySearch(nums []int, target int) int {
 
 	for start <= end {
 		mid := (start + end) / 2
-
 		if nums[mid] == target {
 			return mid
 		} else if nums[mid] < target {

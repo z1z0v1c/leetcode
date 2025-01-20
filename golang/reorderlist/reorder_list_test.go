@@ -1,7 +1,6 @@
 package reorderlist
 
 import (
-	"reflect"
 	"testing"
 
 	cs "github.com/z1z0v1c/leetcode/commonstructs"
@@ -37,7 +36,7 @@ func TestReorderList(t *testing.T) {
 
 	reorderList(head)
 
-	if !reflect.DeepEqual(head, expected) {
+	if !expected.Equals(head) {
 		t.Error("reorderList(head) returned incorrect resut for example 1.")
 	}
 
@@ -76,7 +75,7 @@ func TestReorderList(t *testing.T) {
 
 	reorderList(head)
 
-	if !reflect.DeepEqual(head, expected) {
-		t.Error("reorderList(head) returned incorrect resut for example 1.")
+	if !expected.Equals(head) {
+		t.Error("reorderList(head) returned incorrect resut for example 2.")
 	}
 }

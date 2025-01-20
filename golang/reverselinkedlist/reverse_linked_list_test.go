@@ -42,13 +42,9 @@ func TestReverseList(t *testing.T) {
 
 	actual := reverseList(head)
 
-	for expected != nil {
-		if expected.Val != actual.Val {
-			t.Error("reverseList() function returned incorrect result.")
-		}		
-		expected = expected.Next
-		actual = actual.Next
-	}
+	if !expected.Equals(actual) {
+		t.Error("reverseList(head) function returned incorrect result for example 1.")
+	}		
 
 	// Example two
 	head = &cs.ListNode{
@@ -67,18 +63,14 @@ func TestReverseList(t *testing.T) {
 
 	actual = reverseList(head)
 
-	for expected != nil {
-		if expected.Val != actual.Val {
-			t.Error("reverseList() function returned incorrect result.")
-		}		
-		expected = expected.Next
-		actual = actual.Next
-	}
+	if !expected.Equals(actual) {
+		t.Error("reverseList(head) function returned incorrect result for example 2.")
+	}		
 
-	// Example thrVale
+	// Example three
 	actual = reverseList(nil)
 
 	if actual != nil {
-		t.Error("reverseList() function returned incorrect result.")
+		t.Error("reverseList(head) function returned incorrect result for example 3.")
 	}		
 }

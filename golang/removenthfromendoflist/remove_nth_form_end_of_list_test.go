@@ -28,22 +28,19 @@ func TestRemoveNthFromEnd(t *testing.T) {
 	expected := &cs.ListNode{
 		Val: 1,
 		Next: &cs.ListNode{
-			Val: 5,
+			Val: 2,
 			Next: &cs.ListNode{
-				Val: 2,
+				Val: 3,
 				Next: &cs.ListNode{
-					Val: 4,
-					Next: &cs.ListNode{
-						Val: 3,
-					},
+					Val: 5,
 				},
 			},
 		},
 	}
 
-	removeNthFromEnd(head, 2)
+	actual := removeNthFromEnd(head, 2)
 
-	if !reflect.DeepEqual(head, expected) {
+	if !reflect.DeepEqual(actual, expected) {
 		t.Error("reorderList(head, n) returned incorrect resut for example 1.")
 	}
 
@@ -52,11 +49,10 @@ func TestRemoveNthFromEnd(t *testing.T) {
 		Val: 1,
 	}
 	
-	expected = &cs.ListNode{}
+	expected = nil
+	actual = removeNthFromEnd(head, 1)
 
-	removeNthFromEnd(head, 1)
-
-	if !reflect.DeepEqual(head, expected) {
+	if actual != expected {
 		t.Error("reorderList(head, n) returned incorrect resut for example 2.")
 	}
 
@@ -72,9 +68,9 @@ func TestRemoveNthFromEnd(t *testing.T) {
 		Val: 1,
 	}
 
-	removeNthFromEnd(head, 1)
+	actual = removeNthFromEnd(head, 1)
 
-	if !reflect.DeepEqual(head, expected) {
+	if !reflect.DeepEqual(actual, expected) {
 		t.Error("reorderList(head, n) returned incorrect resut for example 3.")
 	}
 }

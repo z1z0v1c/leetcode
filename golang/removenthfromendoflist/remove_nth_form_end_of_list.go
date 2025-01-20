@@ -32,5 +32,29 @@ package removenthfromendoflist
 import cs "github.com/z1z0v1c/leetcode/commonstructs"
 
 func removeNthFromEnd(head *cs.ListNode, n int) *cs.ListNode {
+	var sz int
+
+	node := head
+
+	for node != nil {
+		sz++
+		node = node.Next
+	}
+	
+	if sz - n == 0 {
+		head = head.Next
+		return head
+	}
+	
+	node = head 
+	prev := &cs.ListNode{} 
+
+	for i := 0; i < sz - n; i++ {
+		prev = node	
+		node = node.Next
+	}
+
+	prev.Next = node.Next
+	
 	return head
 }

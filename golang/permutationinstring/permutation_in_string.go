@@ -24,40 +24,31 @@
  */
 package permutationinstring
 
-var fq1 map[rune]int
-
 func checkInclusion(s1 string, s2 string) bool {
-	fq1 = countLetters(s1)
+	if len(s1) > len(s2) {
+		return false
+	}
 
-	for start, end := 0, len(s1); end <= len(s2); end++ {
-		if checkPermutation(s2[start:end]) {
+	var fq1, fq2 [26]int
+
+	for i := 0; i < len(s1); i++ {
+		fq1[s1[i]-'a']++
+		fq2[s2[i]-'a']++
+	}
+
+	if fq1 == fq2 {
+		return true
+	}
+
+
+	for i := len(s1); i < len(s2); i++ {
+		fq2[s2[i]-'a']++
+		fq2[s2[i-len(s1)]-'a']--
+
+		if fq1 == fq2 {
 			return true
 		}
-
-		start++
 	}
 
 	return false
-}
-
-func checkPermutation(s string) bool {
-	fq := countLetters(s)
-
-	for k, v := range fq {
-		if fq1[k] != v {
-			return false
-		}
-	}
-
-	return true
-}
-
-func countLetters(s string) map[rune]int {
-	fq := make(map[rune]int)
-
-	for _, l := range s {
-		fq[l]++
-	}
-
-	return fq
 }

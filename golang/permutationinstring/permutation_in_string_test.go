@@ -23,4 +23,11 @@ func TestCheckInclusion(t *testing.T) {
 	if !checkInclusion(s1, s2) {
 		t.Errorf("checkInclusion(%s, %s) should return true.", s1, s2)
 	}
+
+	// Example four
+	s1, s2 = "ab", "a"
+
+	if checkInclusion(s1, s2) {
+		t.Errorf("checkInclusion(%s, %s) should return false.", s1, s2)
+	}
 }

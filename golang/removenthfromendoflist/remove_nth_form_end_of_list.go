@@ -39,20 +39,20 @@ func removeNthFromEnd(head *cs.ListNode, n int) *cs.ListNode {
 		head = head.Next
 	}
 
-	len := len(nodes)
-	if len == 1 {
+	if len(nodes) == 1 {
 		return nil
 	}
 
-	i := len - n
-	if i == 0 {
+	if len(nodes) == n {
 		return nodes[1]
 	}
-
+	
+	index := len(nodes) - n
+	
 	if n > 1 {
-		nodes[i-1].Next = nodes[i+1]
+		nodes[index-1].Next = nodes[index+1]
 	} else {
-		nodes[i-1].Next = nil 
+		nodes[index-1].Next = nil 
 	}
 
 	return nodes[0]

@@ -31,5 +31,29 @@ package reorderlist
 import cs "github.com/z1z0v1c/leetcode/commonstructs"
 
 func reorderList(head *cs.ListNode)  {
-    
+	node := head
+
+	for node.Next != nil {
+		next := node.Next
+
+		last := node.Next
+
+		for last.Next != nil {
+			prev := &cs.ListNode{}
+			if last.Next.Next == nil {
+				prev = last
+			}
+			last = last.Next
+			prev.Next = nil
+		}
+
+		if next == last {
+			break
+		}
+
+		node.Next = last
+		last.Next = next
+
+		node = node.Next.Next
+	}
 }

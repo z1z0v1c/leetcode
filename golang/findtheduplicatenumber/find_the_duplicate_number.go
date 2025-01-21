@@ -35,5 +35,22 @@
 package findtheduplicatenumber
 
 func findDuplicate(nums []int) int {
-	return nums[0]
+	slow := nums[0]
+	fast := nums[nums[0]]
+
+	// Detect the cycle
+	for slow != fast {
+		slow = nums[slow]
+		fast = nums[nums[fast]]
+	}
+
+	slow = 0
+
+	// Find the duplicate
+	for slow != fast {
+		slow = nums[slow]
+		fast = nums[fast]
+	}
+
+	return slow
 }

@@ -39,11 +39,11 @@ func TestLowestCommonAncestor(t *testing.T) {
 	p := &cs.TreeNode{Val: 2}
 	q := &cs.TreeNode{Val: 8}
 
-	expected := &cs.TreeNode{Val: 6}
-	actual := lowestCommonAncestor(root, p, q)
+	expected := 6
+	actual := lowestCommonAncestor(root, p, q).Val
 
-	if expected.Equals(actual) {
-		t.Errorf("lowestCommonAncestor(%#v, %#v, %#v) returned %#v instead %#v.", root, p, q, actual, expected)
+	if expected != actual {
+		t.Errorf("lowestCommonAncestor(%#v, %#v, %#v) returned %d instead %d.", root, p, q, actual, expected)
 	}
 
 	// Example two
@@ -78,11 +78,11 @@ func TestLowestCommonAncestor(t *testing.T) {
 	p = &cs.TreeNode{Val: 2}
 	q = &cs.TreeNode{Val: 4}
 
-	expected = &cs.TreeNode{Val: 4}
-	actual = lowestCommonAncestor(root, p, q)
+	expected = 2
+	actual = lowestCommonAncestor(root, p, q).Val
 
-	if expected.Equals(actual) {
-		t.Errorf("lowestCommonAncestor(%#v, %#v, %#v) returned %#v instead %#v.", root, p, q, actual, expected)
+	if expected != actual {
+		t.Errorf("lowestCommonAncestor(%#v, %#v, %#v) returned %d instead %d.", root, p, q, actual, expected)
 	}
 
 	// Example three
@@ -96,10 +96,10 @@ func TestLowestCommonAncestor(t *testing.T) {
 	p = &cs.TreeNode{Val: 2}
 	q = &cs.TreeNode{Val: 1}
 
-	expected = &cs.TreeNode{Val: 2}
-	actual = lowestCommonAncestor(root, p, q)
+	expected = 2
+	actual = lowestCommonAncestor(root, p, q).Val
 
-	if expected.Equals(actual) {
-		t.Errorf("lowestCommonAncestor(%#v, %#v, %#v) returned %#v instead %#v.", root, p, q, actual, expected)
+	if expected != actual {
+		t.Errorf("lowestCommonAncestor(%#v, %#v, %#v) returned %d instead %d.", root, p, q, actual, expected)
 	}
 }

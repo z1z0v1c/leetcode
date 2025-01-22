@@ -8,7 +8,7 @@
  * 	- LRUCache(int capacity) Initialize the LRU cache with positive size capacity.
  * 	- int get(int key) Return the value of the key if the key exists, otherwise return -1.
  * 	- void put(int key, int value) Update the value of the key if the key exists. Otherwise, add the key-value pair to the cache.
- * 	  If the number of keys exceeds the capacity from this operation, evict the least recently used key.
+ * 	  If the number of keys exceeds the capacity from lc operation, evict the least recently used key.
  *
  * The functions get and put must each run in O(1) average time complexity.
  *
@@ -70,57 +70,55 @@ func Constructor(capacity int) LRUCache {
 	}
 }
 
-func (this *LRUCache) Get(key int) int {
-	node, ok := this.cache[key]
+func (lc *LRUCache) Get(key int) int {
+	node, ok := lc.cache[key]
 	if !ok {
 		return -1
 	}
 
-	this.remove(key)
-	this.insert(key, node.value)
+	lc.remove(key)
+	lc.insert(key, node.value)
 
 	return node.value
 }
 
-func (this *LRUCache) Put(key int, value int) {
-	_, ok := this.cache[key]
+func (lc *LRUCache) Put(key int, value int) {
+	_, ok := lc.cache[key]
 	if ok {
-		this.remove(key)
+		lc.remove(key)
 	}
 
-	if this.capacity == len(this.cache) {
-		this.removeLast()
+	if lc.capacity == len(lc.cache) {
+		lc.removeLast()
 	}
-	this.insert(key, value)
+	
+	lc.insert(key, value)
 }
 
-func (this *LRUCache) removeLast() {
-	last := this.tail.prev
-	this.remove(last.key)
+func (lc *LRUCache) removeLast() {
+	last := lc.tail.prev
+	lc.remove(last.key)
 }
 
-func (this *LRUCache) insert(key, value int) {
+func (lc *LRUCache) insert(key, value int) {
 	node := &Node{key: key, value: value}
 
-	next := this.head.next
-	
-	this.head.next = node
-
+	next := lc.head.next
+	lc.head.next = node
 	node.next = next
-	node.prev = this.head
-
+	node.prev = lc.head
 	next.prev = node
 
-	this.cache[key] = node
+	lc.cache[key] = node
 }
 
-func (this *LRUCache) remove(key int) {
-	node := this.cache[key]
+func (lc *LRUCache) remove(key int) {
+	node := lc.cache[key]
 
 	next := node.next
 	prev := node.prev
 
-	delete(this.cache, key)
+	delete(lc.cache, key)
 
 	next.prev = prev
 	prev.next = next

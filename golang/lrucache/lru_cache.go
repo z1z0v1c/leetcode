@@ -44,20 +44,20 @@
  */
 package lrucache
 
-type Node struct {
+type node struct {
 	key, value int
-	prev, next *Node
+	prev, next *node
 }
 
 type LRUCache struct {
 	capacity   int
-	head, tail *Node
-	cache      map[int]*Node
+	head, tail *node
+	cache      map[int]*node
 }
 
 func Constructor(capacity int) LRUCache {
-	head := &Node{}
-	tail := &Node{}
+	head := &node{}
+	tail := &node{}
 
 	head.next = tail
 	tail.prev = head
@@ -66,7 +66,7 @@ func Constructor(capacity int) LRUCache {
 		capacity: capacity,
 		head:     head,
 		tail:     tail,
-		cache:    make(map[int]*Node),
+		cache:    make(map[int]*node),
 	}
 }
 
@@ -91,17 +91,12 @@ func (lc *LRUCache) Put(key int, value int) {
 	if lc.capacity == len(lc.cache) {
 		lc.removeLast()
 	}
-	
+
 	lc.insert(key, value)
 }
 
-func (lc *LRUCache) removeLast() {
-	last := lc.tail.prev
-	lc.remove(last.key)
-}
-
 func (lc *LRUCache) insert(key, value int) {
-	node := &Node{key: key, value: value}
+	node := &node{key: key, value: value}
 
 	next := lc.head.next
 	lc.head.next = node
@@ -122,6 +117,11 @@ func (lc *LRUCache) remove(key int) {
 
 	next.prev = prev
 	prev.next = next
+}
+
+func (lc *LRUCache) removeLast() {
+	last := lc.tail.prev
+	lc.remove(last.key)
 }
 
 /**

@@ -31,31 +31,63 @@ package binarytreerightsideview
 
 import cs "github.com/z1z0v1c/leetcode/commonstructs"
 
+/**
+ * >>> Deapth first search <<<
+ */
 func rightSideView(root *cs.TreeNode) []int {
 	if root == nil {
 		return nil
 	}
 
 	rsw := make([]int, 0)
-	queue := []*cs.TreeNode{root}
 
-	for len(queue) > 0 {
-		length := len(queue)
-		rsw = append(rsw, queue[length-1].Val)
-		
-		for i := 0; i < length; i++ {
-			node := queue[0]
-			queue = queue[1:]
-			
-			if node.Left != nil {
-				queue = append(queue, node.Left)
-			}
-
-			if node.Right != nil {
-				queue = append(queue, node.Right)
-			}
-		}
-	}
+	rightSideViewDFS(root, &rsw, 0)	
 
 	return rsw
 }
+
+func rightSideViewDFS(root *cs.TreeNode, rsw *[]int, level int) {
+	if root == nil {
+		return
+	}
+
+	if len(*rsw) == level {
+		*rsw = append(*rsw, root.Val)
+	}
+
+	rightSideViewDFS(root.Right, rsw, level+1)
+	rightSideViewDFS(root.Left, rsw, level+1)
+}
+
+/**
+ * >>> Breat first search <<<
+ * 
+ * func rightSideView(root *cs.TreeNode) []int {
+ * 	if root == nil {
+ * 		return nil
+ * 	}
+ * 
+ * 	rsw := make([]int, 0)
+ * 	queue := []*cs.TreeNode{root}
+ * 
+ * 	for len(queue) > 0 {
+ * 		length := len(queue)
+ * 		rsw = append(rsw, queue[length-1].Val)
+ * 		
+ * 		for i := 0; i < length; i++ {
+ * 			node := queue[0]
+ * 			queue = queue[1:]
+ * 			
+ * 			if node.Left != nil {
+ * 				queue = append(queue, node.Left)
+ * 			}
+ * 
+ * 			if node.Right != nil {
+ * 				queue = append(queue, node.Right)
+ * 			}
+ * 		}
+ * 	}
+ * 
+ * 	return rsw
+ * }
+ */

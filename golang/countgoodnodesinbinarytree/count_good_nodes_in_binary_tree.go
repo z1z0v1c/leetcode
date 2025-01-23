@@ -38,5 +38,23 @@ package countgoodnodesinbinarytree
 import cs "github.com/z1z0v1c/leetcode/commonstructs"
 
 func goodNodes(root *cs.TreeNode) int {
-	return root.Val
+	var count int
+
+	countGoodNodes(root, 0, &count)
+
+	return count
+}
+
+func countGoodNodes(root *cs.TreeNode, prev int, count *int) {
+	if root == nil {
+		return
+	}
+
+	if root.Val >= prev {
+		(*count)++
+		prev = root.Val
+	}
+
+	countGoodNodes(root.Left, prev, count)
+	countGoodNodes(root.Right, prev, count)
 }

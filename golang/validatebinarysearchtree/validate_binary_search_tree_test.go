@@ -42,4 +42,40 @@ func TestIsValidBST(t *testing.T) {
 	if isValidBST(root) {
 		t.Errorf("isValidBST(%#v) shoud return false for example 2.", root)
 	}
+
+	// Example three
+	root = &cs.TreeNode{
+		Val: 2,
+		Left: &cs.TreeNode{
+			Val: 2,
+		},
+		Right: &cs.TreeNode{
+			Val: 2,
+		},
+	}
+
+	if isValidBST(root) {
+		t.Errorf("isValidBST(%#v) shoud return false for example 3.", root)
+	}
+
+	// Example four
+	root = &cs.TreeNode{
+		Val: 45,
+		Left: &cs.TreeNode{
+			Val: 42,
+			Right: &cs.TreeNode{
+				Val: 44,
+				Left: &cs.TreeNode{
+					Val: 43,
+					Left: &cs.TreeNode{
+						Val: 41,
+					},
+				},
+			},
+		},
+	}
+
+	if isValidBST(root) {
+		t.Errorf("isValidBST(%#v) shoud return false for example 4.", root)
+	}
 }

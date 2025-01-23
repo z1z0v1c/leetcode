@@ -32,5 +32,30 @@ package binarytreerightsideview
 import cs "github.com/z1z0v1c/leetcode/commonstructs"
 
 func rightSideView(root *cs.TreeNode) []int {
-	return []int{}
+	if root == nil {
+		return nil
+	}
+
+	rsw := make([]int, 0)
+	queue := []*cs.TreeNode{root}
+
+	for len(queue) > 0 {
+		length := len(queue)
+		rsw = append(rsw, queue[length-1].Val)
+		
+		for i := 0; i < length; i++ {
+			node := queue[0]
+			queue = queue[1:]
+			
+			if node.Left != nil {
+				queue = append(queue, node.Left)
+			}
+
+			if node.Right != nil {
+				queue = append(queue, node.Right)
+			}
+		}
+	}
+
+	return rsw
 }

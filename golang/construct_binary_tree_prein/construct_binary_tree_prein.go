@@ -29,5 +29,24 @@ package constructbinarytreeprein
 import cs "github.com/z1z0v1c/leetcode/commonstructs"
 
 func buildTree(preorder []int, inorder []int) *cs.TreeNode {
-	return &cs.TreeNode{}
+	if len(preorder) == 0 {
+		return nil
+	}
+
+	rootVal := preorder[0]
+
+	var i int
+	for j := 0; j < len(inorder); j++ {
+		if rootVal == inorder[j] {
+			i = j
+			break
+		}
+	} 
+	
+	root := &cs.TreeNode{Val: rootVal}
+
+	root.Left = buildTree(preorder[1:i+1], inorder[:i])
+	root.Right = buildTree(preorder[i+1:], inorder[i+1:])
+
+	return root
 }

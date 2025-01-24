@@ -27,5 +27,26 @@ package kthsmallestelementinabst
 import cs "github.com/z1z0v1c/leetcode/commonstructs"
 
 func kthSmallest(root *cs.TreeNode, k int) int {
-	return k	
+	var res int	
+
+	var traverse func(*cs.TreeNode)
+	traverse = func(tn *cs.TreeNode) {
+		if tn == nil {
+			return
+		}
+
+		traverse(tn.Left)
+
+		k--
+		if k == 0 {
+			res = tn.Val
+			return
+		}
+
+		traverse(tn.Right)
+	}
+
+	traverse(root)
+
+	return res
 }

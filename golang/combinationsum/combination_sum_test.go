@@ -32,7 +32,7 @@ func TestCombinationSum(t *testing.T) {
 	target = 1
 	candidates = []int{2}
 
-	expected = nil
+	expected = [][]int{}
 	actual = combinationSum(candidates, target)
 
 	if !reflect.DeepEqual(expected, actual) {

@@ -25,4 +25,14 @@ func TestSubsets(t *testing.T) {
 	if !reflect.DeepEqual(expected, actual) {
 		t.Errorf("subsets(%#v) returned %#v instead of %#v.", nums, actual, expected)
 	}
+
+	// Example three
+	nums = []int{9,0,3,5,7}
+	
+	expected = [][]int{{}, {9}, {0}, {0, 9}, {3}, {3, 9}, {0, 3}, {0, 3, 9}, {5}, {5, 9}, {0, 5}, {0, 5, 9}, {3, 5}, {3, 5, 9}, {0, 3, 5}, {0, 3, 5, 9}, {7}, {7, 9}, {0, 7}, {0, 7, 9}, {3, 7}, {3, 7, 9}, {0, 3, 7}, {0, 3, 7, 9}, {5, 7}, {5, 7, 9}, {0, 5, 7}, {0, 5, 7, 9}, {3, 5, 7}, {3, 5, 7, 9}, {0, 3, 5, 7}, {0, 3, 5, 7, 9}}
+	actual = subsets(nums)
+
+	if !reflect.DeepEqual(expected, actual) {
+		t.Errorf("subsets(%#v) returned %#v instead of %#v.", nums, actual, expected)
+	}
 }

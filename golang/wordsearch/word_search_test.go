@@ -26,4 +26,12 @@ func TestExist(t *testing.T) {
 	if exist(board, word) {
 		t.Errorf("exist(%#v, %s) should return false for example 3.", word, board)
 	}
+
+	// Example four
+	word = "AAB"
+	board = [][]byte{{'C', 'A', 'A'}, {'A', 'A', 'A'}, {'B', 'C', 'D'}}
+
+	if !exist(board, word) {
+		t.Errorf("exist(%#v, %s) should return true for example 4.", word, board)
+	}
 }

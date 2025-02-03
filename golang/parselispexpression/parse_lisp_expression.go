@@ -2,9 +2,9 @@
  * 736 - Hard
  *
  * You are given a string expression representing a Lisp-like expression to return the integer value of.
- * 
+ *
  * The syntax for these expressions is given as follows.
- * 
+ *
  * 	- An expression is either an integer, let expression, add expression, mult expression, or an assigned variable.
  *    Expressions always evaluate to a single integer. (An integer could be positive or negative.)
  *
@@ -27,34 +27,34 @@
  *    evaluation, the innermost scope (in terms of parentheses) is checked first for the value of that variable, and then outer
  *    scopes are checked sequentially. It is guaranteed that every expression is legal. Please see the examples for more details
  *    on the scope.
- * 
+ *
  * Example 1:
- * 
+ *
  *	Input: expression = "(let x 2 (mult x (let x 3 y 4 (add x y))))"
  *	Output: 14
- *	Explanation: 
- * 		
+ *	Explanation:
+ *
  *		In the expression (add x y), when checking for the value of the variable x,
  * 		we check from the innermost scope to the outermost in the context of the variable we are trying to evaluate.
  * 		Since x = 3 is found first, the value of x is 3.
  *
  * Example 2:
- * 
+ *
  * 	Input: expression = "(let x 3 x 2 x)"
  * 	Output: 2
  * 	Explanation: Assignment in let statements is processed sequentially.
- * 
+ *
  * Example 3:
- * 
+ *
  * 	Input: expression = "(let x 1 y 2 x (add x y) (add x y))"
  * 	Output: 5
  * 	Explanation:
- * 
+ *
  *		The first (add x y) evaluates as 3, and is assigned to x.
  * 		The second (add x y) evaluates as 3+2 = 5.
- * 
+ *
  * Constraints:
- * 
+ *
  * 	- 1 <= expression.length <= 2000
  * 	- There are no leading or trailing spaces in expression.
  * 	- All tokens are separated by a single space in expression.
@@ -63,6 +63,19 @@
  */
 package parselispexpression
 
-func evaluate(expression string) int {
+import (
+	"strconv"
+)
+
+func evaluate(expression string) int {	
+	return solve(expression, map[string]int{})
+}
+
+func solve(expression string, vars map[string]int) int {
+	if byte(expression[0]) > '0' && byte(expression[0]) < '9' {
+		result, _ := strconv.Atoi(string(expression[0]))
+		return result
+	}
+
 	return 0
 }

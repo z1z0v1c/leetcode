@@ -73,7 +73,7 @@ func evaluate(expression string) int {
 
 func solve(expression string, vars map[string]int) int {
 	if byte(expression[0]) > '0' && byte(expression[0]) < '9' {
-		result, _ := strconv.Atoi(string(expression[0]))
+		result, _ := strconv.Atoi(expression)
 		return result
 	}
 

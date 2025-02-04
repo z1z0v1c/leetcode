@@ -65,9 +65,10 @@ package parselispexpression
 
 import (
 	"strconv"
+	"strings"
 )
 
-func evaluate(expression string) int {	
+func evaluate(expression string) int {
 	return solve(expression, map[string]int{})
 }
 
@@ -75,6 +76,19 @@ func solve(expression string, vars map[string]int) int {
 	if byte(expression[0]) > '0' && byte(expression[0]) < '9' {
 		result, _ := strconv.Atoi(expression)
 		return result
+	}
+
+	expression = expression[1:len(expression)-1]
+
+	if strings.HasPrefix(expression, "let") {
+		operations := strings.Split(expression, " ")
+
+		for i := 1; i < len(operations)-1; i = i + 2 {
+			val, _ := strconv.Atoi(operations[i+1])
+			vars[operations[i]] = val
+		}
+
+		return vars[operations[len(operations)-1]]
 	}
 
 	return 0

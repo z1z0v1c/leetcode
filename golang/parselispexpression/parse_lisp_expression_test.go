@@ -13,15 +13,15 @@ func TestEvaluate(t *testing.T) {
 	// 	t.Errorf("evaluate(%s) returned %d instead of %d.", expression, actual, expected)
 	// }
 
-	// // Example two
-	// expression = "(let x 3 x 2 x)"
+	// Example two
+	expression := "(let x 3 x 2 x)"
 
-	// expected = 2
-	// actual = evaluate(expression)
+	expected := 2
+	actual := evaluate(expression)
 
-	// if expected != actual {
-	// 	t.Errorf("evaluate(%s) returned %d instead of %d.", expression, actual, expected)
-	// }
+	if expected != actual {
+		t.Errorf("evaluate(%s) returned %d instead of %d.", expression, actual, expected)
+	}
 
 	// // Example three
 	// expression = "(let x 1 y 2 x (add x y) (add x y))"
@@ -34,10 +34,10 @@ func TestEvaluate(t *testing.T) {
 	// }
 
 	// Example four
-	expression := "7"
+	expression = "7"
 	
-	expected := 7
-	actual := evaluate(expression)
+	expected = 7
+	actual = evaluate(expression)
 
 	if expected != actual {
 		t.Errorf("evaluate(%s) returned %d instead of %d.", expression, actual, expected)

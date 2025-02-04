@@ -78,17 +78,46 @@ func solve(expression string, vars map[string]int) int {
 		return result
 	}
 
-	expression = expression[1:len(expression)-1]
+	// Remove outer parentheses
+	expression = expression[1 : len(expression)-1]
 
-	if strings.HasPrefix(expression, "let") {
-		operations := strings.Split(expression, " ")
+	// Get subexpressions
+	first, second, found := strings.Cut(expression, "(")
+	if found {
+		second = "(" + second
+	}
+
+	var operations []string
+	if strings.HasPrefix(first, "let") {
+		operations = strings.Split(first, " ")
 
 		for i := 1; i < len(operations)-1; i = i + 2 {
 			val, _ := strconv.Atoi(operations[i+1])
 			vars[operations[i]] = val
 		}
 
-		return vars[operations[len(operations)-1]]
+		if found {
+			return solve(second, vars)
+		} else {
+			return vars[operations[len(operations)-1]]
+		}
+	} else if (found && strings.HasPrefix(first, "add")) || strings.HasPrefix(expression, "") {
+		if found {
+			operations = strings.Split(first, " ")
+		} else {
+			operations = strings.Split(expression, " ")
+		}
+
+		var sum int
+		for i := 0; i < len(operations); i++ {
+			if val, ok := vars[operations[i]]; ok {
+				sum += val
+			} else if val, err := strconv.Atoi(operations[i]); err == nil {
+				sum += val
+			}
+		}
+
+		return sum
 	}
 
 	return 0

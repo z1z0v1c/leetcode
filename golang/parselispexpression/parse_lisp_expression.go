@@ -123,6 +123,23 @@ func solve(expression string, context map[string]int) int {
 		}
 
 		return sum
+
+	case "mult":
+		prod := 1
+		tokens := parse(expression)
+
+		for _, token := range tokens {
+			if byte(token[0]) > '0' && byte(token[0]) < '9' {
+				val, _ := strconv.Atoi(token)
+				prod *= val
+			} else if byte(token[0]) == '(' {
+				prod *= solve(token, context)
+			} else {
+				prod *= context[token]
+			}
+		}
+
+		return prod
 	}
 
 	return 0

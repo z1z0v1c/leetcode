@@ -157,12 +157,13 @@ func parse(expression string) []string {
 				var token string
 				if i == len(expression)-1 {
 					token = expression[prev:]
-				} else {
+				} else if expression[i+1] != ' ' {
 					token = expression[prev:i]
 				}
-
-				tokens = append(tokens, token)
-				prev = i + 1
+				if token != "" {
+					tokens = append(tokens, token)
+					prev = i + 1
+				}
 			}
 		} else if (byte(expression[i]) == ' ' && parentheses == 0) || i == len(expression)-1 {
 			var token string

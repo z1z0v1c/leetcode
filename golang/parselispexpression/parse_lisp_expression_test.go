@@ -24,14 +24,14 @@ func TestEvaluate(t *testing.T) {
 	}
 
 	// Example three
-	// expression = "(let x 1 y 2 x (add x y) (add x y))"
+	expression = "(let x 1 y 2 x (add x y) (add x y))"
 
-	// expected = 5
-	// actual = evaluate(expression)
+	expected = 5
+	actual = evaluate(expression)
 
-	// if expected != actual {
-	// 	t.Errorf("evaluate(%s) returned %d instead of %d.", expression, actual, expected)
-	// }
+	if expected != actual {
+		t.Errorf("evaluate(%s) returned %d instead of %d.", expression, actual, expected)
+	}
 
 	// Example four
 	expression = "7"

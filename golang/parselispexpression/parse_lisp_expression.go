@@ -84,7 +84,15 @@ func solve(expression string, vars map[string]int) int {
 	// Get subexpressions
 	first, second, found := strings.Cut(expression, "(")
 	if found {
+		first = first[:len(first)-1]
+		if byte(first[len(first)-1]) == ')' {
+			first = "(" + first
+		}
+		
 		second = "(" + second
+		if byte(second[len(second)-1]) != ')' {
+			second += ")"
+		}
 	}
 
 	var operations []string
@@ -97,6 +105,15 @@ func solve(expression string, vars map[string]int) int {
 		}
 
 		if found {
+			if len(operations) % 2 == 0 {
+				expressions := strings.Split(second, ") (")
+
+				expressions[0] += ")"; expressions[1] = "(" + expressions[1]
+
+				vars[operations[len(operations)-1]] = solve(expressions[0], vars)
+				second = expressions[1]
+			}
+			
 			return solve(second, vars)
 		} else {
 			return vars[operations[len(operations)-1]]
@@ -133,9 +150,11 @@ func solve(expression string, vars map[string]int) int {
 				prod *= val
 			} else if val, err := strconv.Atoi(operations[i]); err == nil {
 				prod *= val
-			} else {
-				prod *= solve(second, vars)
-			}
+			} 
+		}
+
+		if found {
+			prod *= solve(second, vars)
 		}
 
 		return prod

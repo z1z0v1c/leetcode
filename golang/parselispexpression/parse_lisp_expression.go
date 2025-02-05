@@ -65,7 +65,6 @@ package parselispexpression
 
 import (
 	"strconv"
-	"strings"
 )
 
 func evaluate(expression string) int {
@@ -76,88 +75,6 @@ func solve(expression string, vars map[string]int) int {
 	if byte(expression[0]) > '0' && byte(expression[0]) < '9' {
 		result, _ := strconv.Atoi(expression)
 		return result
-	}
-
-	// Remove outer parentheses
-	expression = expression[1 : len(expression)-1]
-
-	// Get subexpressions
-	first, second, found := strings.Cut(expression, "(")
-	if found {
-		first = first[:len(first)-1]
-		if byte(first[len(first)-1]) == ')' {
-			first = "(" + first
-		}
-		
-		second = "(" + second
-		if byte(second[len(second)-1]) != ')' {
-			second += ")"
-		}
-	}
-
-	var operations []string
-	if strings.HasPrefix(first, "let") {
-		operations = strings.Split(first, " ")
-
-		for i := 1; i < len(operations)-1; i = i + 2 {
-			val, _ := strconv.Atoi(operations[i+1])
-			vars[operations[i]] = val
-		}
-
-		if found {
-			if len(operations) % 2 == 0 {
-				expressions := strings.Split(second, ") (")
-
-				expressions[0] += ")"; expressions[1] = "(" + expressions[1]
-
-				vars[operations[len(operations)-1]] = solve(expressions[0], vars)
-				second = expressions[1]
-			}
-
-			return solve(second, vars)
-		} else {
-			return vars[operations[len(operations)-1]]
-		}
-	} else if (found && strings.HasPrefix(first, "add")) || strings.HasPrefix(expression, "add") {
-		if found {
-			operations = strings.Split(first, " ")
-		} else {
-			operations = strings.Split(expression, " ")
-		}
-
-		var sum int
-		for i := 1; i < len(operations); i++ {
-			if val, ok := vars[operations[i]]; ok {
-				sum += val
-			} else if val, err := strconv.Atoi(operations[i]); err == nil {
-				sum += val
-			} else {
-				sum += solve(second, vars)
-			}
-		}
-
-		return sum
-	} else if (found && strings.HasPrefix(first, "mult")) || strings.HasPrefix(expression, "mult") {
-		if found {
-			operations = strings.Split(first, " ")
-		} else {
-			operations = strings.Split(expression, " ")
-		}
-
-		prod := 1
-		for i := 1; i < len(operations); i++ {
-			if val, ok := vars[operations[i]]; ok {
-				prod *= val
-			} else if val, err := strconv.Atoi(operations[i]); err == nil {
-				prod *= val
-			} 
-		}
-
-		if found {
-			prod *= solve(second, vars)
-		}
-
-		return prod
 	}
 
 	return 0

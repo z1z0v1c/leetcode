@@ -101,7 +101,7 @@ func solve(expression string, vars map[string]int) int {
 		} else {
 			return vars[operations[len(operations)-1]]
 		}
-	} else if (found && strings.HasPrefix(first, "add")) || strings.HasPrefix(expression, "") {
+	} else if (found && strings.HasPrefix(first, "add")) || strings.HasPrefix(expression, "add") {
 		if found {
 			operations = strings.Split(first, " ")
 		} else {
@@ -109,15 +109,36 @@ func solve(expression string, vars map[string]int) int {
 		}
 
 		var sum int
-		for i := 0; i < len(operations); i++ {
+		for i := 1; i < len(operations); i++ {
 			if val, ok := vars[operations[i]]; ok {
 				sum += val
 			} else if val, err := strconv.Atoi(operations[i]); err == nil {
 				sum += val
+			} else {
+				sum += solve(second, vars)
 			}
 		}
 
 		return sum
+	} else if (found && strings.HasPrefix(first, "mult")) || strings.HasPrefix(expression, "mult") {
+		if found {
+			operations = strings.Split(first, " ")
+		} else {
+			operations = strings.Split(expression, " ")
+		}
+
+		prod := 1
+		for i := 1; i < len(operations); i++ {
+			if val, ok := vars[operations[i]]; ok {
+				prod *= val
+			} else if val, err := strconv.Atoi(operations[i]); err == nil {
+				prod *= val
+			} else {
+				prod *= solve(second, vars)
+			}
+		}
+
+		return prod
 	}
 
 	return 0

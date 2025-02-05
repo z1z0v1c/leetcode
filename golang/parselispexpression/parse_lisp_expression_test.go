@@ -4,19 +4,9 @@ import "testing"
 
 func TestEvaluate(t *testing.T) {
 	// Example one
-	// expression := "(let x 2 (mult x (let x 3 y 4 (add x y))))"
+	expression := "(let x 2 (mult x (let x 3 y 4 (add x y))))"
 
-	// expected := 14
-	// actual := evaluate(expression)
-
-	// if expected != actual {
-	// 	t.Errorf("evaluate(%s) returned %d instead of %d.", expression, actual, expected)
-	// }
-
-	// Example six
-	expression := "(let x 2 y 4 (add x y))"
-
-	expected := 6
+	expected := 14
 	actual := evaluate(expression)
 
 	if expected != actual {
@@ -57,6 +47,16 @@ func TestEvaluate(t *testing.T) {
 	expression = "123"
 	
 	expected = 123
+	actual = evaluate(expression)
+
+	if expected != actual {
+		t.Errorf("evaluate(%s) returned %d instead of %d.", expression, actual, expected)
+	}
+
+	// Example six
+	expression = "(let x 2 y 4 (add x y))"
+
+	expected = 6
 	actual = evaluate(expression)
 
 	if expected != actual {

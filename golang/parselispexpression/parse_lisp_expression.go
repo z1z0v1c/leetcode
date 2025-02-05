@@ -65,16 +65,69 @@ package parselispexpression
 
 import (
 	"strconv"
+	"strings"
 )
 
 func evaluate(expression string) int {
 	return solve(expression, map[string]int{})
 }
 
-func solve(expression string, vars map[string]int) int {
-	if byte(expression[0]) > '0' && byte(expression[0]) < '9' {
+func solve(expression string, context map[string]int) int {
+	firstChar := byte(expression[0])
+
+	// Return parsed value if expression is a number
+	if (firstChar > '0' && firstChar < '9') || firstChar == '-' {
 		result, _ := strconv.Atoi(expression)
 		return result
+	}
+
+	// Return value from the context if expression is a variable
+	if firstChar > 'a' && firstChar < 'z' {
+		return context[expression]
+	}
+
+	// Trim parentheses
+	expression = expression[1 : len(expression)-1]
+
+	operation, expression, _ := strings.Cut(expression, " ")
+
+	switch operation {
+	case "let":
+		var parentheses, prev int
+		tokens := make([]string, 0)
+		for i := 0; i < len(expression); i++ {
+			if byte(expression[i]) == '(' {
+				parentheses++
+			} else if byte(expression[i]) == ')' {
+				parentheses--
+				if parentheses == 0 {
+					token := expression[prev:i]
+					tokens = append(tokens, token)
+					prev = i + 1
+				}
+			} else if (byte(expression[i]) == ' ' && parentheses == 0) || i == len(expression)-1 {
+				var token string
+				if i == len(expression)-1 {
+					token = expression[prev:]
+				} else {
+					token = expression[prev:i]
+				}
+
+				tokens = append(tokens, token)
+				prev = i + 1
+			}
+		}
+
+		for i := 0; i < len(tokens)-1; i = i + 2 {
+			if byte(tokens[i+1][0]) == '(' {
+				context[tokens[i]] = solve(tokens[i+1], context)
+			} else {
+				val, _ := strconv.Atoi(tokens[i+1])
+				context[tokens[i]] = val
+			}
+		}
+
+		return solve(tokens[len(tokens)-1], context)
 	}
 
 	return 0

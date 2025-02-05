@@ -113,7 +113,7 @@ func solve(expression string, vars map[string]int) int {
 				vars[operations[len(operations)-1]] = solve(expressions[0], vars)
 				second = expressions[1]
 			}
-			
+
 			return solve(second, vars)
 		} else {
 			return vars[operations[len(operations)-1]]

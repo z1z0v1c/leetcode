@@ -92,31 +92,9 @@ func solve(expression string, context map[string]int) int {
 	operation, expression, _ := strings.Cut(expression, " ")
 
 	switch operation {
-	case "let":
-		var parentheses, prev int
-		tokens := make([]string, 0)
-		for i := 0; i < len(expression); i++ {
-			if byte(expression[i]) == '(' {
-				parentheses++
-			} else if byte(expression[i]) == ')' {
-				parentheses--
-				if parentheses == 0 {
-					token := expression[prev:i]
-					tokens = append(tokens, token)
-					prev = i + 1
-				}
-			} else if (byte(expression[i]) == ' ' && parentheses == 0) || i == len(expression)-1 {
-				var token string
-				if i == len(expression)-1 {
-					token = expression[prev:]
-				} else {
-					token = expression[prev:i]
-				}
 
-				tokens = append(tokens, token)
-				prev = i + 1
-			}
-		}
+	case "let":
+		tokens := parse(expression)
 
 		for i := 0; i < len(tokens)-1; i = i + 2 {
 			if byte(tokens[i+1][0]) == '(' {
@@ -128,7 +106,59 @@ func solve(expression string, context map[string]int) int {
 		}
 
 		return solve(tokens[len(tokens)-1], context)
+
+	case "add":
+		var sum int
+		tokens := parse(expression)
+
+		for _, token := range tokens {
+			if byte(token[0]) > '0' && byte(token[0]) < '9' {
+				val, _ := strconv.Atoi(token)
+				sum += val
+			} else if byte(token[0]) == '(' {
+				sum += solve(token, context)
+			} else {
+				sum += context[token]
+			}
+		}
+
+		return sum
 	}
 
 	return 0
+}
+
+func parse(expression string) []string {
+	var parentheses, prev int
+	tokens := make([]string, 0)
+	for i := 0; i < len(expression); i++ {
+		if byte(expression[i]) == '(' {
+			parentheses++
+		} else if byte(expression[i]) == ')' {
+			parentheses--
+			if parentheses == 0 {
+				var token string
+				if i == len(expression)-1 {
+					token = expression[prev:]
+				} else {
+					token = expression[prev:i]
+				}
+
+				tokens = append(tokens, token)
+				prev = i + 1
+			}
+		} else if (byte(expression[i]) == ' ' && parentheses == 0) || i == len(expression)-1 {
+			var token string
+			if i == len(expression)-1 {
+				token = expression[prev:]
+			} else {
+				token = expression[prev:i]
+			}
+
+			tokens = append(tokens, token)
+			prev = i + 1
+		}
+	}
+
+	return tokens
 }

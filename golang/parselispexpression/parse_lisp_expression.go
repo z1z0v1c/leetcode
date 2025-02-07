@@ -98,14 +98,14 @@ func solve(expression string, context map[string]int) int {
 
 		for i := 0; i < len(tokens)-1; i = i + 2 {
 			if byte(tokens[i+1][0]) == '(' {
-				context[tokens[i]] = solve(tokens[i+1], context)
+				context[tokens[i]] = solve(tokens[i+1], copy(context))
 			} else {
 				val, _ := strconv.Atoi(tokens[i+1])
 				context[tokens[i]] = val
 			}
 		}
 
-		return solve(tokens[len(tokens)-1], context)
+		return solve(tokens[len(tokens)-1], copy(context))
 
 	case "add":
 		var sum int
@@ -116,7 +116,7 @@ func solve(expression string, context map[string]int) int {
 				val, _ := strconv.Atoi(token)
 				sum += val
 			} else if byte(token[0]) == '(' {
-				sum += solve(token, context)
+				sum += solve(token, copy(context))
 			} else {
 				sum += context[token]
 			}
@@ -133,7 +133,7 @@ func solve(expression string, context map[string]int) int {
 				val, _ := strconv.Atoi(token)
 				prod *= val
 			} else if byte(token[0]) == '(' {
-				prod *= solve(token, context)
+				prod *= solve(token, copy(context))
 			} else {
 				prod *= context[token]
 			}
@@ -179,4 +179,14 @@ func parse(expression string) []string {
 	}
 
 	return tokens
+}
+
+func copy(origin map[string]int) map[string]int {
+	copy := make(map[string]int, len(origin))
+
+	for k, v := range origin {
+		copy[k] = v
+	}
+
+	return copy
 }

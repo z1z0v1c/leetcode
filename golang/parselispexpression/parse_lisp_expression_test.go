@@ -92,4 +92,22 @@ func TestEvaluate(t *testing.T) {
 	if expected != actual {
 		t.Errorf("evaluate(%s) returned %d instead of %d.", expression, actual, expected)
 	}
+
+	// Example ten
+	expression = "(let x -2 y x y)"
+
+	expected = -2
+	actual = evaluate(expression)
+	if expected != actual {
+		t.Errorf("evaluate(%s) returned %d instead of %d.", expression, actual, expected)
+	}
+
+	// Example eleven
+	expression = "(let x (add 12 -7) (mult x x))"
+
+	expected = 25
+	actual = evaluate(expression)
+	if expected != actual {
+		t.Errorf("evaluate(%s) returned %d instead of %d.", expression, actual, expected)
+	}
 }

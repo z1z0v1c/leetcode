@@ -100,8 +100,12 @@ func solve(expression string, context map[string]int) int {
 			if byte(tokens[i+1][0]) == '(' {
 				context[tokens[i]] = solve(tokens[i+1], copy(context))
 			} else {
-				val, _ := strconv.Atoi(tokens[i+1])
-				context[tokens[i]] = val
+				val, err := strconv.Atoi(tokens[i+1])
+				if err != nil {
+					context[tokens[i]] = solve(tokens[i+1], copy(context))
+				} else {
+					context[tokens[i]] = val
+				}
 			}
 		}
 
@@ -112,7 +116,7 @@ func solve(expression string, context map[string]int) int {
 		tokens := parse(expression)
 
 		for _, token := range tokens {
-			if byte(token[0]) > '0' && byte(token[0]) < '9' {
+			if byte(token[0]) > '0' && byte(token[0]) < '9' || byte(token[0]) == '-' {
 				val, _ := strconv.Atoi(token)
 				sum += val
 			} else if byte(token[0]) == '(' {
@@ -129,7 +133,7 @@ func solve(expression string, context map[string]int) int {
 		tokens := parse(expression)
 
 		for _, token := range tokens {
-			if byte(token[0]) > '0' && byte(token[0]) < '9' {
+			if byte(token[0]) > '0' && byte(token[0]) < '9' || byte(token[0]) == '-' {
 				val, _ := strconv.Atoi(token)
 				prod *= val
 			} else if byte(token[0]) == '(' {

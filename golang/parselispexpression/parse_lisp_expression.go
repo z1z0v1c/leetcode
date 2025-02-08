@@ -69,58 +69,58 @@ import (
 )
 
 func evaluate(expression string) int {
-	return solve(expression, map[string]int{})
+	return parse(expression, map[string]int{})
 }
 
-func solve(expression string, context map[string]int) int {
-	firstChar := byte(expression[0])
-
-	// Return parsed value if expression is a number
-	if (firstChar > '0' && firstChar < '9') || firstChar == '-' {
+// Parse expression recursively
+func parse(expression string, context map[string]int) int {
+	// Return converted value if expression is a number
+	if isDigit(expression[0]) || expression[0] == '-' {
 		result, _ := strconv.Atoi(expression)
 		return result
 	}
 
 	// Return value from the context if expression is a variable
-	if firstChar > 'a' && firstChar < 'z' {
+	if isLetter(expression[0]) {
 		return context[expression]
 	}
 
 	// Trim parentheses
 	expression = expression[1 : len(expression)-1]
 
+	// Cut the first word as operation
 	operation, expression, _ := strings.Cut(expression, " ")
 
 	switch operation {
 
 	case "let":
-		tokens := parse(expression)
+		tokens := tokenize(expression)
 
 		for i := 0; i < len(tokens)-1; i = i + 2 {
-			if byte(tokens[i+1][0]) == '(' {
-				context[tokens[i]] = solve(tokens[i+1], copy(context))
+			if tokens[i+1][0] == '(' {
+				context[tokens[i]] = parse(tokens[i+1], copy(context))
 			} else {
 				val, err := strconv.Atoi(tokens[i+1])
 				if err != nil {
-					context[tokens[i]] = solve(tokens[i+1], copy(context))
+					context[tokens[i]] = parse(tokens[i+1], copy(context))
 				} else {
 					context[tokens[i]] = val
 				}
 			}
 		}
 
-		return solve(tokens[len(tokens)-1], copy(context))
+		return parse(tokens[len(tokens)-1], copy(context))
 
 	case "add":
-		var sum int
-		tokens := parse(expression)
+		sum := 0
+		tokens := tokenize(expression)
 
 		for _, token := range tokens {
-			if byte(token[0]) > '0' && byte(token[0]) < '9' || byte(token[0]) == '-' {
+			if isDigit(token[0]) || token[0] == '-' {
 				val, _ := strconv.Atoi(token)
 				sum += val
-			} else if byte(token[0]) == '(' {
-				sum += solve(token, copy(context))
+			} else if token[0] == '(' {
+				sum += parse(token, copy(context))
 			} else {
 				sum += context[token]
 			}
@@ -130,14 +130,14 @@ func solve(expression string, context map[string]int) int {
 
 	case "mult":
 		prod := 1
-		tokens := parse(expression)
+		tokens := tokenize(expression)
 
 		for _, token := range tokens {
-			if byte(token[0]) > '0' && byte(token[0]) < '9' || byte(token[0]) == '-' {
+			if isDigit(token[0]) || token[0] == '-' {
 				val, _ := strconv.Atoi(token)
 				prod *= val
-			} else if byte(token[0]) == '(' {
-				prod *= solve(token, copy(context))
+			} else if token[0] == '(' {
+				prod *= parse(token, copy(context))
 			} else {
 				prod *= context[token]
 			}
@@ -149,28 +149,38 @@ func solve(expression string, context map[string]int) int {
 	return 0
 }
 
-func parse(expression string) []string {
-	var parentheses, prev int
+// Parse tokens from an expression
+func tokenize(expression string) []string {
+	// Count open parentheses to find subexpressions 
+	parentheses := 0
+	// Keep track of the end of previous token
+	prev := 0
+
 	tokens := make([]string, 0)
+
 	for i := 0; i < len(expression); i++ {
-		if byte(expression[i]) == '(' {
+		if expression[i] == '(' {
 			parentheses++
-		} else if byte(expression[i]) == ')' {
+		} else if expression[i] == ')' {
 			parentheses--
+			
 			if parentheses == 0 {
-				var token string
+				token := ""
+
 				if i == len(expression)-1 {
 					token = expression[prev:]
 				} else if expression[i+1] != ' ' {
 					token = expression[prev:i]
 				}
+
 				if token != "" {
 					tokens = append(tokens, token)
 					prev = i + 1
 				}
 			}
-		} else if (byte(expression[i]) == ' ' && parentheses == 0) || i == len(expression)-1 {
-			var token string
+		} else if (expression[i] == ' ' && parentheses == 0) || i == len(expression)-1 {
+			token := ""
+
 			if i == len(expression)-1 {
 				token = expression[prev:]
 			} else {
@@ -185,6 +195,18 @@ func parse(expression string) []string {
 	return tokens
 }
 
+// Check if character is a digit
+func isDigit(char byte) bool {
+	return char >= '0' && char <= '9'
+}
+
+// Check if character is a letter
+// It is guaranteed to be a lowercase 
+func isLetter(char byte) bool {
+	return char >= 'a' && char <= 'z'
+}
+
+// Copy map
 func copy(origin map[string]int) map[string]int {
 	copy := make(map[string]int, len(origin))
 

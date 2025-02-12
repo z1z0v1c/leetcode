@@ -48,7 +48,6 @@ func backtrack(s string, palindromes *[][]string, palindrome *[]string, start in
 			*palindrome = (*palindrome)[:len(*palindrome)-1]
 		}
 	} 
-
 }
 
 func isPalindrome(s string) bool {

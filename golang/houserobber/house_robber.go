@@ -37,7 +37,7 @@ Constraints:
 */
 package houserobber
 
-func rob(nums []int) int {
+func Rob(nums []int) int {
 	if len(nums) == 1 {
 		return nums[0]
 	}
@@ -47,7 +47,7 @@ func rob(nums []int) int {
 	mem[0] = nums[0]
 	mem[1] = nums[1]
 
-	best, prevBest := max(mem[0], mem[1]), 0
+	best, prevBest := Max(mem[0], mem[1]), 0
 
 	for i := 2; i < len(nums); i++ {
 		if best > mem[i-2] && best != mem[i-1] {
@@ -67,7 +67,7 @@ func rob(nums []int) int {
 	return best
 }
 
-func max(a, b int) int {
+func Max(a, b int) int {
 	if a > b {
 		return a
 	}

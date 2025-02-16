@@ -7,7 +7,7 @@ func TestRob(t *testing.T) {
 	nums := []int{1, 2, 3, 1}
 
 	expected := 4
-	actual := rob(nums)
+	actual := Rob(nums)
 
 	if expected != actual {
 		t.Errorf("rob(%#v) returned %d instead of %d.", nums, actual, expected)
@@ -17,7 +17,7 @@ func TestRob(t *testing.T) {
 	nums = []int{2, 7, 9, 3, 1}
 
 	expected = 12
-	actual = rob(nums)
+	actual = Rob(nums)
 
 	if expected != actual {
 		t.Errorf("rob(%#v) returned %d instead of %d.", nums, actual, expected)
@@ -27,7 +27,7 @@ func TestRob(t *testing.T) {
 	nums = []int{0}
 
 	expected = 0
-	actual = rob(nums)
+	actual = Rob(nums)
 
 	if expected != actual {
 		t.Errorf("rob(%#v) returned %d instead of %d.", nums, actual, expected)
@@ -37,7 +37,7 @@ func TestRob(t *testing.T) {
 	nums = []int{2, 1, 1, 2}
 
 	expected = 4
-	actual = rob(nums)
+	actual = Rob(nums)
 
 	if expected != actual {
 		t.Errorf("rob(%#v) returned %d instead of %d.", nums, actual, expected)
@@ -53,7 +53,7 @@ func TestRob(t *testing.T) {
     }
 
 	expected = 6762
-	actual = rob(nums)
+	actual = Rob(nums)
 
 	if expected != actual {
 		t.Errorf("rob(%#v) returned %d instead of %d.", nums, actual, expected)

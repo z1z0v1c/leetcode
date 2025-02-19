@@ -24,6 +24,34 @@
  */
 package palindromicsubstrings
 
+/**
+Two pointers solution
+*/
+func countSubstrings(s string) int {
+	count := 0
+
+	for i := range s {
+		count += countPalindromes(s, i, i) + countPalindromes(s, i, i+1)
+	}
+
+	return count
+}
+
+func countPalindromes(s string, i, j int) int {
+	count := 0
+
+	for i >= 0 && j < len(s) && s[i] == s[j] {
+		count++
+		i--
+		j++
+	}
+
+	return count
+}
+
+/** 
+Dynamic programming solution
+
 func countSubstrings(s string) int {
 	count := 0
 
@@ -62,3 +90,4 @@ func isPalindrome(mem *[][]bool, s string, i, j int) bool {
 
 	return false
 }
+*/

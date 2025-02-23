@@ -74,7 +74,7 @@ func numDecodings(s string) int {
 		if s[i] != '0' {
 			mem[i] = mem[i+1]
 
-			if i < n-1 && ((s[i] == '1' || s[i] == '2') && s[i+1] < '7') {
+			if i < n-1 && (s[i] == '1' || (s[i] == '2' && s[i+1] < '7')) {
 				mem[i] += mem[i+2]
 			}
 		}

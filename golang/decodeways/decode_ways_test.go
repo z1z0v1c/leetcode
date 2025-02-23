@@ -32,4 +32,14 @@ func TestNumDecodings(t *testing.T) {
 	if expected != actual {
 		t.Errorf("numDecodings(%s) returned %d instead of %d.", s, actual, expected)
 	}
+
+	// Example three
+	s = "2611055971756562"
+
+	expected = 4
+	actual = numDecodings(s)
+
+	if expected != actual {
+		t.Errorf("numDecodings(%s) returned %d instead of %d.", s, actual, expected)
+	}
 }

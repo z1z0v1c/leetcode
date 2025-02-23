@@ -35,4 +35,15 @@ func TestCoinChange(t *testing.T) {
 	if expected != actual {
 		t.Errorf("coinChange(%#v, %d) returned %d instead of %d.", coins, amount, actual, expected)
 	}
+
+	// Example four
+	coins = []int{2, 5, 10, 1}
+	amount = 27
+
+	expected = 4
+	actual = coinChange(coins, amount)
+
+	if expected != actual {
+		t.Errorf("coinChange(%#v, %d) returned %d instead of %d.", coins, amount, actual, expected)
+	}
 }

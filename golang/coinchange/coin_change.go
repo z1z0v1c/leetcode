@@ -34,14 +34,20 @@
  */
 package coinchange
 
+import (
+	"sort"
+)
+
 func coinChange(coins []int, amount int) int {
+	sort.Ints(coins)
+
 	count := 0
 
 	for i := len(coins)-1; i >= 0; i-- {
 		count += amount / coins[i]
 		amount %= coins[i]
 	}
-	
+
 	if amount == 0 {
 		return count
 	}

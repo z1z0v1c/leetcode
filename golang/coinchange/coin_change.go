@@ -34,23 +34,30 @@
  */
 package coinchange
 
-import (
-	"sort"
-)
+import "sort"
 
 func coinChange(coins []int, amount int) int {
 	sort.Ints(coins)
 
-	count := 0
+	mem := make([]int, amount+1)
+	mem[0] = 0
 
-	for i := len(coins)-1; i >= 0; i-- {
-		count += amount / coins[i]
-		amount %= coins[i]
+	for i := 1; i <= amount; i++ {
+		mem[i] = -1
 	}
 
-	if amount == 0 {
-		return count
+	for i := 1; i <= amount; i++ {
+		for j := 0; j < len(coins); j++ {
+			res := i - coins[j]
+			if res >= 0 {
+				if (mem[i] == -1 || mem[i] > mem[res] + 1) && mem[res] != -1 {
+					mem[i] = mem[res] + 1
+				}
+			} else {
+				break
+			}
+		}
 	}
 
-	return -1
+	return mem[amount]
 }

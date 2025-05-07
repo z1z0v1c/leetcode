@@ -8,7 +8,7 @@ func TestMaxProduct(t *testing.T) {
 
 	expected := 6
 	actual := maxProduct(nums)
-	
+
 	if expected != actual {
 		t.Errorf("maxProduct(%#v) returned %d instead of %d.", nums, actual, expected)
 	}
@@ -18,7 +18,7 @@ func TestMaxProduct(t *testing.T) {
 
 	expected = 0
 	actual = maxProduct(nums)
-	
+
 	if expected != actual {
 		t.Errorf("maxProduct(%#v) returned %d instead of %d.", nums, actual, expected)
 	}
@@ -28,7 +28,7 @@ func TestMaxProduct(t *testing.T) {
 
 	expected = 24
 	actual = maxProduct(nums)
-	
+
 	if expected != actual {
 		t.Errorf("maxProduct(%#v) returned %d instead of %d.", nums, actual, expected)
 	}
@@ -38,7 +38,7 @@ func TestMaxProduct(t *testing.T) {
 
 	expected = 24
 	actual = maxProduct(nums)
-	
+
 	if expected != actual {
 		t.Errorf("maxProduct(%#v) returned %d instead of %d.", nums, actual, expected)
 	}
@@ -48,7 +48,7 @@ func TestMaxProduct(t *testing.T) {
 
 	expected = 2
 	actual = maxProduct(nums)
-	
+
 	if expected != actual {
 		t.Errorf("maxProduct(%#v) returned %d instead of %d.", nums, actual, expected)
 	}

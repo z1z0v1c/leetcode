@@ -34,9 +34,9 @@ func maxProduct(nums []int) int {
 	best := maxProduct[0]
 
 	for i := 1; i < len(maxProduct); i++ {
-		minProduct[i] = min(minProduct[i-1]*nums[i], nums[i])
+		minProduct[i] = min(min(minProduct[i-1]*nums[i], nums[i]), min(maxProduct[i-1]*nums[i], nums[i]))
 
-		maxProduct[i] = max(max(maxProduct[i-1]*nums[i], minProduct[i-1]*nums[i]), nums[i])
+		maxProduct[i] = max(max(maxProduct[i-1]*nums[i], nums[i]), max(minProduct[i-1]*nums[i], nums[i]))
 
 		best = max(maxProduct[i], best)
 	}

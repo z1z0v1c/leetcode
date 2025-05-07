@@ -1,5 +1,3 @@
-.vscode
-
 csharp/Solutions/bin
 csharp/Solutions/obj
 csharp/Tests/bin
@@ -9,11 +7,11 @@ java/target/
 java/!.mvn/wrapper/maven-wrapper.jar
 java/!**/src/main/**/target/
 java/!**/src/test/**/target/
-java/
-java/### IntelliJ IDEA ###
-java/.idea
-java/
-java/### VS Code ###
-java/.vscode/
 
 golang/.vscode
+
+### IntelliJ IDEA ###
+.idea
+
+### VS Code ###
+.vscode/

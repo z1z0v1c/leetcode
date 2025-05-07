@@ -28,17 +28,15 @@ func maxProduct(nums []int) int {
 	maxProduct := make([]int, len(nums))
 	maxProduct[0] = nums[0]
 
-	product := make([]int, len(nums))
-	product[0] = nums[0]
+	minProduct := make([]int, len(nums))
+	minProduct[0] = nums[0]
 
 	best := maxProduct[0]
 
 	for i := 1; i < len(maxProduct); i++ {
-		product[i] = product[i-1] * nums[i]
-		
-		betterMaxProduct := max(maxProduct[i-1]*nums[i], nums[i])
+		minProduct[i] = min(minProduct[i-1]*nums[i], nums[i])
 
-		maxProduct[i] = max(betterMaxProduct, product[i])
+		maxProduct[i] = max(maxProduct[i-1]*nums[i], minProduct[i-1]*nums[i])
 
 		best = max(maxProduct[i], best)
 	}
@@ -48,6 +46,14 @@ func maxProduct(nums []int) int {
 
 func max(a, b int) int {
 	if a > b {
+		return a
+	}
+
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
 		return a
 	}
 

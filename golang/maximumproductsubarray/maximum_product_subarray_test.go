@@ -42,4 +42,14 @@ func TestMaxProduct(t *testing.T) {
 	if expected != actual {
 		t.Errorf("maxProduct(%#v) returned %d instead of %d.", nums, actual, expected)
 	}
+
+	// Exmple five
+	nums = []int{0, 2}
+
+	expected = 2
+	actual = maxProduct(nums)
+	
+	if expected != actual {
+		t.Errorf("maxProduct(%#v) returned %d instead of %d.", nums, actual, expected)
+	}
 }

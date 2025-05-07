@@ -25,23 +25,21 @@
 package maximumproductsubarray
 
 func maxProduct(nums []int) int {
-	maxProduct := make([]int, len(nums))
-	maxProduct[0] = nums[0]
+	maxProduct := nums[0]
+	minProduct := nums[0]
 
-	minProduct := make([]int, len(nums))
-	minProduct[0] = nums[0]
+	bestMaxProduct := nums[0]
 
-	best := maxProduct[0]
+	for i := 1; i < len(nums); i++ {
+		tempMinProduct := minProduct
 
-	for i := 1; i < len(maxProduct); i++ {
-		minProduct[i] = min(min(minProduct[i-1]*nums[i], nums[i]), min(maxProduct[i-1]*nums[i], nums[i]))
+		minProduct = min(min(minProduct*nums[i], maxProduct*nums[i]), nums[i])
+		maxProduct = max(max(maxProduct*nums[i], tempMinProduct*nums[i]), nums[i])
 
-		maxProduct[i] = max(max(maxProduct[i-1]*nums[i], nums[i]), max(minProduct[i-1]*nums[i], nums[i]))
-
-		best = max(maxProduct[i], best)
+		bestMaxProduct = max(maxProduct, bestMaxProduct)
 	}
 
-	return best
+	return bestMaxProduct
 }
 
 func max(a, b int) int {

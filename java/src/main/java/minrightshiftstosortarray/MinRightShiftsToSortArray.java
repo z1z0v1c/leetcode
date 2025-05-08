@@ -39,6 +39,18 @@ import java.util.List;
 
 public class MinRightShiftsToSortArray {
     public int minimumRightShifts(List<Integer> nums) {
-        return nums.size();
+        int pivot = 0;
+
+        for (int i = 1; i < nums.size() && nums.get(i - 1) < nums.get(i); i++) {
+            pivot++;
+        }
+
+        for (int i = pivot + 1; i < nums.size(); i++) {
+            if (nums.get(pivot) < nums.get(i)) {
+                return -1;
+            }
+        }
+
+        return nums.size() - pivot - 1;
     }
 }

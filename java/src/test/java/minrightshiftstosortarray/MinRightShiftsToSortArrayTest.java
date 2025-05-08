@@ -60,4 +60,15 @@ public class MinRightShiftsToSortArrayTest {
 
         assertEquals(expected, actual, String.format("Should return %d", expected));
     }
+
+    @Test
+    @DisplayName("Example five")
+    void testMinOperationsExampleFive() {
+        List<Integer> nums = Arrays.asList(new Integer[] { 29, 30, 88, 28, 62 });
+
+        int expected = -1;
+        int actual = minShifts.minimumRightShifts(nums);
+
+        assertEquals(expected, actual, String.format("Should return %d", expected));
+    }
 }

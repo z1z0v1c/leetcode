@@ -57,6 +57,12 @@ public class MinRightShiftsToSortArray {
             }
         }
 
+        for (int i = pivot + 1; i < nums.size(); i++) {
+            if (nums.get(0) < nums.get(i)) {
+                return -1;
+            }
+        }
+
         return nums.size() - pivot - 1;
     }
 }

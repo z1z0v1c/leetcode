@@ -49,4 +49,16 @@ public class MinOpsToExceedValueITest {
 
         assertEquals(expected, actual, String.format("Should return %d", expected));
     }
+
+    @Test
+    @DisplayName("Example four")
+    void testMinOperationsExampleFour() {
+        int k = 39;
+        int[] nums = new int[] { 39, 100, 81, 98, 59, 39, 20, 25 };
+
+        int expected = 2;
+        int actual = minOps.minOperations(nums, k);
+
+        assertEquals(expected, actual, String.format("Should return %d", expected));
+    }
 }

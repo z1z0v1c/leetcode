@@ -38,6 +38,8 @@
  */
 package minopstoexceedvaluei;
 
+import java.util.Arrays;
+
 public class MinOpsToExceedValueI {
     public int minOperations(int[] nums, int k) {
         int count = 0;
@@ -46,6 +48,26 @@ public class MinOpsToExceedValueI {
             if (nums[i] < k) {
                 count++;
             }
+        }
+
+        return count;
+    }
+
+    // Does not work for cases with duplicate k values in nums
+    public int minOperationsBinarySearch(int[] nums, int k) {
+        Arrays.sort(nums);
+
+        return Arrays.binarySearch(nums, k);
+    }
+
+    // Lower performance
+    public int minOperationsSort(int[] nums, int k) {
+        Arrays.sort(nums);
+
+        int count = 0; 
+
+        for (int i = 0; nums[i] < k; i++) {
+            count++;
         }
 
         return count;

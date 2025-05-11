@@ -1,13 +1,9 @@
 # LeetCode Solutions
 
-Solutions to mainly easy and medium [LeetCode](https://leetcode.com/) problems.
-
-![Go Build](https://github.com/z1z0v1c/leetcode/actions/workflows/go.yml/badge.svg)
-![Java Build](https://github.com/z1z0v1c/leetcode/actions/workflows/maven.yml/badge.svg)
-![Dotnet Build](https://github.com/z1z0v1c/leetcode/actions/workflows/dotnet.yml/badge.svg)
-
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/z1z0v1c/leetcode/leetcode.yml?branch=master)
 ![GitHub last commit](https://img.shields.io/github/last-commit/z1z0v1c/leetcode)
-![License](https://img.shields.io/github/license/z1z0v1c/leetcode)
+
+Solutions to mainly easy and medium [LeetCode](https://leetcode.com/) problems.
 
 ![Go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge)
 ![Java](https://img.shields.io/badge/Java-8B4513?style=for-the-badge)

@@ -10,7 +10,7 @@
 ///       each day (outer list).
 /// 
 /// An example input would look like this:
-///     ["AMZN". "CACC", "EQIXS", "GOOG", "ORLY", "ULTA"]
+///     ["AMZN", "CACC", "EQIXS", "GOOG", "ORLY", "ULTA"]
 ///     [12.81, 11.09, 12.11, 10.93, 9.83, 8.14], [10.34, 10.56, 10.14, 12.17, 9.66, 8,90]
 /// 
 /// Your GetTopStocks method should return an array containing the names of the three
@@ -25,7 +25,7 @@ namespace Solutions.GetTopStocks;
 
 public class GetTopStocksSolution
 {
-    public static string[] GetTopStocks(string[] stocks, double[][] prices)
+    public string[] GetTopStocks(string[] stocks, double[][] prices)
     {
         string[] topStocks = new string[prices[0].length];
 

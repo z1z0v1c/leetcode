@@ -27,21 +27,16 @@ public class GetTopStocksSolution
 {
     public string[] GetTopStocks(string[] stocks, double[][] prices)
     {
-        var averageStocks = new Dictionary<string, double>();
+        var averageStock = new Dictionary<string, double>();
 
-        for (var i = 0; i < stocks.Length; i++)
+        for (var stockIndex = 0; stockIndex < stocks.Length; stockIndex++)
         {
-            var sum = 0d;
-            for (int j = 0; j < prices.Length; j++)
-            {
-                sum += prices[j][i];
-            }
+            var average = prices.Average(pricesPerStock => pricesPerStock[stockIndex]);
 
-            var average = sum / prices.Length;
-            averageStocks[stocks[i]] = average;
+            averageStock[stocks[stockIndex]] = average;
         }
 
-        return averageStocks
+        return averageStock
             .OrderByDescending(s => s.Value)
             .Take(3)
             .Select(s => s.Key)

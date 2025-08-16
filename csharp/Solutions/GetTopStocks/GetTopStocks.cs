@@ -27,10 +27,9 @@ public class GetTopStocksSolution
 {
     public string[] GetTopStocks(string[] stocks, double[][] prices)
     {
-        var topStocks = new string[3];
-        var average = new double[stocks.Length];
+        var averageStocks = new Dictionary<string, double>();
 
-        for (int i = 0; i < stocks.Length; i++)
+        for (var i = 0; i < stocks.Length; i++)
         {
             var sum = 0d;
             for (int j = 0; j < prices.Length; j++)
@@ -38,24 +37,14 @@ public class GetTopStocksSolution
                 sum += prices[j][i];
             }
 
-            average[i] = sum / prices.Length;
+            var average = sum / prices.Length;
+            averageStocks[stocks[i]] = average;
         }
 
-        var orderedStocks = new Dictionary<double, string>();
-
-        for (int i = 0; i < stocks.Length; i++)
-        {
-            orderedStocks.Add(average[i], stocks[i]);
-        }
-
-        List<double> ordered = [.. orderedStocks.Keys];
-        ordered.Sort();
-
-        for (int i = 0; i < 3; i++)
-        {
-            topStocks[i] = orderedStocks.GetValueOrDefault(ordered.ElementAt(stocks.Length - i - 1))!;
-        }
-
-        return topStocks;
+        return averageStocks
+            .OrderByDescending(s => s.Value)
+            .Take(3)
+            .Select(s => s.Key)
+            .ToArray();
     }
 } 

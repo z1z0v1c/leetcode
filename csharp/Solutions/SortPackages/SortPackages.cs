@@ -27,6 +27,26 @@ public class SortPackagesSolution
 {
    public string Sort(int width, int height, int length, int mass)
    {
-      return "";
+      var isBulky = false;
+      var isHeavy = mass >= 20;
+      
+      var volume = (long) width * height * length;
+
+      if (width >= 150 || height >= 150 || length >= 150 || volume >= 1_000_000)
+      {
+         isBulky = true;
+      }
+
+      if (isBulky && isHeavy)
+      {
+         return "REJECTED";
+      }
+
+      if (isBulky || isHeavy)
+      {
+         return "SPECIAL";
+      }
+
+      return "STANDARD";
    }
 }

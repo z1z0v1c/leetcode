@@ -19,11 +19,21 @@ public class CalculateTotalPriceSolution
 {
     public int CalculateTotalPrice(int[] prices, int discount)
     {
-        var mostExpensive = prices.Max();
-        var total = prices.Sum();
+        var mostExpensive = 0;
+        var totalAmount = 0;
+
+        foreach (var price in prices)
+        {
+            totalAmount += price;
+
+            if (price > mostExpensive)
+            {
+                mostExpensive = price;
+            }
+        }
 
         var discountAmount = (mostExpensive * discount) / 100;
 
-        return total - discountAmount;
+        return totalAmount - discountAmount;
     }
 }

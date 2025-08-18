@@ -53,4 +53,19 @@ public class LuckyMoneyTests
         // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
+    
+    [Test]
+    public void TestExampleFour()
+    {
+        // Arrange
+        var money = 13;
+        var giftees = 3;
+        var expected = 1;
+        
+        // Act
+        var actual = solution.LuckyMoney(money, giftees);
+        
+        // Assert
+        Assert.That(actual, Is.EqualTo(expected));
+    }
 }

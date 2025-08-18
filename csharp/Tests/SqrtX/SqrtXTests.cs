@@ -4,10 +4,10 @@ namespace Tests.SqrtX;
 
 public class SqrtXTests
 {
-    private Solutions.SqrtX.SqrtXSolution sqrtXSolution;
+    private SqrtXSolution solution;
 
     [SetUp]
-    public void Setup() => sqrtXSolution = new();
+    public void Setup() => solution = new();
 
     [Test]
     public void TestExampleOne()
@@ -15,7 +15,7 @@ public class SqrtXTests
         int x = 4;
 
         int expected = 2;
-        int actual= sqrtXSolution.MySqrt(x);
+        int actual= solution.MySqrt(x);
 
         Assert.That(actual, Is.EqualTo(expected));
     }
@@ -26,7 +26,7 @@ public class SqrtXTests
         int x = 8;
 
         int expected = 2;
-        int actual= sqrtXSolution.MySqrt(x);
+        int actual= solution.MySqrt(x);
 
         Assert.That(actual, Is.EqualTo(expected));
     }

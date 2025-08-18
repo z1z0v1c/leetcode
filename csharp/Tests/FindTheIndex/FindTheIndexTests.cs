@@ -4,10 +4,10 @@ namespace Tests.FindTheIndex;
 
 public class FindTheIndexTests
 {
-    private Solutions.FindTheIndex.FindTheIndexSolution findTheIndexSolution;
+    private FindTheIndexSolution solution;
 
     [SetUp]
-    public void Setup() => findTheIndexSolution = new();
+    public void Setup() => solution = new();
 
     [Test]
     public void TestExampleOne()
@@ -16,7 +16,7 @@ public class FindTheIndexTests
         string needle = "sad";
 
         int expected = 0;
-        int actual = findTheIndexSolution.StrStr(haystack, needle);
+        int actual = solution.StrStr(haystack, needle);
         
         Assert.That(actual, Is.EqualTo(expected));
     }
@@ -28,7 +28,7 @@ public class FindTheIndexTests
         string needle = "leeto";
 
         int expected = -1;
-        int actual = findTheIndexSolution.StrStr(haystack, needle);
+        int actual = solution.StrStr(haystack, needle);
         
         Assert.That(actual, Is.EqualTo(expected));
     }

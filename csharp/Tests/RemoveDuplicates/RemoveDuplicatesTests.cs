@@ -4,10 +4,10 @@ namespace Tests.RemoveDuplicates;
 
 public class RemoveDuplicatesTests
 {
-    private RemoveDuplicatesSolution removeDuplicates;
+    private RemoveDuplicatesSolution solution;
 
     [SetUp]
-    public void Setup() => removeDuplicates = new();
+    public void Setup() => solution = new();
 
     [Test]
     public void TestExampleOne()
@@ -16,7 +16,7 @@ public class RemoveDuplicatesTests
         int[] expectedNums = [1, 2, 0];
 
         int expectedLength = 2;
-        int actualLength = removeDuplicates.RemoveDuplicates(nums);
+        int actualLength = solution.RemoveDuplicates(nums);
 
         Assert.That(actualLength, Is.EqualTo(expectedLength));
         for (int i = 0; i < expectedLength; i++)
@@ -32,7 +32,7 @@ public class RemoveDuplicatesTests
         int[] expectedNums = [0, 1, 2, 3, 4, 0, 0, 0, 0, 0];
 
         int expectedLength = 5;
-        int actualLength = removeDuplicates.RemoveDuplicates(nums);
+        int actualLength = solution.RemoveDuplicates(nums);
 
         Assert.That(actualLength, Is.EqualTo(expectedLength));
         for (int i = 0; i < expectedLength; i++)

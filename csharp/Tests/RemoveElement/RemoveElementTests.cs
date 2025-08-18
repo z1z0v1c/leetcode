@@ -4,10 +4,10 @@ namespace Tests.RemoveElement;
 
 public class RemoveElementTests
 {
-    private RemoveElementSolution removeElement;
+    private RemoveElementSolution solution;
 
     [SetUp]
-    public void Setup() => removeElement = new();
+    public void Setup() => solution = new();
 
     [Test]
     public void TestExampleOne()
@@ -17,7 +17,7 @@ public class RemoveElementTests
 
         int[] expectedNums = [2, 2, 0, 0];
         int expectedLength = 2;
-        int actualLength = removeElement.RemoveElement(nums, val);
+        int actualLength = solution.RemoveElement(nums, val);
 
         Assert.That(actualLength, Is.EqualTo(expectedLength));
         for (int i = 0; i < expectedLength; i++)
@@ -34,7 +34,7 @@ public class RemoveElementTests
 
         int[] expectedNums = [0, 1, 4, 0, 3, 0, 0, 0];
         int expectedLength = 5;
-        int actualLength = removeElement.RemoveElement(nums, val);
+        int actualLength = solution.RemoveElement(nums, val);
 
         Assert.That(actualLength, Is.EqualTo(expectedLength));
         for (int i = 0; i < expectedLength; i++)

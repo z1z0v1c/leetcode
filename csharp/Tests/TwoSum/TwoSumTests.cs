@@ -4,10 +4,10 @@ namespace Tests.TwoSum;
 
 public class TwoSumTests
 {
-    private TwoSumSolution twoSum;
+    private TwoSumSolution solution;
 
     [SetUp]
-    public void Setup() => twoSum = new();
+    public void Setup() => solution = new();
 
     [Test]
     public void TestExampleOne()
@@ -15,7 +15,7 @@ public class TwoSumTests
         int[] nums = [2,7,11,15];
         int target = 9;
 
-        int[] actual = twoSum.TwoSum(nums, target);
+        int[] actual = solution.TwoSum(nums, target);
         int[] expected = [0,1];
 
         Assert.That(actual, Is.EqualTo(expected));
@@ -27,7 +27,7 @@ public class TwoSumTests
         int[] nums = [3,2,4];
         int target = 6;
 
-        int[] actual = twoSum.TwoSum(nums, target);
+        int[] actual = solution.TwoSum(nums, target);
         int[] expected = [1,2];
 
         Assert.That(actual, Is.EqualTo(expected));
@@ -39,7 +39,7 @@ public class TwoSumTests
         int[] nums = [3,3];
         int target = 6;
 
-        int[] actual = twoSum.TwoSum(nums, target);
+        int[] actual = solution.TwoSum(nums, target);
         int[] expected = [0, 1];
 
         Assert.That(actual, Is.EqualTo(expected));

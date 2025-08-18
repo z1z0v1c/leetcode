@@ -4,10 +4,10 @@ namespace Tests.RomanToInteger;
 
 public class RomToIntegerTests
 {
-    private RomanToIntegerSolution romanToIntegerSolution;
+    private RomanToIntegerSolution solution;
 
     [SetUp]
-    public void Setup() => romanToIntegerSolution = new();
+    public void Setup() => solution = new();
 
     [Test]
     public void TestExampleOne()
@@ -15,7 +15,7 @@ public class RomToIntegerTests
         string input = "III";
 
         int expected = 3;
-        int actual = romanToIntegerSolution.RomanToInt(input);
+        int actual = solution.RomanToInt(input);
 
         Assert.That(actual, Is.EqualTo(expected));
     }
@@ -26,7 +26,7 @@ public class RomToIntegerTests
         string input = "LVIII";
         
         int expected = 58;
-        int actual = romanToIntegerSolution.RomanToInt(input);
+        int actual = solution.RomanToInt(input);
 
         Assert.That(actual, Is.EqualTo(expected));
     }
@@ -37,7 +37,7 @@ public class RomToIntegerTests
         string input = "MCMXCIV";
         
         int expected = 1994;
-        int actual = romanToIntegerSolution.RomanToInt(input);
+        int actual = solution.RomanToInt(input);
 
         Assert.That(actual, Is.EqualTo(expected));
     }
@@ -48,7 +48,7 @@ public class RomToIntegerTests
         string input = "MCMXCI";
         
         int expected = 1991;
-        int actual = romanToIntegerSolution.RomanToInt(input);
+        int actual = solution.RomanToInt(input);
 
         Assert.That(actual, Is.EqualTo(expected));
     }

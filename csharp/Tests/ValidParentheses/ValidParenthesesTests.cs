@@ -4,17 +4,17 @@ namespace Tests.ValidParentheses;
 
 public class ValidParenthesesTests
 {
-    private Solutions.ValidParentheses.ValidParenthesesSolution validParenthesesSolution;
+    private ValidParenthesesSolution solution;
 
     [SetUp]
-    public void Setup() => validParenthesesSolution = new();
+    public void Setup() => solution = new();
 
     [Test]
     public void TestExampleOne()
     {
         string s = "()";
 
-        Assert.That(validParenthesesSolution.IsValid(s), Is.True);
+        Assert.That(solution.IsValid(s), Is.True);
     }
 
     [Test]
@@ -22,7 +22,7 @@ public class ValidParenthesesTests
     {
         string s = "()[]{}";
 
-        Assert.That(validParenthesesSolution.IsValid(s), Is.True);
+        Assert.That(solution.IsValid(s), Is.True);
     }
 
     [Test]
@@ -30,7 +30,7 @@ public class ValidParenthesesTests
     {
         string s = "(]";
 
-        Assert.That(validParenthesesSolution.IsValid(s), Is.False);
+        Assert.That(solution.IsValid(s), Is.False);
     }
 
     [Test]
@@ -38,7 +38,7 @@ public class ValidParenthesesTests
     {
         string s = "([])";
 
-        Assert.That(validParenthesesSolution.IsValid(s), Is.True);
+        Assert.That(solution.IsValid(s), Is.True);
     }
 }
 

@@ -4,10 +4,10 @@ namespace Tests.ContainerWithMostWater;
 
 public class ContainerWithMostWaterTests
 {
-    private Solutions.ContainerWithMostWater.ContainerWithMostWaterSolution containerWithMostWaterSolution;
+    private ContainerWithMostWaterSolution solution;
 
     [SetUp]
-    public void Setup() => containerWithMostWaterSolution = new();
+    public void Setup() => solution = new();
 
     [Test]
     public void TestExampleOne()
@@ -15,7 +15,7 @@ public class ContainerWithMostWaterTests
         int[] height = [1,8,6,2,5,4,8,3,7];
 
         int expected = 49;
-        int actual = containerWithMostWaterSolution.MaxArea(height);
+        int actual = solution.MaxArea(height);
         
         Assert.That(actual, Is.EqualTo(expected));
     }
@@ -26,7 +26,7 @@ public class ContainerWithMostWaterTests
         int[] height = [1,1];
 
         int expected = 1;
-        int actual = containerWithMostWaterSolution.MaxArea(height);
+        int actual = solution.MaxArea(height);
         
         Assert.That(actual, Is.EqualTo(expected));
     }

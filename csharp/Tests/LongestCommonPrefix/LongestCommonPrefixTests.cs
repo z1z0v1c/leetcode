@@ -4,10 +4,10 @@ namespace Tests.LongestCommonPrefix;
 
 public class LittleLongestCommonPrefixTests
 {
-    private LongestCommonPrefixSolution longestCommonPrefix;
+    private LongestCommonPrefixSolution solution;
 
     [SetUp]
-    public void Setup() => longestCommonPrefix = new();
+    public void Setup() => solution = new();
 
     [Test]
     public void TestExampleOne()
@@ -15,7 +15,7 @@ public class LittleLongestCommonPrefixTests
         string[] strs = ["flower","flow","flight"];
 
         string expected = "fl";
-        string actual = longestCommonPrefix.LongestCommonPrefix(strs);
+        string actual = solution.LongestCommonPrefix(strs);
         
         Assert.That(actual, Is.EqualTo(expected));
     }
@@ -26,7 +26,7 @@ public class LittleLongestCommonPrefixTests
         string[] strs = ["dog","racecar","car"];
 
         string expected = "";
-        string actual = longestCommonPrefix.LongestCommonPrefix(strs);
+        string actual = solution.LongestCommonPrefix(strs);
         
         Assert.That(actual, Is.EqualTo(expected));
     }

@@ -4,10 +4,10 @@ namespace Tests.LengthOfLastWord;
 
 public class LengthOfLastWordTests
 {
-    private LengthOfLastWordSolution lengthOfLastWord;
+    private LengthOfLastWordSolution solution;
 
     [SetUp]
-    public void Setup() => lengthOfLastWord = new();
+    public void Setup() => solution = new();
 
     [Test]
     public void TestExampleOne()
@@ -15,7 +15,7 @@ public class LengthOfLastWordTests
         string s = "Hello World";
 
         int expected = 5;
-        int actual = lengthOfLastWord.LengthOfLastWord(s);
+        int actual = solution.LengthOfLastWord(s);
         
         Assert.That(actual, Is.EqualTo(expected));
     }
@@ -26,7 +26,7 @@ public class LengthOfLastWordTests
         string s = "   fly me   to   the moon  ";
 
         int expected = 4;
-        int actual = lengthOfLastWord.LengthOfLastWord(s);
+        int actual = solution.LengthOfLastWord(s);
         
         Assert.That(actual, Is.EqualTo(expected));
     }
@@ -37,7 +37,7 @@ public class LengthOfLastWordTests
         string s = "luffy is still joyboy";
 
         int expected = 6;
-        int actual = lengthOfLastWord.LengthOfLastWord(s);
+        int actual = solution.LengthOfLastWord(s);
         
         Assert.That(actual, Is.EqualTo(expected));
     }

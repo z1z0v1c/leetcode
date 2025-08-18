@@ -4,10 +4,10 @@ namespace Tests.SortPackages;
 
 public class SortPackagesTests
 {
-    private SortPackagesSolution sortPackages;
+    private SortPackagesSolution solution;
     
     [SetUp]
-    public void Setup() => sortPackages = new SortPackagesSolution();
+    public void Setup() => solution = new SortPackagesSolution();
 
     [Test]
     public void TestExampleOne()
@@ -17,7 +17,7 @@ public class SortPackagesTests
         var expected = "STANDARD";
         
         // Act
-        var actual = sortPackages.Sort(width, height, length, mass);
+        var actual = solution.Sort(width, height, length, mass);
         
         // Assert
         Assert.That(actual, Is.EqualTo(expected));
@@ -31,7 +31,7 @@ public class SortPackagesTests
         var expected = "SPECIAL";
         
         // Act
-        var actual = sortPackages.Sort(width, height, length, mass);
+        var actual = solution.Sort(width, height, length, mass);
         
         // Assert
         Assert.That(actual, Is.EqualTo(expected));
@@ -45,7 +45,7 @@ public class SortPackagesTests
         var expected = "REJECTED";
         
         // Act
-        var actual = sortPackages.Sort(width, height, length, mass);
+        var actual = solution.Sort(width, height, length, mass);
         
         // Assert
         Assert.That(actual, Is.EqualTo(expected));

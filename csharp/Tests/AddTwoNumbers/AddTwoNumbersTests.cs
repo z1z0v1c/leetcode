@@ -5,10 +5,10 @@ namespace Tests.AddTwoNumbers;
 
 public class AddTwoNumbersTests
 {
-    private AddTwoNumbersSolution addTwoNumbers;
+    private AddTwoNumbersSolution solution;
 
     [SetUp]
-    public void Setup() => addTwoNumbers = new();
+    public void Setup() => solution = new();
 
     [Test]
     public void TestExampleOne()
@@ -17,7 +17,7 @@ public class AddTwoNumbersTests
         ListNode l2 = new(5, new(6, new(4)));
 
         ListNode expected = new(7, new(0, new(8)));
-        ListNode actual = addTwoNumbers.AddTwoNumbers(l1, l2);
+        ListNode actual = solution.AddTwoNumbers(l1, l2);
 
         while (expected != null)
         {
@@ -35,7 +35,7 @@ public class AddTwoNumbersTests
         ListNode l2 = new(0);
 
         ListNode expected = new(0);
-        ListNode actual = addTwoNumbers.AddTwoNumbers(l1, l2);
+        ListNode actual = solution.AddTwoNumbers(l1, l2);
 
         while (expected != null)
         {
@@ -53,7 +53,7 @@ public class AddTwoNumbersTests
         ListNode l2 = new(9, new(9, new(9, new(9))));
 
         ListNode expected = new(8, new(9, new(9, new(9, new(0, new(0, new(0, new(1))))))));
-        ListNode actual = addTwoNumbers.AddTwoNumbers(l1, l2);
+        ListNode actual = solution.AddTwoNumbers(l1, l2);
 
         while (expected != null)
         {

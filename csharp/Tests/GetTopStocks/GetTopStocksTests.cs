@@ -4,10 +4,10 @@ namespace Tests.GetTopStocks;
 
 public class GetTopStocksTests
 {
-    private GetTopStocksSolution getTopStocks;
+    private GetTopStocksSolution solution;
 
     [SetUp]
-    public void Setup() => getTopStocks = new();
+    public void Setup() => solution = new();
 
     [Test]
     public void TestExampleOne()
@@ -22,7 +22,7 @@ public class GetTopStocksTests
         var expected = new[] { "GOOG", "ORLY", "AMZN" };
         
         // Act
-        var actual = getTopStocks.GetTopStocks(stocks, prices);
+        var actual = solution.GetTopStocks(stocks, prices);
 
         // Assert
         Assert.That(actual, Is.EqualTo(expected));

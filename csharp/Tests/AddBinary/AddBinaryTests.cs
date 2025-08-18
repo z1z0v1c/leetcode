@@ -4,10 +4,10 @@ namespace Tests.AddBinary;
 
 public class AddBinaryTests
 {
-    private AddBinarySolution addBinary;
+    private AddBinarySolution solution;
 
     [SetUp]
-    public void Setup() => addBinary = new();
+    public void Setup() => solution = new();
 
     [Test]
     public void TestExampleOne()
@@ -16,7 +16,7 @@ public class AddBinaryTests
         string b = "1";
 
         string expected = "100";
-        string actual = addBinary.AddBinary(a, b);
+        string actual = solution.AddBinary(a, b);
         
         Assert.That(actual, Is.EqualTo(expected));
     }
@@ -28,7 +28,7 @@ public class AddBinaryTests
         string b = "1011";
 
         string expected = "10101";
-        string actual = addBinary.AddBinary(a, b);
+        string actual = solution.AddBinary(a, b);
         
         Assert.That(actual, Is.EqualTo(expected));
     }

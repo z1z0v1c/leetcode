@@ -4,10 +4,10 @@ namespace Tests.PlusOne;
 
 public class PlusOneTests
 {
-    private PlusOneSolution plusOne;
+    private PlusOneSolution solution;
 
     [SetUp]
-    public void Setup() => plusOne = new();
+    public void Setup() => solution = new();
 
     [Test]
     public void TestExampleOne()
@@ -15,7 +15,7 @@ public class PlusOneTests
         int[] digits = [1,2,3];
 
         int[] expected = [1,2,4];
-        int[] actual= plusOne.PlusOne(digits);
+        int[] actual= solution.PlusOne(digits);
 
         Assert.That(actual, Is.EqualTo(expected));
     }
@@ -26,7 +26,7 @@ public class PlusOneTests
         int[] digits = [4,3,2,1];
 
         int[] expected = [4,3,2,2];
-        int[] actual= plusOne.PlusOne(digits);
+        int[] actual= solution.PlusOne(digits);
 
         Assert.That(actual, Is.EqualTo(expected));
     }
@@ -37,7 +37,7 @@ public class PlusOneTests
         int[] digits = [9];
 
         int[] expected = [1, 0];
-        int[] actual= plusOne.PlusOne(digits);
+        int[] actual= solution.PlusOne(digits);
 
         Assert.That(actual, Is.EqualTo(expected));
     }

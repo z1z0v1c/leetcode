@@ -4,10 +4,10 @@ namespace Tests.ClimbingStairs;
 
 public class ClimbingStairsTests
 {
-    private Solutions.ClimbingStairs.ClimbingStairsSolution climbingStairsSolution;
+    private ClimbingStairsSolution solution;
 
     [SetUp]
-    public void Setup() => climbingStairsSolution = new();
+    public void Setup() => solution = new();
 
     [Test]
     public void TestExampleOne()
@@ -15,7 +15,7 @@ public class ClimbingStairsTests
         int n = 2;
 
         int expected = 2;
-        int actual = climbingStairsSolution.ClimbStairs(n);
+        int actual = solution.ClimbStairs(n);
         
         Assert.That(actual, Is.EqualTo(expected));
     }
@@ -26,7 +26,7 @@ public class ClimbingStairsTests
         int n = 3;
 
         int expected = 3;
-        int actual = climbingStairsSolution.ClimbStairs(n);
+        int actual = solution.ClimbStairs(n);
         
         Assert.That(actual, Is.EqualTo(expected));
     }

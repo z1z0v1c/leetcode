@@ -21,7 +21,7 @@ using Solutions.CommonClases;
 
 namespace Solutions.RemoveDuplicatesFromList;
 
-public class RemoveDuplicatesFromList
+public class RemoveDuplicatesFromListSolution
 {
     public ListNode? DeleteDuplicates(ListNode? head)
     {

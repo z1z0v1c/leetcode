@@ -2,12 +2,12 @@ using Solutions.ContainerWithMostWater;
 
 namespace Tests.ContainerWithMostWaterTests;
 
-public class ContainerWithMostWaterTests
+public class ContainerWithMostWaterSolutionTests
 {
-    private ContainerWithMostWater containerWithMostWater;
+    private ContainerWithMostWaterSolution containerWithMostWaterSolution;
 
     [SetUp]
-    public void Setup() => containerWithMostWater = new();
+    public void Setup() => containerWithMostWaterSolution = new();
 
     [Test]
     public void TestExampleOne()
@@ -15,7 +15,7 @@ public class ContainerWithMostWaterTests
         int[] height = [1,8,6,2,5,4,8,3,7];
 
         int expected = 49;
-        int actual = containerWithMostWater.MaxArea(height);
+        int actual = containerWithMostWaterSolution.MaxArea(height);
         
         Assert.That(actual, Is.EqualTo(expected));
     }
@@ -26,7 +26,7 @@ public class ContainerWithMostWaterTests
         int[] height = [1,1];
 
         int expected = 1;
-        int actual = containerWithMostWater.MaxArea(height);
+        int actual = containerWithMostWaterSolution.MaxArea(height);
         
         Assert.That(actual, Is.EqualTo(expected));
     }

@@ -26,7 +26,7 @@ using Solutions.CommonClases;
 
 namespace Solutions.MergeTwoSortedLists;
 
-public class MergeTwoSortedLists
+public class MergeTwoSortedListsSolution
 {
     public ListNode? MergeTwoLists(ListNode? list1, ListNode? list2) {
         ListNode result = new();

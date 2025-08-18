@@ -2,12 +2,12 @@ using Solutions.SearchInRotatedArrayII;
 
 namespace Tests.SearchInRotatedArrayIITests;
 
-public class SearchInRotatedArrayIITests
+public class SearchInRotatedArrayIiSolutionTests
 {
-    private SearchInRotatedArrayII searchInRotatedArrayII;
+    private SearchInRotatedArrayIISolution searchInRotatedArrayIiSolution;
 
     [SetUp]
-    public void Setup() => searchInRotatedArrayII = new();
+    public void Setup() => searchInRotatedArrayIiSolution = new();
 
     [Test]
     public void TestExampleOne()
@@ -15,7 +15,7 @@ public class SearchInRotatedArrayIITests
         int[] nums = [2,5,6,0,0,1,2];
         int target = 0;
         
-        Assert.That(searchInRotatedArrayII.Search(nums, target), Is.True);
+        Assert.That(searchInRotatedArrayIiSolution.Search(nums, target), Is.True);
     }
 
     [Test]
@@ -24,7 +24,7 @@ public class SearchInRotatedArrayIITests
         int[] nums = [2,5,6,0,0,1,2];
         int target = 3;
         
-        Assert.That(searchInRotatedArrayII.Search(nums, target), Is.False);
+        Assert.That(searchInRotatedArrayIiSolution.Search(nums, target), Is.False);
     }
 }
 

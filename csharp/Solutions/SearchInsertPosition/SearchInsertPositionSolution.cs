@@ -26,7 +26,7 @@
 /// </summary>
 namespace Solutions.SearchInsertPosition;
 
-public class SearchInsertPosition
+public class SearchInsertPositionSolution
 {
     public int SearchInsert(int[] nums, int target)
     {

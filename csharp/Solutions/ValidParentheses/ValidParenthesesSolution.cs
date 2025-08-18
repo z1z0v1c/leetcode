@@ -31,7 +31,7 @@
 /// </summary>
 namespace Solutions.ValidParentheses;
 
-public class ValidParentheses
+public class ValidParenthesesSolution
 {
     public bool IsValid(string s)
     {

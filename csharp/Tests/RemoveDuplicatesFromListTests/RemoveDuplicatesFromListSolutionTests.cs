@@ -3,9 +3,9 @@ using Solutions.RemoveDuplicatesFromList;
 
 namespace Tests.RemoveDuplicatesFromListTests;
 
-public class RemoveDuplicatesFromListTests
+public class RemoveDuplicatesFromListSolutionTests
 {
-    private RemoveDuplicatesFromList removeDuplicates;
+    private RemoveDuplicatesFromListSolution removeDuplicates;
 
     [SetUp]
     public void Setup() => removeDuplicates = new();

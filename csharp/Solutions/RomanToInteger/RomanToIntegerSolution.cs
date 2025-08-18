@@ -48,7 +48,7 @@
 /// </summary>
 namespace Solutions.RomanToInteger;
 
-public class RomanToInteger
+public class RomanToIntegerSolution
 {
     public int RomanToInt(string s)
     {

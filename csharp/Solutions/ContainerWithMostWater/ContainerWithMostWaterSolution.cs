@@ -24,7 +24,7 @@
 /// </summary>
 namespace Solutions.ContainerWithMostWater;
 
-public class ContainerWithMostWater
+public class ContainerWithMostWaterSolution
 {
     public int MaxArea(int[] height)
     {

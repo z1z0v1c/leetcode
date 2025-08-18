@@ -2,12 +2,12 @@ using Solutions.SearchInsertPosition;
 
 namespace Tests.SearchInsertPositionTests;
 
-public class SearchInsertPositionTests
+public class SearchInsertPositionSolutionTests
 {
-    private SearchInsertPosition searchInsertPosition;
+    private SearchInsertPositionSolution searchInsertPositionSolution;
 
     [SetUp]
-    public void Setup() => searchInsertPosition = new();
+    public void Setup() => searchInsertPositionSolution = new();
 
     [Test]
     public void TestExampleOne()
@@ -16,7 +16,7 @@ public class SearchInsertPositionTests
         int target = 5;
 
         int expected = 2;
-        int actual = searchInsertPosition.SearchInsert(nums, target);
+        int actual = searchInsertPositionSolution.SearchInsert(nums, target);
         
         Assert.That(actual, Is.EqualTo(expected));
     }
@@ -28,7 +28,7 @@ public class SearchInsertPositionTests
         int target = 2;
 
         int expected = 1;
-        int actual = searchInsertPosition.SearchInsert(nums, target);
+        int actual = searchInsertPositionSolution.SearchInsert(nums, target);
         
         Assert.That(actual, Is.EqualTo(expected));
     }
@@ -40,7 +40,7 @@ public class SearchInsertPositionTests
         int target = 7;
 
         int expected = 4;
-        int actual = searchInsertPosition.SearchInsert(nums, target);
+        int actual = searchInsertPositionSolution.SearchInsert(nums, target);
         
         Assert.That(actual, Is.EqualTo(expected));
     }

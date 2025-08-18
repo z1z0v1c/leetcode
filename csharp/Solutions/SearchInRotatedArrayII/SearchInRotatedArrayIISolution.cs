@@ -31,7 +31,7 @@
 /// </summary>
 namespace Solutions.SearchInRotatedArrayII;
 
-public class SearchInRotatedArrayII
+public class SearchInRotatedArrayIISolution
 {
     public bool Search(int[] nums, int target)
     {

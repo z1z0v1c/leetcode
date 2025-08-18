@@ -2,12 +2,12 @@ using Solutions.SqrtX;
 
 namespace Tests.SqrtXTests;
 
-public class SqrtXTests
+public class SqrtXSolutionTests
 {
-    private SqrtX sqrtX;
+    private SqrtXSolution sqrtXSolution;
 
     [SetUp]
-    public void Setup() => sqrtX = new();
+    public void Setup() => sqrtXSolution = new();
 
     [Test]
     public void TestExampleOne()
@@ -15,7 +15,7 @@ public class SqrtXTests
         int x = 4;
 
         int expected = 2;
-        int actual= sqrtX.MySqrt(x);
+        int actual= sqrtXSolution.MySqrt(x);
 
         Assert.That(actual, Is.EqualTo(expected));
     }
@@ -26,7 +26,7 @@ public class SqrtXTests
         int x = 8;
 
         int expected = 2;
-        int actual= sqrtX.MySqrt(x);
+        int actual= sqrtXSolution.MySqrt(x);
 
         Assert.That(actual, Is.EqualTo(expected));
     }

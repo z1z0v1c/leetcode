@@ -26,7 +26,7 @@
 /// </summary>
 namespace Solutions.ClimbingStairs;
 
-public class ClimbingStairs {
+public class ClimbingStairsSolution {
     private static int[] dp = new int[46];
 
     public int ClimbStairs(int n) {

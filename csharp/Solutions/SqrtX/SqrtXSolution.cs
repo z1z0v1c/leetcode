@@ -24,7 +24,7 @@
 /// </summary>
 namespace Solutions.SqrtX;
 
-public class SqrtX
+public class SqrtXSolution
 {
     public int MySqrt(int x) {
         if (x == 0 || x == 1)

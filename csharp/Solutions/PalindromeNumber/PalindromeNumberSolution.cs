@@ -26,7 +26,7 @@
 /// </summary>
 namespace Solutions.PalindromeNumber;
 
-public class PalindromeNumber
+public class PalindromeNumberSolution
 {
     public bool IsPalindrome(int x)
     {

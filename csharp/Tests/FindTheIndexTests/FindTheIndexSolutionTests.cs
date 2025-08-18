@@ -2,12 +2,12 @@ using Solutions.FindTheIndex;
 
 namespace Tests.FindTheIndexTests;
 
-public class FindTheIndexTests
+public class FindTheIndexSolutionTests
 {
-    private FindTheIndex findTheIndex;
+    private FindTheIndexSolution findTheIndexSolution;
 
     [SetUp]
-    public void Setup() => findTheIndex = new();
+    public void Setup() => findTheIndexSolution = new();
 
     [Test]
     public void TestExampleOne()
@@ -16,7 +16,7 @@ public class FindTheIndexTests
         string needle = "sad";
 
         int expected = 0;
-        int actual = findTheIndex.StrStr(haystack, needle);
+        int actual = findTheIndexSolution.StrStr(haystack, needle);
         
         Assert.That(actual, Is.EqualTo(expected));
     }
@@ -28,7 +28,7 @@ public class FindTheIndexTests
         string needle = "leeto";
 
         int expected = -1;
-        int actual = findTheIndex.StrStr(haystack, needle);
+        int actual = findTheIndexSolution.StrStr(haystack, needle);
         
         Assert.That(actual, Is.EqualTo(expected));
     }

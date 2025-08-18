@@ -21,7 +21,7 @@
 /// </summary>
 namespace Solutions.FindTheIndex;
 
-public class FindTheIndex
+public class FindTheIndexSolution
 {
     public int StrStr(string haystack, string needle)
     {

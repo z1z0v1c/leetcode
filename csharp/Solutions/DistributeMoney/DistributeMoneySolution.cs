@@ -61,6 +61,11 @@ public class DistributeMoneySolution
                 continue;
             }
 
+            if (remainingMoney > 0 && remainingChildren == 0)
+            {
+                continue;
+            }
+
             if (remainingMoney == 4 && remainingChildren == 1)
             {
                 continue;

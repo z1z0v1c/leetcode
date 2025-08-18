@@ -59,7 +59,7 @@ public class DistributeMoneyTests
     {
         // Arrange
         var money = 17;
-        var children = 3;
+        var children = 2;
         var expected = 1;
         
         // Act

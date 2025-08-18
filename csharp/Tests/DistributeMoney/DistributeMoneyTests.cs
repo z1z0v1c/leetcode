@@ -53,4 +53,19 @@ public class DistributeMoneyTests
         // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
+    
+    [Test]
+    public void TestExampleFour()
+    {
+        // Arrange
+        var money = 17;
+        var children = 3;
+        var expected = 1;
+        
+        // Act
+        var actual = solution.DistMoney(money,  children);
+        
+        // Assert
+        Assert.That(actual, Is.EqualTo(expected));
+    }
 }

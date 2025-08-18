@@ -50,6 +50,41 @@ public class LuckyMoneySolution
 {
     public int LuckyMoney(int money, int giftees)
     {
-        return 0;
+        if (money == 8 * giftees)
+        {
+            return giftees;
+        }
+
+        int maxEights = 0;
+
+        for (int eights = Math.Min(giftees, money / 8); eights >= 0; eights--)
+        {
+            int remainingMoney = money - 8 * eights;
+            int remainingGiftees = giftees - eights;
+
+            if (remainingGiftees == 0)
+            {
+                continue;
+            }
+
+            int minNeeded = remainingGiftees;
+
+            if (remainingMoney < minNeeded)
+            {
+                continue;
+            }
+
+            int maxSingleRemaining = remainingMoney - (remainingGiftees - 1);
+
+            if (maxSingleRemaining == 4 || (remainingGiftees > 1 && (remainingMoney - 1) / (remainingGiftees - 1) == 4))
+            {
+                continue;
+            }
+
+            maxEights = eights;
+            break;
+        }
+
+        return maxEights;
     }
 }

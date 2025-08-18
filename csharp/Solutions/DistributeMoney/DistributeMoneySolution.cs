@@ -44,6 +44,11 @@ public class DistributeMoneySolution
 {
     public int DistMoney(int money, int children)
     {
+        if (money < children)
+        {
+            return -1;
+        }
+        
         var maxEights = 0;
 
         for (var eights = Math.Min(children, money / 8); eights >= 0; eights--)

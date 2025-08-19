@@ -37,7 +37,7 @@ public class PeakIndexInAnArraySolution
 
         while (start < end)
         {
-            var mid = start + end / 2;
+            var mid = (start + end) / 2;
 
             if (arr[mid] > arr[mid + 1] && arr[mid] > arr[mid - 1])
             {

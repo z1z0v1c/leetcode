@@ -14,7 +14,7 @@ public class FindThePeaksTests
     {
         // Arrange
         var mountain = new[] { 2, 4, 4 };
-        var expected = new Lazy<int>();
+        var expected = new List<int>();
 
         // Act
         var actual = solution.FindPeaks(mountain);

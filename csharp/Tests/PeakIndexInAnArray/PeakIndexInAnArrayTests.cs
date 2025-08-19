@@ -70,7 +70,7 @@ public class PeakIndexInAnArrayTests
     {
         // Arrange
         var arr = new[] { 3,4,5,1 };
-        var expected = 3;
+        var expected = 2;
 
         // Act
         var actual = solution.PeakIndexInMountainArray(arr);

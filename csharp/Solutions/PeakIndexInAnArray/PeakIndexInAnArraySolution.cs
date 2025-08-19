@@ -35,7 +35,7 @@ public class PeakIndexInAnArraySolution
         var start = 0;
         var end = arr.Length - 1;
 
-        while (start <= end)
+        while (start < end)
         {
             var mid = start + end / 2;
 
@@ -46,12 +46,12 @@ public class PeakIndexInAnArraySolution
 
             if (arr[mid] > arr[mid - 1])
             {
-                start = mid + 1;
+                start = mid;
             }
 
             if (arr[mid] > arr[mid + 1])
             {
-                end = mid - 1;
+                end = mid;
             }
         }
         

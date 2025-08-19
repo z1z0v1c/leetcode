@@ -64,4 +64,18 @@ public class PeakIndexInAnArrayTests
         // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
+    
+    [Test]
+    public void TestExampleFive()
+    {
+        // Arrange
+        var arr = new[] { 3,4,5,1 };
+        var expected = 3;
+
+        // Act
+        var actual = solution.PeakIndexInMountainArray(arr);
+
+        // Assert
+        Assert.That(actual, Is.EqualTo(expected));
+    }
 }

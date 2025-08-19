@@ -49,6 +49,7 @@
 ///     - 1 <= nums[i] <= 100
 /// 
 /// </sumary>
+
 namespace Solutions.CountHillsAndValleys;
 
 public class CountHillsAndValleysSolution
@@ -62,7 +63,7 @@ public class CountHillsAndValleysSolution
             // Valleys
             if (nums[i] < nums[i - 1])
             {
-                while (nums[i] == nums[i + 1])
+                while (nums[i] == nums[i + 1] && i < nums.Length - 2)
                 {
                     i++;
                 }
@@ -76,7 +77,7 @@ public class CountHillsAndValleysSolution
             // Hills
             if (nums[i] > nums[i - 1])
             {
-                while (nums[i] == nums[i + 1])
+                while (nums[i] == nums[i + 1] && i < nums.Length - 2)
                 {
                     i++;
                 }

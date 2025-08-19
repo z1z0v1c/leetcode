@@ -47,6 +47,33 @@ public class DistributeCandiesSolution
 {
     public int[] DistributeCandies(int candies, int numPeople)
     {
-        return [];
+        var dist = new int[numPeople];
+
+        var i = 0;
+        var candiesToDist = 1;
+        
+        while (candies > 0)
+        {
+            if (i == numPeople)
+            {
+                i = 0;
+            }
+            
+            if (candiesToDist < candies)
+            {
+                dist[i] += candiesToDist;
+                candies -= candiesToDist;
+                candiesToDist++;
+            }
+            else
+            {
+                dist[i] += candies;
+                candies = 0;
+            }
+
+            i++;
+        }
+        
+        return dist;
     }
 }

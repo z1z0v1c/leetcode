@@ -32,8 +32,8 @@ public class PeakIndexInAnArraySolution
 {
     public int PeakIndexInMountainArray(int[] arr)
     {
-        var start = 1;
-        var end = arr.Length - 2;
+        var start = 0;
+        var end = arr.Length - 1;
 
         while (start <= end)
         {

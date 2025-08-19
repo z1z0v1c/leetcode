@@ -57,6 +57,37 @@ public class CountHillsAndValleysSolution
     {
         var count = 0;
 
+        for (var i = 1; i < nums.Length - 1; i++)
+        {
+            // Valleys
+            if (nums[i] < nums[i - 1])
+            {
+                while (nums[i] == nums[i + 1])
+                {
+                    i++;
+                }
+
+                if (nums[i] < nums[i + 1])
+                {
+                    count++;
+                }
+            }
+
+            // Hills
+            if (nums[i] > nums[i - 1])
+            {
+                while (nums[i] == nums[i + 1])
+                {
+                    i++;
+                }
+
+                if (nums[i] > nums[i + 1])
+                {
+                    count++;
+                }
+            }
+        }
+
         return count;
     }
 }

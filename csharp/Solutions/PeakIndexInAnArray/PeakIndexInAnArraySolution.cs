@@ -26,6 +26,7 @@
 ///     - arr is guaranteed to be a mountain array.
 ///
 /// </sumary>
+
 namespace Solutions.PeakIndexInAnArray;
 
 public class PeakIndexInAnArraySolution
@@ -39,22 +40,16 @@ public class PeakIndexInAnArraySolution
         {
             var mid = (start + end) / 2;
 
-            if (arr[mid] > arr[mid + 1] && arr[mid] > arr[mid - 1])
+            if (arr[mid] < arr[mid + 1])
             {
-                return mid;
+                start = mid + 1;
             }
-
-            if (arr[mid] > arr[mid - 1])
-            {
-                start = mid;
-            }
-
-            if (arr[mid] > arr[mid + 1])
+            else
             {
                 end = mid;
             }
         }
-        
-        return -1;
+
+        return start;
     }
 }

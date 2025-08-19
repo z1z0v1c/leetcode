@@ -32,6 +32,29 @@ public class PeakIndexInAnArraySolution
 {
     public int PeakIndexInMountainArray(int[] arr)
     {
-        return 0;
+        var start = 1;
+        var end = arr.Length - 2;
+
+        while (start <= end)
+        {
+            var mid = start + end / 2;
+
+            if (arr[mid] > arr[mid + 1] && arr[mid] > arr[mid - 1])
+            {
+                return mid;
+            }
+
+            if (arr[mid] > arr[mid - 1])
+            {
+                start = mid + 1;
+            }
+
+            if (arr[mid] > arr[mid + 1])
+            {
+                end = mid - 1;
+            }
+        }
+        
+        return -1;
     }
 }

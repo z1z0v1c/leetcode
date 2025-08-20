@@ -1,4 +1,5 @@
 /// <sumary>
+/// 205 - Easy
 ///
 /// Given two strings s and t, determine if they are isomorphic. Two strings s and t are isomorphic if the characters in
 /// s can be replaced to get t. All occurrences of a character must be replaced with another character while preserving
@@ -35,34 +36,23 @@ public class IsomorphicStringsSolution
 {
     public bool IsIsomorphic(string s, string t)
     {
-        var sPairs = new Dictionary<char, char>();
-        var tPairs = new Dictionary<char, char>();
+        var sDict = new int[128];
+        var tDict = new int[128];
 
         for (var i = 0; i < s.Length; i++)
         {
-            if (!sPairs.ContainsKey(s[i]))
+            if (sDict[s[i]] != '\0' && sDict[s[i]] != t[i])
             {
-                sPairs[s[i]] = t[i];
-            }
-            else
-            {
-                if (sPairs[s[i]] != t[i])
-                {
-                    return false;
-                }
+                return false;
             }
             
-            if (!tPairs.ContainsKey(t[i]))
+            if (tDict[t[i]] != '\0' && tDict[t[i]] != s[i])
             {
-                tPairs[t[i]] = s[i];
+                return false;
             }
-            else
-            {
-                if (tPairs[t[i]] != s[i])
-                {
-                    return false;
-                }
-            } 
+            
+            sDict[s[i]] = t[i];
+            tDict[t[i]] = s[i];
         }
         
         return true;

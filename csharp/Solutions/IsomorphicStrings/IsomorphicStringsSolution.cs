@@ -25,7 +25,7 @@
 /// 
 /// Constraints:
 /// 
-///     - 1 <= s.length <= 5 * 104
+///     - 1 <= s.length <= 5 * 10^4
 ///     - t.length == s.length
 ///     - s and t consist of any valid ascii character.
 /// </sumary>
@@ -35,38 +35,20 @@ public class IsomorphicStringsSolution
 {
     public bool IsIsomorphic(string s, string t)
     {
-        var sDict = new Dictionary<char, int>();
-        var tDict = new Dictionary<char, int>();
+        var pairs = new Dictionary<char, char>();
 
         for (var i = 0; i < s.Length; i++)
         {
-            if (!sDict.ContainsKey(s[i]))
+            if (!pairs.ContainsKey(s[i]))
             {
-                sDict[s[i]] = 1;
+                pairs[s[i]] = t[i];
             }
-            
-            if (!tDict.ContainsKey(t[i]))
+            else
             {
-                tDict[t[i]] = 1;
-            }
-            
-            sDict[s[i]]++;
-            tDict[t[i]]++;
-        }
-        
-        var sValues = sDict.Values.ToArray();
-        var tValues = tDict.Values.ToArray();
-
-        if (sValues.Length != tValues.Length)
-        {
-            return false;
-        }
-
-        for (var i = 0; i < sValues.Length; i++)
-        {
-            if (sValues[i] != tValues[i])
-            {
-                return false;
+                if (pairs[s[i]] != t[i])
+                {
+                    return false;
+                }
             }
         }
         

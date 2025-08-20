@@ -35,21 +35,34 @@ public class IsomorphicStringsSolution
 {
     public bool IsIsomorphic(string s, string t)
     {
-        var pairs = new Dictionary<char, char>();
+        var sPairs = new Dictionary<char, char>();
+        var tPairs = new Dictionary<char, char>();
 
         for (var i = 0; i < s.Length; i++)
         {
-            if (!pairs.ContainsKey(s[i]))
+            if (!sPairs.ContainsKey(s[i]))
             {
-                pairs[s[i]] = t[i];
+                sPairs[s[i]] = t[i];
             }
             else
             {
-                if (pairs[s[i]] != t[i])
+                if (sPairs[s[i]] != t[i])
                 {
                     return false;
                 }
             }
+            
+            if (!tPairs.ContainsKey(t[i]))
+            {
+                tPairs[t[i]] = s[i];
+            }
+            else
+            {
+                if (tPairs[t[i]] != s[i])
+                {
+                    return false;
+                }
+            } 
         }
         
         return true;

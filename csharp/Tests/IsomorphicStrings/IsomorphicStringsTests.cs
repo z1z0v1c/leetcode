@@ -50,4 +50,18 @@ public class IsomorphicStringsTests
         // Assert
         Assert.That(result, Is.True);
     }
+    
+    [Test]
+    public void TestExampleFour()
+    {
+        // Arrange
+        var s = "bbbaaaba";
+        var t = "aaabbbba";
+        
+        // Act
+        var result = solution.IsIsomorphic(s, t);
+        
+        // Assert
+        Assert.That(result, Is.False);
+    }
 }

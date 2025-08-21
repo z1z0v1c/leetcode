@@ -21,10 +21,10 @@ public class MergeTwoSortedListsTests
 
         while (expected != null)
         {
-            Assert.That(expected.val, Is.EqualTo(actual?.val));
+            Assert.That(expected.Val, Is.EqualTo(actual?.Val));
 
-            expected = expected.next;
-            actual = actual?.next;
+            expected = expected.Next;
+            actual = actual?.Next;
         }
     }
 
@@ -42,7 +42,7 @@ public class MergeTwoSortedListsTests
         ListNode? expected = new(0);
         ListNode? actual = solution.MergeTwoLists(null, l2);
 
-        Assert.That(expected.val, Is.EqualTo(actual?.val));
+        Assert.That(expected.Val, Is.EqualTo(actual?.Val));
     }
 }
 

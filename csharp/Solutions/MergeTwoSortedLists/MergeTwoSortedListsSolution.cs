@@ -39,23 +39,23 @@ public class MergeTwoSortedListsSolution
         {
             if (list1 == null)
             {
-                if (list2 != null) result.val = list2.val;
-                result.next = MergeTwoLists(list1, list2?.next);
+                if (list2 != null) result.Val = list2.Val;
+                result.Next = MergeTwoLists(list1, list2?.Next);
             }
             else if (list2 == null)
             {
-                result.val = list1.val;
-                result.next = MergeTwoLists(list1.next, list2);
+                result.Val = list1.Val;
+                result.Next = MergeTwoLists(list1.Next, list2);
             }
-            else if (list1.val < list2.val)
+            else if (list1.Val < list2.Val)
             {
-                result.val = list1.val;
-                result.next = MergeTwoLists(list1.next, list2);
+                result.Val = list1.Val;
+                result.Next = MergeTwoLists(list1.Next, list2);
             }
             else
             {
-                result.val = list2.val;
-                result.next = MergeTwoLists(list1, list2.next);
+                result.Val = list2.Val;
+                result.Next = MergeTwoLists(list1, list2.Next);
             }
         }
 

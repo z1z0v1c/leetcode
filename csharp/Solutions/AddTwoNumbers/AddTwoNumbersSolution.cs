@@ -39,20 +39,20 @@ public class AddTwoNumbersSolution
 
         while (l1 != null || l2 != null || reminder != 0)
         {
-            int sum = (l1?.val ?? 0) + (l2?.val ?? 0) + reminder;
+            int sum = (l1?.Val ?? 0) + (l2?.Val ?? 0) + reminder;
 
             reminder = sum / 10;
             sum = sum % 10;
 
-            if (l3 != null) { l3.val = sum; };
+            if (l3 != null) { l3.Val = sum; };
 
-            l1 = l1?.next;
-            l2 = l2?.next;
+            l1 = l1?.Next;
+            l2 = l2?.Next;
 
             if (l1 != null || l2 != null || reminder != 0)
             {
-                if (l3 != null) { l3.next = new ListNode(); };
-                l3 = l3?.next;
+                if (l3 != null) { l3.Next = new ListNode(); };
+                l3 = l3?.Next;
             }
         }
 

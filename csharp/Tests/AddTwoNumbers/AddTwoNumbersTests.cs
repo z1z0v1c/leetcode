@@ -21,10 +21,10 @@ public class AddTwoNumbersTests
 
         while (expected != null)
         {
-            Assert.That(expected.val, Is.EqualTo(actual.val));
+            Assert.That(expected.Val, Is.EqualTo(actual.Val));
 
-            expected = expected.next;
-            actual = actual.next;
+            expected = expected.Next;
+            actual = actual.Next;
         }
     }
 
@@ -39,10 +39,10 @@ public class AddTwoNumbersTests
 
         while (expected != null)
         {
-            Assert.That(expected.val, Is.EqualTo(actual.val));
+            Assert.That(expected.Val, Is.EqualTo(actual.Val));
 
-            expected = expected.next;
-            actual = actual.next;
+            expected = expected.Next;
+            actual = actual.Next;
         }
     }
 
@@ -57,10 +57,10 @@ public class AddTwoNumbersTests
 
         while (expected != null)
         {
-            Assert.That(expected.val, Is.EqualTo(actual.val));
+            Assert.That(expected.Val, Is.EqualTo(actual.Val));
 
-            expected = expected.next;
-            actual = actual.next;
+            expected = expected.Next;
+            actual = actual.Next;
         }
     }
 }

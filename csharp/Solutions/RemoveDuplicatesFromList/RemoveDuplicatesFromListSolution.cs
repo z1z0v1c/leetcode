@@ -31,16 +31,16 @@ public class RemoveDuplicatesFromListSolution
         }
 
         var n = head;
-        while (n.next != null)
+        while (n.Next != null)
         {
-            while (n.next != null && n.val == n.next.val)
+            while (n.Next != null && n.Val == n.Next.Val)
             {
-                n.next = n.next.next;
+                n.Next = n.Next.Next;
             }
 
-            if (n.next != null)
+            if (n.Next != null)
             {
-                n = n.next;
+                n = n.Next;
             }
         }
 

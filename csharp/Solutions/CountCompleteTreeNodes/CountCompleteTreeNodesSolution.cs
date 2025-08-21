@@ -39,33 +39,11 @@ public class CountCompleteTreeNodesSolution
 {
     public int CountNodes(TreeNode root)
     {
-        var count = 0;
-
-        if (root != null)
+        if (root == null)
         {
-            count++;
-            count += CountNodes(root.Left, root.Right);
+            return 0;
         }
 
-        return count;
-    }
-
-    private int CountNodes(TreeNode? left, TreeNode? right)
-    {
-        var count = 0;
-
-        if (left != null)
-        {
-            count++;
-            count +=  CountNodes(left?.Left, left?.Right);
-        }
-
-        if (right != null)
-        {
-            count++;
-            count +=  CountNodes(right?.Left, right?.Right);
-        }
-        
-        return count;
+        return CountNodes(root.Left) +  CountNodes(root.Right) + 1;
     }
 }

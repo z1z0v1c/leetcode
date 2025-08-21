@@ -22,44 +22,36 @@
 ///      - -100 <= Node.val <= 100
 ///      - Both list1 and list2 are sorted in non-decreasing order.
 /// </summary>
+
 using Solutions.CommonClasses;
 
 namespace Solutions.MergeTwoSortedLists;
 
 public class MergeTwoSortedListsSolution
 {
-    public ListNode? MergeTwoLists(ListNode? list1, ListNode? list2) {
+    public ListNode? MergeTwoLists(ListNode? list1, ListNode? list2)
+    {
         ListNode result = new();
 
-        if (list1 == null && list2 == null)
+        if (list1 == null && list2 == null) return null;
+
+        if (list1 == null)
         {
-            return null;
+            if (list2 != null) result.Val = list2.Val;
+
+            result.Next = MergeTwoLists(list1, list2?.Next);
+        }
+        else if (list2 == null || list1.Val < list2.Val)
+        {
+            result.Val = list1.Val;
+            result.Next = MergeTwoLists(list1.Next, list2);
         }
         else
         {
-            if (list1 == null)
-            {
-                if (list2 != null) result.Val = list2.Val;
-                result.Next = MergeTwoLists(list1, list2?.Next);
-            }
-            else if (list2 == null)
-            {
-                result.Val = list1.Val;
-                result.Next = MergeTwoLists(list1.Next, list2);
-            }
-            else if (list1.Val < list2.Val)
-            {
-                result.Val = list1.Val;
-                result.Next = MergeTwoLists(list1.Next, list2);
-            }
-            else
-            {
-                result.Val = list2.Val;
-                result.Next = MergeTwoLists(list1, list2.Next);
-            }
+            result.Val = list2.Val;
+            result.Next = MergeTwoLists(list1, list2.Next);
         }
 
         return result;
     }
 }
-

@@ -13,6 +13,7 @@
 ///     - 0 < price of a product < 100000
 ///     - 0 < number of products < 100
 /// </sumary>
+
 namespace Solutions.CalculateTotalPrice;
 
 public class CalculateTotalPriceSolution
@@ -26,13 +27,10 @@ public class CalculateTotalPriceSolution
         {
             totalAmount += price;
 
-            if (price > mostExpensive)
-            {
-                mostExpensive = price;
-            }
+            if (price > mostExpensive) mostExpensive = price;
         }
 
-        var discountAmount = (mostExpensive * discount) / 100;
+        var discountAmount = mostExpensive * discount / 100;
 
         return totalAmount - discountAmount;
     }

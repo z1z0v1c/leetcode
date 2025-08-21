@@ -7,28 +7,36 @@ public class ClimbingStairsTests
     private ClimbingStairsSolution solution;
 
     [SetUp]
-    public void Setup() => solution = new();
+    public void Setup()
+    {
+        solution = new ClimbingStairsSolution();
+    }
 
     [Test]
     public void TestExampleOne()
     {
-        int n = 2;
+        // Arrange
+        const int n = 2;
+        const int expected = 2;
 
-        int expected = 2;
-        int actual = solution.ClimbStairs(n);
-        
+        // Act
+        var actual = solution.ClimbStairs(n);
+
+        // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void TestExampleTwo()
     {
-        int n = 3;
+        // Arrange
+        const int n = 3;
+        const int expected = 3;
 
-        int expected = 3;
-        int actual = solution.ClimbStairs(n);
-        
+        // Act
+        var actual = solution.ClimbStairs(n);
+
+        // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
 }
-

@@ -7,30 +7,38 @@ public class FindTheIndexTests
     private FindTheIndexSolution solution;
 
     [SetUp]
-    public void Setup() => solution = new();
+    public void Setup()
+    {
+        solution = new FindTheIndexSolution();
+    }
 
     [Test]
     public void TestExampleOne()
     {
-        string haystack = "sadbutsad";
-        string needle = "sad";
+        // Arrange
+        const string haystack = "sadbutsad";
+        const string needle = "sad";
+        const int expected = 0;
 
-        int expected = 0;
-        int actual = solution.StrStr(haystack, needle);
-        
+        // Act
+        var actual = solution.StrStr(haystack, needle);
+
+        // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void TestExampleTwo()
     {
-        string haystack = "leetcode";
-        string needle = "leeto";
+        // Arrange
+        const string haystack = "leetcode";
+        const string needle = "leeto";
+        const int expected = -1;
 
-        int expected = -1;
-        int actual = solution.StrStr(haystack, needle);
-        
+        // Act
+        var actual = solution.StrStr(haystack, needle);
+
+        // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
 }
-

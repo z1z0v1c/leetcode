@@ -7,38 +7,60 @@ public class ValidParenthesesTests
     private ValidParenthesesSolution solution;
 
     [SetUp]
-    public void Setup() => solution = new();
+    public void Setup()
+    {
+        solution = new ValidParenthesesSolution();
+    }
 
     [Test]
     public void TestExampleOne()
     {
-        string s = "()";
+        // Arrange
+        const string s = "()";
 
-        Assert.That(solution.IsValid(s), Is.True);
+        // Act
+        var actual = solution.IsValid(s);
+
+        // Assert
+        Assert.That(actual, Is.True);
     }
 
     [Test]
     public void TestExampleTwo()
     {
-        string s = "()[]{}";
+        // Arrange
+        const string s = "()[]{}";
 
-        Assert.That(solution.IsValid(s), Is.True);
+        // Act
+        var actual = solution.IsValid(s);
+
+        // Assert
+        Assert.That(actual, Is.True);
     }
 
     [Test]
     public void TestExampleThree()
     {
-        string s = "(]";
+        // Arrange
+        const string s = "(]";
 
-        Assert.That(solution.IsValid(s), Is.False);
+        // Act
+        var actual = solution.IsValid(s);
+
+        // Assert
+        Assert.That(actual, Is.False);
     }
 
     [Test]
     public void TestExampleFour()
     {
-        string s = "([])";
+        // Arrange
+        const string s = "([])";
 
-        Assert.That(solution.IsValid(s), Is.True);
+        // Act
+        var actual = solution.IsValid(s);
+
+        // Assert
+        Assert.That(actual, Is.True);
     }
 }
-

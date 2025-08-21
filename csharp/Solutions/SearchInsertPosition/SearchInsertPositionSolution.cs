@@ -24,48 +24,35 @@
 ///      - nums contains distinct values sorted in ascending order.
 ///      - -104 <= target <= 104
 /// </summary>
+
 namespace Solutions.SearchInsertPosition;
 
 public class SearchInsertPositionSolution
 {
     public int SearchInsert(int[] nums, int target)
     {
-        int start = 0;
-        int end = nums.Length - 1;
+        var start = 0;
+        var end = nums.Length - 1;
 
         while (start <= end)
         {
-            int mid = (start + end) / 2;
+            var mid = (start + end) / 2;
 
-            if (nums[mid] == target)
-            {
-                return mid;
-            }
-            else if (target < nums[mid])
-            {
-                if (mid == 0)
-                {
-                    return 0;
-                }
+            if (nums[mid] == target) return mid;
 
-                if (target > nums[mid - 1])
-                {
-                    return mid;
-                }
+            if (target < nums[mid])
+            {
+                if (mid == 0) return 0;
+
+                if (target > nums[mid - 1]) return mid;
 
                 end = mid - 1;
             }
             else
             {
-                if (mid == nums.Length - 1)
-                {
-                    return nums.Length;
-                }
+                if (mid == nums.Length - 1) return nums.Length;
 
-                if (target < nums[mid + 1])
-                {
-                    return mid + 1;
-                }
+                if (target < nums[mid + 1]) return mid + 1;
 
                 start = mid + 1;
             }
@@ -74,4 +61,3 @@ public class SearchInsertPositionSolution
         return -1;
     }
 }
-

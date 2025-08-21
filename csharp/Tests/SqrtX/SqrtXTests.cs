@@ -7,28 +7,36 @@ public class SqrtXTests
     private SqrtXSolution solution;
 
     [SetUp]
-    public void Setup() => solution = new();
+    public void Setup()
+    {
+        solution = new SqrtXSolution();
+    }
 
     [Test]
     public void TestExampleOne()
     {
-        int x = 4;
+        // Arrange
+        const int x = 4;
+        const int expected = 2;
 
-        int expected = 2;
-        int actual= solution.MySqrt(x);
+        // Act
+        var actual = solution.MySqrt(x);
 
+        // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void TestExampleTwo()
     {
-        int x = 8;
+        // Arrange
+        const int x = 8;
+        const int expected = 2;
 
-        int expected = 2;
-        int actual= solution.MySqrt(x);
+        // Act
+        var actual = solution.MySqrt(x);
 
+        // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
 }
-

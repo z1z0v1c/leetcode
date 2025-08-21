@@ -29,25 +29,21 @@
 /// Follow up: This problem is similar to Search in Rotated Sorted Array, but nums may contain duplicates.
 ///  Would this affect the runtime complexity? How and why?
 /// </summary>
+
 namespace Solutions.SearchInRotatedArrayII;
 
 public class SearchInRotatedArrayIISolution
 {
     public bool Search(int[] nums, int target)
     {
-        if (target == nums[0])
-        {
-            return true;
-        }
-        else if (target <= nums[0])
+        if (target == nums[0]) return true;
+
+        if (target <= nums[0])
         {
             var i = nums.Length - 1;
             while (i > 0 && target <= nums[i])
             {
-                if (target == nums[i])
-                {
-                    return true;
-                }
+                if (target == nums[i]) return true;
                 i--;
             }
         }
@@ -56,14 +52,11 @@ public class SearchInRotatedArrayIISolution
             var i = 0;
             while (i < nums.Length && target >= nums[i])
             {
-                if (target == nums[i])
-                {
-                    return true;
-                }
+                if (target == nums[i]) return true;
                 i++;
             }
         }
+
         return false;
     }
 }
-

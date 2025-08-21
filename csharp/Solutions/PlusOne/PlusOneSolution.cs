@@ -36,25 +36,27 @@
 ///      - 0 <= digits[i] <= 9
 ///      - digits does not contain any leading 0's.
 /// </summary>
+
 namespace Solutions.PlusOne;
 
 public class PlusOneSolution
 {
-    public int[] PlusOne(int[] digits) {
-        for (int i = digits.Length - 1; i >= 0; i--)
+    public int[] PlusOne(int[] digits)
+    {
+        for (var i = digits.Length - 1; i >= 0; i--)
+        {
+            if (digits[i] < 9)
             {
-                if (digits[i] < 9)
-                {
-                    digits[i]++;
-                    return digits;
-                }
-
-                digits[i] = 0;
+                digits[i]++;
+                return digits;
             }
 
-            digits = new int[digits.Length + 1];
-            digits[0] = 1;
-            return digits;
+            digits[i] = 0;
+        }
+
+        digits = new int[digits.Length + 1];
+        digits[0] = 1;
+
+        return digits;
     }
 }
-

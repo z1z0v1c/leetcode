@@ -7,50 +7,64 @@ public class RomToIntegerTests
     private RomanToIntegerSolution solution;
 
     [SetUp]
-    public void Setup() => solution = new();
+    public void Setup()
+    {
+        solution = new RomanToIntegerSolution();
+    }
 
     [Test]
     public void TestExampleOne()
     {
-        string input = "III";
+        // Arrange
+        const string input = "III";
+        const int expected = 3;
 
-        int expected = 3;
-        int actual = solution.RomanToInt(input);
+        // Act
+        var actual = solution.RomanToInt(input);
 
+        // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void TestExampleTwo()
     {
-        string input = "LVIII";
-        
-        int expected = 58;
-        int actual = solution.RomanToInt(input);
+        // Arrange
+        const string input = "LVIII";
+        const int expected = 58;
 
+        // Act
+        var actual = solution.RomanToInt(input);
+
+        // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void TestExampleThree()
     {
-        string input = "MCMXCIV";
-        
-        int expected = 1994;
-        int actual = solution.RomanToInt(input);
+        // Arrange
+        const string input = "MCMXCIV";
+        const int expected = 1994;
 
+        // Act
+        var actual = solution.RomanToInt(input);
+
+        // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void TestExampleFour()
     {
-        string input = "MCMXCI";
-        
-        int expected = 1991;
-        int actual = solution.RomanToInt(input);
+        // Arrange
+        const string input = "MCMXCI";
+        const int expected = 1991;
 
+        // Act
+        var actual = solution.RomanToInt(input);
+
+        // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
 }
-

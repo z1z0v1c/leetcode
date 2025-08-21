@@ -13,12 +13,9 @@
 ///     to the aforementioned rules. If there is no way to distribute the money, return -1.
 /// 
 /// Example 1:
-/// 
 ///     Input: money = 20, children = 3
 ///     Output: 1
-/// 
 ///     Explanation:
-/// 
 ///         The maximum number of children with 8 dollars will be 1. One of the ways to distribute the money is:
 ///             - 8 dollars to the first child.
 ///             - 9 dollars to the second child. 
@@ -26,29 +23,23 @@
 ///         It can be proven that no distribution exists such that number of children getting 8 dollars is greater than 1.
 /// 
 /// Example 2:
-/// 
 ///     Input: money = 16, children = 2
 ///     Output: 2
 ///     Explanation: Each child can be given 8 dollars.
-///  
 /// 
 /// Constraints:
-/// 
 ///     - 1 <= money <= 200
 ///     - 2 <= children <= 30
-///
 /// </sumary>
+
 namespace Solutions.DistributeMoney;
 
 public class DistributeMoneySolution
 {
     public int DistMoney(int money, int children)
     {
-        if (money < children)
-        {
-            return -1;
-        }
-        
+        if (money < children) return -1;
+
         var maxEights = 0;
 
         for (var eights = Math.Min(children, money / 8); eights >= 0; eights--)
@@ -56,25 +47,16 @@ public class DistributeMoneySolution
             var remainingMoney = money - 8 * eights;
             var remainingChildren = children - eights;
 
-            if (remainingMoney < remainingChildren)
-            {
-                continue;
-            }
+            if (remainingMoney < remainingChildren) continue;
 
-            if (remainingMoney > 0 && remainingChildren == 0)
-            {
-                continue;
-            }
+            if (remainingMoney > 0 && remainingChildren == 0) continue;
 
-            if (remainingMoney == 4 && remainingChildren == 1)
-            {
-                continue;
-            }
-            
+            if (remainingMoney == 4 && remainingChildren == 1) continue;
+
             maxEights = eights;
             break;
         }
-        
+
         return maxEights;
     }
 }

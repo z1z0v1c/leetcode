@@ -7,39 +7,50 @@ public class PlusOneTests
     private PlusOneSolution solution;
 
     [SetUp]
-    public void Setup() => solution = new();
+    public void Setup()
+    {
+        solution = new PlusOneSolution();
+    }
 
     [Test]
     public void TestExampleOne()
     {
-        int[] digits = [1,2,3];
+        // Arrange
+        int[] digits = [1, 2, 3];
+        int[] expected = [1, 2, 4];
 
-        int[] expected = [1,2,4];
-        int[] actual= solution.PlusOne(digits);
+        // Act
+        var actual = solution.PlusOne(digits);
 
+        // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void TestExampleTwo()
     {
-        int[] digits = [4,3,2,1];
+        // Arrange
+        int[] digits = [4, 3, 2, 1];
+        int[] expected = [4, 3, 2, 2];
 
-        int[] expected = [4,3,2,2];
-        int[] actual= solution.PlusOne(digits);
+        // Act
+        var actual = solution.PlusOne(digits);
 
+        // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void TestExampleThree()
     {
+        // Arrange
         int[] digits = [9];
-
         int[] expected = [1, 0];
-        int[] actual= solution.PlusOne(digits);
 
+        // Act
+        var actual = solution.PlusOne(digits);
+
+        // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
 }
-

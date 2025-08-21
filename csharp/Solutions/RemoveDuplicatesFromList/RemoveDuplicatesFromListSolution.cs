@@ -17,6 +17,7 @@
 ///      - -100 <= Node.val <= 100
 ///      - The list is guaranteed to be sorted in ascending order.
 /// </summary>
+
 using Solutions.CommonClasses;
 
 namespace Solutions.RemoveDuplicatesFromList;
@@ -25,10 +26,7 @@ public class RemoveDuplicatesFromListSolution
 {
     public ListNode? DeleteDuplicates(ListNode? head)
     {
-        if (head == null)
-        {
-            return head;
-        }
+        if (head == null) return head;
 
         var n = head;
         while (n.Next != null)
@@ -38,13 +36,9 @@ public class RemoveDuplicatesFromListSolution
                 n.Next = n.Next.Next;
             }
 
-            if (n.Next != null)
-            {
-                n = n.Next;
-            }
+            if (n.Next != null) n = n.Next;
         }
 
         return head;
     }
 }
-

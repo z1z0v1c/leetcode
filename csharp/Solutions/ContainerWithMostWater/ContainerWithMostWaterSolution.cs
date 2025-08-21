@@ -22,31 +22,27 @@
 ///      2 <= n <= 105
 ///      0 <= height[i] <= 104
 /// </summary>
+
 namespace Solutions.ContainerWithMostWater;
 
 public class ContainerWithMostWaterSolution
 {
     public int MaxArea(int[] height)
     {
-        int maxArea = 0;
+        var maxArea = 0;
 
-        int start = 0;
-        int end = height.Length - 1;
+        var start = 0;
+        var end = height.Length - 1;
 
         while (start <= end)
         {
-            int length = end - start;
-            int lower = height[start] < height[end] ? height[start++] : height[end--];
-            int area = lower * length;
+            var length = end - start;
+            var lower = height[start] < height[end] ? height[start++] : height[end--];
+            var area = lower * length;
 
-            if (area > maxArea)
-            {
-                maxArea = area;
-            }
-
+            if (area > maxArea) maxArea = area;
         }
 
         return maxArea;
     }
 }
-

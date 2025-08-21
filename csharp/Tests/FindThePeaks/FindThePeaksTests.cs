@@ -7,7 +7,10 @@ public class FindThePeaksTests
     private FindThePeaksSolution solution;
 
     [SetUp]
-    public void Setup() => solution = new();
+    public void Setup()
+    {
+        solution = new FindThePeaksSolution();
+    }
 
     [Test]
     public void TestExampleOne()

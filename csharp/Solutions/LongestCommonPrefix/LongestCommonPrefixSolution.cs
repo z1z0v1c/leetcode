@@ -18,27 +18,28 @@
 ///      - 0 <= strs[i].length <= 200
 ///      - strs[i] consists of only lowercase English letters.
 /// </summary>
+
 namespace Solutions.LongestCommonPrefix;
 
 public class LongestCommonPrefixSolution
 {
     public string LongestCommonPrefix(string[] strs)
     {
-        string prefix = "";
+        var prefix = "";
 
-        for (int i = 0; i < strs[0].Length; i++)
+        for (var i = 0; i < strs[0].Length; i++)
         {
-            for (int j = 0; j < strs.Length; j ++)
+            foreach (var str in strs)
             {
-                if (i >= strs[j].Length || strs[0][i] != strs[j][i])
+                if (i >= str.Length || strs[0][i] != str[i])
                 {
                     return prefix;
-                }                    
+                }
             }
-                prefix += strs[0][i];
+
+            prefix += strs[0][i];
         }
 
         return prefix;
     }
 }
-

@@ -22,43 +22,34 @@
 /// Constraints:
 ///      - 0 <= x <= 231 - 1
 /// </summary>
+
 namespace Solutions.SqrtX;
 
 public class SqrtXSolution
 {
-    public int MySqrt(int x) {
-        if (x == 0 || x == 1)
-        {
-            return x;
-        }   
+    public int MySqrt(int x)
+    {
+        if (x == 0 || x == 1) return x;
 
-        int start = 0;
-        int end = x;
+        var start = 0;
+        var end = x;
 
         while (start <= end)
         {
-            int mid = (start + end) / 2;
-            int square = mid * mid;
+            var mid = (start + end) / 2;
+            var square = mid * mid;
 
-            if (square == x)
+            if (square == x) return mid;
+
+            if (mid <= x / mid)
             {
-                return mid;
-            }
-            else if (mid <= x / mid)
-            {
-                if ((mid + 1) > x / (mid + 1))
-                {
-                    return mid;
-                }
+                if (mid + 1 > x / (mid + 1)) return mid;
 
                 start = mid;
             }
             else
             {
-                if ((mid - 1) < x / (mid - 1))
-                {
-                    return mid - 1;
-                }
+                if (mid - 1 < x / (mid - 1)) return mid - 1;
 
                 end = mid;
             }
@@ -67,4 +58,3 @@ public class SqrtXSolution
         return end;
     }
 }
-

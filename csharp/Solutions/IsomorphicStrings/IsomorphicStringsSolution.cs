@@ -6,7 +6,6 @@
 /// the order of characters. No two characters may map to the same character, but a character may map to itself.
 /// 
 /// Example 1:
-///
 ///     Input: s = "egg", t = "add"
 ///     Output: true
 ///     Explanation: The strings s and t can be made identical by:
@@ -14,22 +13,20 @@
 ///         - Mapping 'g' to 'd'.
 ///
 /// Example 2:
-/// 
 ///     Input: s = "foo", t = "bar"
 ///     Output: false
 ///     Explanation: The strings s and t can not be made identical as 'o' needs to be mapped to both 'a' and 'r'.
 /// 
 /// Example 3:
-/// 
 ///     Input: s = "paper", t = "title"
 ///     Output: true
 /// 
 /// Constraints:
-/// 
 ///     - 1 <= s.length <= 5 * 10^4
 ///     - t.length == s.length
 ///     - s and t consist of any valid ascii character.
 /// </sumary>
+
 namespace Solutions.IsomorphicStrings;
 
 public class IsomorphicStringsSolution
@@ -41,20 +38,14 @@ public class IsomorphicStringsSolution
 
         for (var i = 0; i < s.Length; i++)
         {
-            if (sDict[s[i]] != '\0' && sDict[s[i]] != t[i])
-            {
-                return false;
-            }
-            
-            if (tDict[t[i]] != '\0' && tDict[t[i]] != s[i])
-            {
-                return false;
-            }
-            
+            if (sDict[s[i]] != '\0' && sDict[s[i]] != t[i]) return false;
+
+            if (tDict[t[i]] != '\0' && tDict[t[i]] != s[i]) return false;
+
             sDict[s[i]] = t[i];
             tDict[t[i]] = s[i];
         }
-        
+
         return true;
-    } 
+    }
 }

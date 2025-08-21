@@ -8,58 +8,61 @@ public class CountCompleteTreeNodesTests
     private CountCompleteTreeNodesSolution solution;
 
     [SetUp]
-    public void Setup() => solution = new();
+    public void Setup()
+    {
+        solution = new CountCompleteTreeNodesSolution();
+    }
 
     [Test]
     public void TestExampleOne()
     {
         // Arrange
         var root = new TreeNode(
-            val: 1,
-            left: new TreeNode(
-                val: 2,
-                left: new TreeNode(val: 4),
-                right: new TreeNode(val: 5)
+            1,
+            new TreeNode(
+                2,
+                new TreeNode(4),
+                new TreeNode(5)
             ),
-            right: new TreeNode(
-                val: 3,
-                left: new TreeNode(val: 6),
-                right: null
+            new TreeNode(
+                3,
+                new TreeNode(6),
+                null
             )
         );
-        var expected = 6;
-        
+        const int expected = 6;
+
         // Act
         var actual = solution.CountNodes(root);
-        
+
         // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
-    
+
     [Test]
     public void TestExampleTwo()
     {
         // Arrange
         TreeNode? root = null;
-        var expected = 0;
-        
+        const int expected = 0;
+
         // Act
         var actual = solution.CountNodes(root!);
-        
+
         // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
-    
+
     [Test]
     public void TestExampleThree()
     {
         // Arrange
-        var root = new TreeNode(val: 1);
-        var expected = 1;
-        
+        var root = new TreeNode(1);
+        const int expected = 1;
+
         // Act
         var actual = solution.CountNodes(root);
-        
+
         // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }

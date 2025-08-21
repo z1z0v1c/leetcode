@@ -7,28 +7,36 @@ public class LittleLongestCommonPrefixTests
     private LongestCommonPrefixSolution solution;
 
     [SetUp]
-    public void Setup() => solution = new();
+    public void Setup()
+    {
+        solution = new LongestCommonPrefixSolution();
+    }
 
     [Test]
     public void TestExampleOne()
     {
-        string[] strs = ["flower","flow","flight"];
+        // Arrange
+        string[] strs = ["flower", "flow", "flight"];
+        const string expected = "fl";
 
-        string expected = "fl";
-        string actual = solution.LongestCommonPrefix(strs);
-        
+        // Act
+        var actual = solution.LongestCommonPrefix(strs);
+
+        // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void TestExampleTwo()
     {
-        string[] strs = ["dog","racecar","car"];
+        // Arrange
+        string[] strs = ["dog", "racecar", "car"];
+        const string expected = "";
 
-        string expected = "";
-        string actual = solution.LongestCommonPrefix(strs);
-        
+        // Act
+        var actual = solution.LongestCommonPrefix(strs);
+
+        // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
 }
-

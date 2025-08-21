@@ -21,32 +21,25 @@
 ///   - 20 <= width, height, length, <= 200
 ///   - 10 <= mass <= 1000
 /// </sumary>
+
 namespace Solutions.SortPackages;
 
 public class SortPackagesSolution
 {
-   public string Sort(int width, int height, int length, int mass)
-   {
-      var isBulky = false;
-      var isHeavy = mass >= 20;
-      
-      var volume = (long) width * height * length;
+    public string Sort(int width, int height, int length, int mass)
+    {
+        var isBulky = false;
+        var isHeavy = mass >= 20;
 
-      if (width >= 150 || height >= 150 || length >= 150 || volume >= 1_000_000)
-      {
-         isBulky = true;
-      }
+        var volume = (long)width * height * length;
 
-      if (isBulky && isHeavy)
-      {
-         return "REJECTED";
-      }
+        if (width >= 150 || height >= 150 || length >= 150 || volume >= 1_000_000) 
+            isBulky = true;
 
-      if (isBulky || isHeavy)
-      {
-         return "SPECIAL";
-      }
+        if (isBulky && isHeavy) return "REJECTED";
 
-      return "STANDARD";
-   }
+        if (isBulky || isHeavy) return "SPECIAL";
+
+        return "STANDARD";
+    }
 }

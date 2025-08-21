@@ -46,13 +46,14 @@
 ///      - s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
 ///      - It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 /// </summary>
+
 namespace Solutions.RomanToInteger;
 
 public class RomanToIntegerSolution
 {
     public int RomanToInt(string s)
     {
-        int sum = 0;
+        var sum = 0;
         for (var i = s.Length - 1; i >= 0; i--)
         {
             switch (s[i])
@@ -67,6 +68,7 @@ public class RomanToIntegerSolution
                         i--;
                         break;
                     }
+
                     sum += 5;
                     break;
                 case 'X':
@@ -76,6 +78,7 @@ public class RomanToIntegerSolution
                         i--;
                         break;
                     }
+
                     sum += 10;
                     break;
                 case 'L':
@@ -85,6 +88,7 @@ public class RomanToIntegerSolution
                         i--;
                         break;
                     }
+
                     sum += 50;
                     break;
                 case 'C':
@@ -94,6 +98,7 @@ public class RomanToIntegerSolution
                         i--;
                         break;
                     }
+
                     sum += 100;
                     break;
                 case 'D':
@@ -103,6 +108,7 @@ public class RomanToIntegerSolution
                         i--;
                         break;
                     }
+
                     sum += 500;
                     break;
                 case 'M':
@@ -112,11 +118,12 @@ public class RomanToIntegerSolution
                         i--;
                         break;
                     }
+
                     sum += 1000;
                     break;
             }
         }
+
         return sum;
     }
 }
-

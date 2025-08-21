@@ -7,39 +7,50 @@ public class LengthOfLastWordTests
     private LengthOfLastWordSolution solution;
 
     [SetUp]
-    public void Setup() => solution = new();
+    public void Setup()
+    {
+        solution = new LengthOfLastWordSolution();
+    }
 
     [Test]
     public void TestExampleOne()
     {
-        string s = "Hello World";
+        // Arrange
+        const string s = "Hello World";
+        const int expected = 5;
 
-        int expected = 5;
-        int actual = solution.LengthOfLastWord(s);
-        
+        // Act
+        var actual = solution.LengthOfLastWord(s);
+
+        // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void TestExampleTwo()
     {
-        string s = "   fly me   to   the moon  ";
+        // Arrange
+        const string s = "   fly me   to   the moon  ";
+        const int expected = 4;
 
-        int expected = 4;
-        int actual = solution.LengthOfLastWord(s);
-        
+        // Act
+        var actual = solution.LengthOfLastWord(s);
+
+        // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void TestExampleThree()
     {
-        string s = "luffy is still joyboy";
+        // Arrange
+        const string s = "luffy is still joyboy";
+        const int expected = 6;
 
-        int expected = 6;
-        int actual = solution.LengthOfLastWord(s);
-        
+        // Act
+        var actual = solution.LengthOfLastWord(s);
+
+        // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
 }
-

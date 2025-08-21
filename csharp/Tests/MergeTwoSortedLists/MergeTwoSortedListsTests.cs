@@ -8,17 +8,24 @@ public class MergeTwoSortedListsTests
     private MergeTwoSortedListsSolution solution;
 
     [SetUp]
-    public void Setup() => solution = new();
+    public void Setup()
+    {
+        solution = new MergeTwoSortedListsSolution();
+    }
 
     [Test]
     public void TestExampleOne()
     {
-        ListNode l1 = new(1, new(2, new(4)));
-        ListNode l2 = new(1, new(3, new(4)));
+        // Arrange
+        ListNode l1 = new(1, new ListNode(2, new ListNode(4)));
+        ListNode l2 = new(1, new ListNode(3, new ListNode(4)));
+        ListNode? expected = new(1,
+            new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(4))))));
 
-        ListNode? expected = new(1, new(1, new(2, new(3, new(4, new(4))))));
-        ListNode? actual = solution.MergeTwoLists(l1, l2);
+        // Act
+        var actual = solution.MergeTwoLists(l1, l2);
 
+        // Assert
         while (expected != null)
         {
             Assert.That(expected.Val, Is.EqualTo(actual?.Val));
@@ -31,18 +38,21 @@ public class MergeTwoSortedListsTests
     [Test]
     public void TestExampleTwo()
     {
+        // Arrange-Act-Assert :)
         Assert.That(solution.MergeTwoLists(null, null), Is.EqualTo(null));
     }
 
     [Test]
-    public void TestExampleThre()
+    public void TestExampleThree()
     {
-        ListNode l2 = new(0);
+        // Arrange
+        ListNode l2 = new();
+        ListNode? expected = new();
 
-        ListNode? expected = new(0);
-        ListNode? actual = solution.MergeTwoLists(null, l2);
+        // Act
+        var actual = solution.MergeTwoLists(null, l2);
 
+        // Assert
         Assert.That(expected.Val, Is.EqualTo(actual?.Val));
     }
 }
-

@@ -24,6 +24,7 @@
 ///  
 /// Follow up: Could you solve it without converting the integer to a string?
 /// </summary>
+
 namespace Solutions.PalindromeNumber;
 
 public class PalindromeNumberSolution
@@ -33,16 +34,16 @@ public class PalindromeNumberSolution
         return IsPalindrome(x.ToString());
     }
 
-    public bool IsPalindrome(string s)
+    private bool IsPalindrome(string s)
     {
-        for (int i = 0; i < s.Length / 2; i++)
+        for (var i = 0; i < s.Length / 2; i++)
         {
             if (s[i] != s[s.Length - 1 - i])
             {
                 return false;
             }
         }
+        
         return true;
     }
 }
-

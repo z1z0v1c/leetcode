@@ -24,6 +24,7 @@
 ///      - 0 <= Node.val <= 9
 ///      - It is guaranteed that the list represents a number that does not have leading zeros.
 /// </summary>
+
 using Solutions.CommonClasses;
 
 namespace Solutions.AddTwoNumbers;
@@ -35,23 +36,23 @@ public class AddTwoNumbersSolution
         ListNode? l3 = new();
         var start = l3;
 
-        int reminder = 0;
+        var reminder = 0;
 
         while (l1 != null || l2 != null || reminder != 0)
         {
-            int sum = (l1?.Val ?? 0) + (l2?.Val ?? 0) + reminder;
+            var sum = (l1?.Val ?? 0) + (l2?.Val ?? 0) + reminder;
 
             reminder = sum / 10;
             sum = sum % 10;
 
-            if (l3 != null) { l3.Val = sum; };
+            if (l3 != null) l3.Val = sum;
 
             l1 = l1?.Next;
             l2 = l2?.Next;
 
             if (l1 != null || l2 != null || reminder != 0)
             {
-                if (l3 != null) { l3.Next = new ListNode(); };
+                if (l3 != null) l3.Next = new ListNode();
                 l3 = l3?.Next;
             }
         }
@@ -59,4 +60,3 @@ public class AddTwoNumbersSolution
         return start;
     }
 }
-

@@ -29,6 +29,7 @@
 ///      - 1 <= s.length <= 104
 ///      - s consists of parentheses only '()[]{}'.
 /// </summary>
+
 namespace Solutions.ValidParentheses;
 
 public class ValidParenthesesSolution
@@ -37,41 +38,31 @@ public class ValidParenthesesSolution
     {
         Stack<char> stack = new();
 
-        for (int i = 0; i < s.Length; i++)
-        {
-            if (s[i] == '(' || s[i] == '{' || s[i] == '[')
+        foreach (var ch in s)
+            switch (ch)
             {
-                stack.Push(s[i]);
-            }
-            else if (s[i] == ')' || s[i] == '}' || s[i] == ']')
-            {
-                if (stack.Count == 0)
+                case '(' or '{' or '[':
+                    stack.Push(ch);
+                    break;
+                case ')':
+                case '}':
+                case ']':
                 {
-                    return false;
-                }
+                    if (stack.Count == 0) return false;
 
-                char c = stack.Peek();
+                    var c = stack.Peek();
 
-                if (
-                    (c == '(' && s[i] == ')') ||
-                    (c == '{' && s[i] == '}') ||
-                    (c == '[' && s[i] == ']'))
-                {
-                    stack.Pop();
-                }
-                else
-                {
-                    return false;
+                    if ((c == '(' && ch == ')') ||
+                        (c == '{' && ch == '}') ||
+                        (c == '[' && ch == ']'))
+                        stack.Pop();
+                    else
+                        return false;
+
+                    break;
                 }
             }
-        }
 
-        if (stack.Count != 0)
-        {
-            return false;
-        }
-
-        return true;
+        return stack.Count == 0;
     }
 }
-

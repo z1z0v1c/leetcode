@@ -50,24 +50,23 @@
 ///      - 0 <= nums[i] <= 50
 ///      - 0 <= val <= 100
 /// </summary>
+
 namespace Solutions.RemoveElement;
 
 public class RemoveElementSolution
 {
-    public int RemoveElement(int[] nums, int val) {
-        if (val > 50)
-        {
-            return nums.Length;
-        }
+    public int RemoveElement(int[] nums, int val)
+    {
+        if (val > 50) return nums.Length;
 
-        int k = 0;
-        int last = nums.Length - 1;
+        var k = 0;
+        var last = nums.Length - 1;
 
         while (k <= last)
         {
-            if (nums[k] == val) {
+            if (nums[k] == val) 
+            {
                 nums[k] = nums[last];
-                last--;
             }
             else
             {
@@ -78,4 +77,3 @@ public class RemoveElementSolution
         return k;
     }
 }
-

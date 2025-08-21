@@ -43,24 +43,23 @@
 ///      - -100 <= nums[i] <= 100
 ///      - nums is sorted in non-decreasing order.
 /// </summary>
+
 namespace Solutions.RemoveDuplicates;
 
 public class RemoveDuplicatesSolution
 {
-    public int RemoveDuplicates(int[] nums) {
-        int k = 1;
-        int offset = 1;
+    public int RemoveDuplicates(int[] nums)
+    {
+        var k = 1;
+        var offset = 1;
 
         for (; offset < nums.Length; offset++)
-        {
             if (nums[k - 1] != nums[offset])
             {
                 nums[k] = nums[offset];
                 k++;
             }
-        }
 
         return k;
     }
 }
-

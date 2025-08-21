@@ -7,74 +7,77 @@ public class IsomorphicStringsTests
     private IsomorphicStringsSolution solution;
 
     [SetUp]
-    public void SetUp() => solution = new();
+    public void SetUp()
+    {
+        solution = new IsomorphicStringsSolution();
+    }
 
     [Test]
     public void TestExampleOne()
     {
         // Arrange
-        var s = "egg";
-        var t = "add";
-        
+        const string s = "egg";
+        const string t = "add";
+
         // Act
         var result = solution.IsIsomorphic(s, t);
-        
+
         // Assert
         Assert.That(result, Is.True);
     }
-    
+
     [Test]
     public void TestExampleTwo()
     {
         // Arrange
-        var s = "foo";
-        var t = "bar";
-        
+        const string s = "foo";
+        const string t = "bar";
+
         // Act
         var result = solution.IsIsomorphic(s, t);
-        
+
         // Assert
         Assert.That(result, Is.False);
     }
-    
+
     [Test]
     public void TestExampleThree()
     {
         // Arrange
-        var s = "paper";
-        var t = "title";
-        
+        const string s = "paper";
+        const string t = "title";
+
         // Act
         var result = solution.IsIsomorphic(s, t);
-        
+
         // Assert
         Assert.That(result, Is.True);
     }
-    
+
     [Test]
     public void TestExampleFour()
     {
         // Arrange
-        var s = "bbbaaaba";
-        var t = "aaabbbba";
-        
+        const string s = "bbbaaaba";
+        const string t = "aaabbbba";
+
         // Act
         var result = solution.IsIsomorphic(s, t);
-        
+
         // Assert
         Assert.That(result, Is.False);
     }
-    
+
     [Test]
     public void TestExampleFive()
     {
         // Arrange
-        var s = "badc";
-        var t = "baba";
-        
+        const string s = "badc";
+        const string t = "baba";
+
         // Act
         var result = solution.IsIsomorphic(s, t);
-        
+
         // Assert
         Assert.That(result, Is.False);
     }

@@ -7,42 +7,53 @@ public class TwoSumTests
     private TwoSumSolution solution;
 
     [SetUp]
-    public void Setup() => solution = new();
+    public void Setup()
+    {
+        solution = new TwoSumSolution();
+    }
 
     [Test]
     public void TestExampleOne()
     {
-        int[] nums = [2,7,11,15];
-        int target = 9;
+        // Arrange
+        int[] nums = [2, 7, 11, 15];
+        const int target = 9;
+        int[] expected = [0, 1];
 
-        int[] actual = solution.TwoSum(nums, target);
-        int[] expected = [0,1];
+        // Act
+        var actual = solution.TwoSum(nums, target);
 
+        // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void TestExampleTwo()
     {
-        int[] nums = [3,2,4];
-        int target = 6;
+        // Arrange
+        int[] nums = [3, 2, 4];
+        const int target = 6;
+        int[] expected = [1, 2];
 
-        int[] actual = solution.TwoSum(nums, target);
-        int[] expected = [1,2];
+        // Act
+        var actual = solution.TwoSum(nums, target);
 
+        // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
 
     [Test]
     public void TestExampleThree()
     {
-        int[] nums = [3,3];
-        int target = 6;
-
-        int[] actual = solution.TwoSum(nums, target);
+        // Arrange
+        int[] nums = [3, 3];
+        const int target = 6;
         int[] expected = [0, 1];
 
+        // Act
+        var actual = solution.TwoSum(nums, target);
+
+        // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
 }
-

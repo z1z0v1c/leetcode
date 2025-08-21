@@ -24,27 +24,28 @@
 /// Constraints:
 ///      - 1 <= n <= 45
 /// </summary>
+
 namespace Solutions.ClimbingStairs;
 
-public class ClimbingStairsSolution {
-    private static int[] dp = new int[46];
+public class ClimbingStairsSolution
+{
+    private static readonly int[] Mem = new int[46];
 
-    public int ClimbStairs(int n) {
-        if (n == 1)
+    public int ClimbStairs(int n)
+    {
+        switch (n)
         {
-            return 1;
-        }
-        else if (n == 2)
-        {
-            return 2;
-        }
-
-        if (dp[n] == 0)
-        {
-           return dp[n] = ClimbStairs(n - 1) + ClimbStairs(n - 2);
+            case 1:
+                return 1;
+            case 2:
+                return 2;
         }
 
-        return dp[n];
+        if (Mem[n] == 0)
+        {
+           return Mem[n] = ClimbStairs(n - 1) + ClimbStairs(n - 2);
+        }
+
+        return Mem[n];
     }
 }
-

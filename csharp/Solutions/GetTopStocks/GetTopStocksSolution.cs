@@ -31,7 +31,7 @@ public class GetTopStocksSolution
 
         for (var stockIndex = 0; stockIndex < stocks.Length; stockIndex++)
         {
-            var average = prices.Average(pricesPerStock => pricesPerStock[stockIndex]);
+            double average = prices.Average(pricesPerStock => pricesPerStock[stockIndex]);
 
             averageStock[stocks[stockIndex]] = average;
         }
@@ -42,4 +42,4 @@ public class GetTopStocksSolution
             .Select(s => s.Key)
             .ToArray();
     }
-} 
+}

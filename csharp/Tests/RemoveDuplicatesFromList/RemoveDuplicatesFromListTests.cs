@@ -8,16 +8,22 @@ public class RemoveDuplicatesFromListTests
     private RemoveDuplicatesFromListSolution solution;
 
     [SetUp]
-    public void Setup() => solution = new();
+    public void Setup()
+    {
+        solution = new RemoveDuplicatesFromListSolution();
+    }
 
     [Test]
     public void TestExampleOne()
     {
-        ListNode head = new(1, new(1, new(2)));
+        // Arrange
+        ListNode head = new(1, new ListNode(1, new ListNode(2)));
+        ListNode? expected = new(1, new ListNode(2));
 
-        ListNode? expected = new(1, new(2));
-        ListNode? actual = solution.DeleteDuplicates(head);
+        // Act
+        var actual = solution.DeleteDuplicates(head);
 
+        // Assert
         while (expected != null)
         {
             Assert.That(expected.Val, Is.EqualTo(actual?.Val));
@@ -30,11 +36,14 @@ public class RemoveDuplicatesFromListTests
     [Test]
     public void TestExampleTwo()
     {
-        ListNode head = new(1, new(1, new(2, new(3, new(3)))));
+        // Arrange
+        ListNode head = new(1, new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(3)))));
+        ListNode? expected = new(1, new ListNode(2, new ListNode(3)));
 
-        ListNode? expected = new(1, new(2, new(3)));
-        ListNode? actual = solution.DeleteDuplicates(head);
+        // Act
+        var actual = solution.DeleteDuplicates(head);
 
+        // Assert
         while (expected != null)
         {
             Assert.That(expected.Val, Is.EqualTo(actual?.Val));
@@ -44,4 +53,3 @@ public class RemoveDuplicatesFromListTests
         }
     }
 }
-

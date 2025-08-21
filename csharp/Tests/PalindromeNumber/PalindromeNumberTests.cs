@@ -7,27 +7,47 @@ public class PalindromeNumberTests
     private PalindromeNumberSolution solution;
 
     [SetUp]
-    public void Setup() => solution = new();
+    public void Setup()
+    {
+        solution = new PalindromeNumberSolution();
+    }
 
     [Test]
     public void TestExampleOne()
     {
-        int input = 121;
-        Assert.That(solution.IsPalindrome(input), Is.True);
+        // Arrange
+        const int input = 121;
+
+        // Act
+        var actual = solution.IsPalindrome(input);
+
+        // Assert
+        Assert.That(actual, Is.True);
     }
 
     [Test]
     public void TestExampleTwo()
     {
-        int input = -121;
-        Assert.That(solution.IsPalindrome(input), Is.False);
+        // Arrange
+        const int input = -121;
+
+        // Act
+        var actual = solution.IsPalindrome(input);
+
+        // Assert
+        Assert.That(actual, Is.False);
     }
 
     [Test]
     public void TestExampleThree()
     {
-        int input = 10;
-        Assert.That(solution.IsPalindrome(input), Is.False);
+        // Arrange
+        const int input = 10;
+
+        // Act
+        var actual = solution.IsPalindrome(input);
+
+        // Assert
+        Assert.That(actual, Is.False);
     }
 }
-

@@ -16,12 +16,15 @@
 ///      - a and b consist only of '0' or '1' characters.
 ///      - Each string does not contain leading zeros except for the zero itself.
 /// </summary>
+
 using System.Numerics;
 
 namespace Solutions.AddBinary;
 
-public class AddBinarySolution {
-    public string AddBinary(string a, string b) {
+public class AddBinarySolution
+{
+    public string AddBinary(string a, string b)
+    {
         // Convert binary strings to BigInteger
         BigInteger num1 = BinaryStringToBigInteger(a);
         BigInteger num2 = BinaryStringToBigInteger(b);
@@ -39,24 +42,22 @@ public class AddBinarySolution {
         foreach (char bit in binary)
         {
             result <<= 1;
-            if (bit == '1')
-            {
-                result |= 1;
-            }
+            if (bit == '1') result |= 1;
         }
+
         return result;
     }
 
     private static string ToBinaryString(BigInteger value)
     {
         if (value == 0) return "0";
-        string binary = "";
+        var binary = "";
         while (value > 0)
         {
-            binary = (value % 2) + binary;
+            binary = value % 2 + binary;
             value >>= 1;
         }
+
         return binary;
     }
 }
-

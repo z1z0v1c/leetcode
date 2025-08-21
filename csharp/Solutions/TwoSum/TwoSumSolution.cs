@@ -18,7 +18,6 @@
 ///      Input: nums = [3,3], target = 6
 ///      Output: [0,1]
 ///
-/// 
 /// Constraints:
 ///      2 <= nums.length <= 104
 ///      -109 <= nums[i] <= 109
@@ -28,62 +27,58 @@
 /// 
 /// Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
 /// </summary>
+
 namespace Solutions.TwoSum;
 
 public class TwoSumSolution
 {
-	public int[] TwoSum(int[] nums, int target)
-	{
-		// Store indexes
-		Dictionary<int, List<int>> dict = PopulateDict(nums);
+    public int[] TwoSum(int[] nums, int target)
+    {
+        // Store indexes
+        var dict = PopulateDict(nums);
 
-		Array.Sort(nums);
+        Array.Sort(nums);
 
-		int sum = 0;
+        var left = 0;
+        var right = nums.Length - 1;
 
-		int left = 0;
-		int right = nums.Length - 1;
+        while (left <= right)
+        {
+            var sum = nums[left] + nums[right];
 
-		while (left <= right)
-		{
-			sum = nums[left] + nums[right];
+            if (sum == target)
+            {
+                var first = dict.GetValueOrDefault(nums[left])!.FirstOrDefault();
+                var second = dict.GetValueOrDefault(nums[right])!.LastOrDefault();
 
-			if (sum == target)
-			{
-				int first = dict.GetValueOrDefault(nums[left]).FirstOrDefault();
-				int second = dict.GetValueOrDefault(nums[right]).LastOrDefault();
-				return [first, second];
-			}
-			else if (sum > target)
-			{
-				right--;
-			}
-			else 
-			{
-				left++;
-			}
-		}
+                return [first, second];
+            }
 
-		return [-1, -1];
-	}
+            if (sum > target)
+                right--;
+            else
+                left++;
+        }
 
-	private Dictionary<int, List<int>> PopulateDict(int[] nums)
-	{
-		Dictionary<int, List<int>> dict = [];
-		for (int i = 0; i < nums.Length; i++) {
-			if (dict.ContainsKey(nums[i])) {
-				dict.GetValueOrDefault(nums[i]).Add(i);
-			}
-			else
-			{
-				List<int> value = [];
-				value.Add(i);
-				dict.TryAdd(nums[i], value);
-			}
-			
-		}
+        return [-1, -1];
+    }
 
-		return dict;
-	}
+    private Dictionary<int, List<int>> PopulateDict(int[] nums)
+    {
+        Dictionary<int, List<int>> dict = [];
+
+        for (var i = 0; i < nums.Length; i++)
+            if (dict.ContainsKey(nums[i]))
+            {
+                dict.GetValueOrDefault(nums[i])!.Add(i);
+            }
+            else
+            {
+                List<int> value = [];
+                value.Add(i);
+                dict.TryAdd(nums[i], value);
+            }
+
+        return dict;
+    }
 }
-

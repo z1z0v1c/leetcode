@@ -2,7 +2,6 @@
 /// 58 - Easy
 /// 
 /// Given a string s consisting of words and spaces, return the length of the last word in the string.
-/// 
 /// A word is a maximal substring consisting of non-space characters only.
 /// 
 /// Example 1:
@@ -25,6 +24,7 @@
 ///      - s consists of only English letters and spaces ' '.
 ///      - There will be at least one word in s.
 /// </summary>
+
 namespace Solutions.LengthOfLastWord;
 
 public class LengthOfLastWordSolution
@@ -32,26 +32,17 @@ public class LengthOfLastWordSolution
     public int LengthOfLastWord(string s)
     {
         char[] chars = s.ToCharArray();
-        int length = 0;
+        var length = 0;
 
         // avoid s.Trim()
-        bool isEnd = true;
+        var isEnd = true;
 
-        for (int i = chars.Length - 1; i >= 0; i--)
+        for (var i = chars.Length - 1; i >= 0; i--)
         {
-            if (isEnd && chars[i] == ' ')
-            {
-                continue;
-            }
-            if (!isEnd && chars[i] == ' ')
-            {
-                break;
-            }
+            if (isEnd && chars[i] == ' ') continue;
+            if (!isEnd && chars[i] == ' ') break;
 
-            if (chars[i] != ' ')
-            {
-                isEnd = false;
-            }
+            if (chars[i] != ' ') isEnd = false;
 
             length++;
         }
@@ -59,4 +50,3 @@ public class LengthOfLastWordSolution
         return length;
     }
 }
-

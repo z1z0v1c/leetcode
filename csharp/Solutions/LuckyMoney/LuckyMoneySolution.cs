@@ -44,28 +44,23 @@
 ///     - 1 <= giftees <= 10
 ///     - Available RAM: 512 MB
 ///     - Timeout: 2 seconds
+
 namespace Solutions.LuckyMoney;
 
 public class LuckyMoneySolution
 {
     public int LuckyMoney(int money, int giftees)
     {
-        int maxEights = 0;
+        var maxEights = 0;
 
-        for (int eights = Math.Min(giftees, money / 8); eights >= 0; eights--)
+        for (var eights = Math.Min(giftees, money / 8); eights >= 0; eights--)
         {
-            int remainingMoney = money - 8 * eights;
-            int remainingGiftees = giftees - eights;
+            var remainingMoney = money - 8 * eights;
+            var remainingGiftees = giftees - eights;
 
-            if (remainingMoney < remainingGiftees)
-            {
-                continue;
-            }
+            if (remainingMoney < remainingGiftees) continue;
 
-            if (remainingMoney == 4 && remainingGiftees == 1)
-            {
-                continue;
-            }
+            if (remainingMoney == 4 && remainingGiftees == 1) continue;
 
             maxEights = eights;
             break;

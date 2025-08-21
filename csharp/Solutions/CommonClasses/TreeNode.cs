@@ -1,4 +1,4 @@
-namespace Solutions.CommonClases;
+namespace Solutions.CommonClasses;
 
 public class TreeNode(int val, TreeNode? left = null, TreeNode? right = null)
 {

@@ -22,7 +22,7 @@
 ///      - -100 <= Node.val <= 100
 ///      - Both list1 and list2 are sorted in non-decreasing order.
 /// </summary>
-using Solutions.CommonClases;
+using Solutions.CommonClasses;
 
 namespace Solutions.MergeTwoSortedLists;
 

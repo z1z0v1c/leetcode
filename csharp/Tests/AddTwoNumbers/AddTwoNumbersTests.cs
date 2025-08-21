@@ -1,5 +1,5 @@
 using Solutions.AddTwoNumbers;
-using Solutions.CommonClases;
+using Solutions.CommonClasses;
 
 namespace Tests.AddTwoNumbers;
 

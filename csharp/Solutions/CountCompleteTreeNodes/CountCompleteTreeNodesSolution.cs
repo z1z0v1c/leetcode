@@ -31,7 +31,7 @@
 ///
 /// </sumary>
 
-using Solutions.CommonClases;
+using Solutions.CommonClasses;
 
 namespace Solutions.CountCompleteTreeNodes;
 

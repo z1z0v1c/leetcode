@@ -17,7 +17,7 @@
 ///      - -100 <= Node.val <= 100
 ///      - The list is guaranteed to be sorted in ascending order.
 /// </summary>
-using Solutions.CommonClases;
+using Solutions.CommonClasses;
 
 namespace Solutions.RemoveDuplicatesFromList;
 

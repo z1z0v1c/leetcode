@@ -24,7 +24,7 @@
 ///      - 0 <= Node.val <= 9
 ///      - It is guaranteed that the list represents a number that does not have leading zeros.
 /// </summary>
-using Solutions.CommonClases;
+using Solutions.CommonClasses;
 
 namespace Solutions.AddTwoNumbers;
 

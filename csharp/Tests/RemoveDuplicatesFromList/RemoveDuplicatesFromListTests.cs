@@ -1,4 +1,4 @@
-using Solutions.CommonClases;
+using Solutions.CommonClasses;
 using Solutions.RemoveDuplicatesFromList;
 
 namespace Tests.RemoveDuplicatesFromList;

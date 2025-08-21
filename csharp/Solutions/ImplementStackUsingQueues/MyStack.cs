@@ -46,9 +46,7 @@ public class MyStack
 
     public void Push(int x) {
         queue.Enqueue(x);
-    }
-    
-    public int Pop() {
+        
         var count = queue.Count;
         
         for (var i = count - 2; i >= 0; i--)
@@ -56,24 +54,14 @@ public class MyStack
             var element = queue.Dequeue();
             queue.Enqueue(element);
         }
-        
+    }
+    
+    public int Pop() {
         return queue.Dequeue();
     }
     
     public int Top() {
-        var count = queue.Count;
-        
-        for (var i = count - 2; i >= 0; i--)
-        {
-            var element = queue.Dequeue();
-            queue.Enqueue(element);
-        }
-        
-        var top = queue.Dequeue();
-        
-        queue.Enqueue(top);
-        
-        return top;
+        return queue.Peek();
     }
     
     public bool Empty() {

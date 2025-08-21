@@ -18,17 +18,17 @@ public class MyStackTests
         // Arrange
         const int first = 1, second = 2;
         const int expectedTop = 2, expectedPop = 2;
-        
+
         // Act
         solution.Push(first);
         solution.Push(second);
         var actualTop = solution.Top();
         var actualPop = solution.Pop();
         var actualEmpty = solution.Empty();
-        
+
         // Assert
-            Assert.That(actualTop, Is.EqualTo(expectedTop));
-            Assert.That(actualPop, Is.EqualTo(expectedPop));
-            Assert.That(actualEmpty, Is.False);
+        Assert.That(actualTop, Is.EqualTo(expectedTop));
+        Assert.That(actualPop, Is.EqualTo(expectedPop));
+        Assert.That(actualEmpty, Is.False);
     }
 }

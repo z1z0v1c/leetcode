@@ -43,44 +43,33 @@ namespace Solutions.ImplementStackUsingQueues;
 public class MyStack
 {
     private readonly Queue<int> queue = new();
-    private readonly Queue<int> temp = new();
 
     public void Push(int x) {
         queue.Enqueue(x);
     }
     
     public int Pop() {
-        for (var i = queue.Count - 2; i >= 0; i--)
+        var count = queue.Count;
+        
+        for (var i = count - 2; i >= 0; i--)
         {
             var element = queue.Dequeue();
-            temp.Enqueue(element);
-        }
-        
-        var top = queue.Dequeue();
-
-        for (var i = temp.Count - 1; i >= 0; i--)
-        {
-            var element = temp.Dequeue();
             queue.Enqueue(element);
         }
         
-        return top;
+        return queue.Dequeue();
     }
     
     public int Top() {
-        for (var i = queue.Count - 2; i >= 0; i--)
+        var count = queue.Count;
+        
+        for (var i = count - 2; i >= 0; i--)
         {
             var element = queue.Dequeue();
-            temp.Enqueue(element);
+            queue.Enqueue(element);
         }
         
         var top = queue.Dequeue();
-        
-        for (var i = temp.Count - 1; i >= 0; i--)
-        {
-            var element = temp.Dequeue();
-            queue.Enqueue(element);
-        }
         
         queue.Enqueue(top);
         

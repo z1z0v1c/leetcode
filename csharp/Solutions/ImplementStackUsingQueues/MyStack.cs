@@ -37,27 +37,57 @@
 /// 
 ///     Follow-up: Can you implement the stack using only one queue?
 /// </sumary>
+
 namespace Solutions.ImplementStackUsingQueues;
 
-public class MyStack {
-    
-    public MyStack() {
-        
-    }
-    
+public class MyStack
+{
+    private readonly Queue<int> queue = new();
+    private readonly Queue<int> temp = new();
+
     public void Push(int x) {
-        
+        queue.Enqueue(x);
     }
     
     public int Pop() {
-        return 0;
+        for (var i = queue.Count - 2; i >= 0; i--)
+        {
+            var element = queue.Dequeue();
+            temp.Enqueue(element);
+        }
+        
+        var top = queue.Dequeue();
+
+        for (var i = temp.Count - 1; i >= 0; i--)
+        {
+            var element = temp.Dequeue();
+            queue.Enqueue(element);
+        }
+        
+        return top;
     }
     
     public int Top() {
-        return 0;
+        for (var i = queue.Count - 2; i >= 0; i--)
+        {
+            var element = queue.Dequeue();
+            temp.Enqueue(element);
+        }
+        
+        var top = queue.Dequeue();
+        
+        for (var i = temp.Count - 1; i >= 0; i--)
+        {
+            var element = temp.Dequeue();
+            queue.Enqueue(element);
+        }
+        
+        queue.Enqueue(top);
+        
+        return top;
     }
     
     public bool Empty() {
-        return false;
+        return queue.Count == 0;
     }
 }

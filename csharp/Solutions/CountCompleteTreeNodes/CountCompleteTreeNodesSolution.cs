@@ -37,7 +37,7 @@ namespace Solutions.CountCompleteTreeNodes;
 
 public class CountCompleteTreeNodesSolution
 {
-    public int CountNodes(TreeNode root)
+    public int CountNodes(TreeNode? root)
     {
         if (root == null)
         {

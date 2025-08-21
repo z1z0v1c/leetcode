@@ -1,18 +1,8 @@
 namespace Solutions.CommonClases;
 
-public class TreeNode
+public class TreeNode(int val, TreeNode? left = null, TreeNode? right = null)
 {
-    public int Val;
-    public TreeNode Left;
-    public TreeNode Right;
-
-    public TreeNode(int val) {
-        this.Val = val;
-    }
-
-    public TreeNode(int val, TreeNode left, TreeNode right) {
-        this.Val = val;
-        this.Left = left;
-        this.Right = right;
-    }
+    public int Val = val;
+    public readonly TreeNode? Left = left;
+    public readonly TreeNode? Right = right;
 }

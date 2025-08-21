@@ -40,11 +40,11 @@ public class CountCompleteTreeNodesTests
     public void TestExampleTwo()
     {
         // Arrange
-        var root = new TreeNode();
+        TreeNode? root = null;
         var expected = 0;
         
         // Act
-        var actual = solution.CountNodes(root);
+        var actual = solution.CountNodes(root!);
         
         // Assert
         Assert.That(actual, Is.EqualTo(expected));

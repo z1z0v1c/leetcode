@@ -16,7 +16,7 @@ public class PowerOfTwoTests
     public void TestExampleOne()
     {
         // Arrange
-        var n = 1;
+        const int n = 1;
         
         // Act
         var result = solution.IsPowerOfTwo(n);
@@ -29,7 +29,7 @@ public class PowerOfTwoTests
     public void TestExampleTwo()
     {
         // Arrange
-        var n = 16;
+        const int n = 16;
         
         // Act
         var result = solution.IsPowerOfTwo(n);
@@ -42,7 +42,7 @@ public class PowerOfTwoTests
     public void TestExampleThree()
     {
         // Arrange
-        var n = 3;
+        const int n = 3;
         
         // Act
         var result = solution.IsPowerOfTwo(n);

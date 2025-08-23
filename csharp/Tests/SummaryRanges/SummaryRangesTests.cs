@@ -39,4 +39,18 @@ public class SummaryRangesTests
         // Assert
         Assert.That(actual, Is.EqualTo(expected));
     }
+    
+    [Test]
+    public void TestExampleThree()
+    {
+        // Arrange
+        int[] nums = [];
+        string[] expected = [];
+        
+        // Act
+        var actual = solution.SummaryRanges(nums);
+        
+        // Assert
+        Assert.That(actual, Is.EqualTo(expected));
+    }
 }

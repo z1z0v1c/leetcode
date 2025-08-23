@@ -39,9 +39,14 @@ public class SummaryRangesSolution
 {
     public IList<string> SummaryRanges(int[] nums)
     {
-        var start = nums[0];
         var ranges = new List<string>();
 
+        if (nums.Length == 0)
+        {
+            return ranges;
+        }
+
+        var start = nums[0];
         for (var i = 1; i < nums.Length; i++)
         {
             if (nums[i] - nums[i - 1] > 1)

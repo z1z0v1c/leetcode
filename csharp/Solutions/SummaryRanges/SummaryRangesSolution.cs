@@ -41,37 +41,24 @@ public class SummaryRangesSolution
     {
         var ranges = new List<string>();
 
-        if (nums.Length == 0)
-        {
-            return ranges;
-        }
+        if (nums.Length == 0) return ranges;
 
         var start = nums[0];
         for (var i = 1; i < nums.Length; i++)
-        {
-            if (nums[i] - nums[i - 1] > 1)
+            if (nums[i] - (long)nums[i - 1] > 1)
             {
                 if (start == nums[i - 1])
-                {
                     ranges.Add(start.ToString());
-                }
                 else
-                {
                     ranges.Add(start + "->" + nums[i - 1]);
-                }
-                
+
                 start = nums[i];
             }
-        }
 
         if (start == nums[^1])
-        {
             ranges.Add(start.ToString());
-        }
         else
-        {
             ranges.Add(start + "->" + nums[^1]);
-        }
 
         return ranges;
     }

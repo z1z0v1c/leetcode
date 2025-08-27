@@ -63,4 +63,17 @@ public class PowerOfTwoTests
         // Assert
         Assert.That(result, Is.False);
     }
+    
+    [Test]
+    public void TestExampleFive()
+    {
+        // Arrange
+        const int n = -16;
+        
+        // Act
+        var result = solution.IsPowerOfTwo(n);
+        
+        // Assert
+        Assert.That(result, Is.False);
+    }
 }

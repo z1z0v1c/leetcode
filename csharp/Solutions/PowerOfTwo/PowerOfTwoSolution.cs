@@ -30,7 +30,7 @@ public class PowerOfTwoSolution
 {
     public bool IsPowerOfTwo(int n)
     {
-        if (n == 0) return false;
+        if (n <= 0) return false;
         
         while (n > 1)
         {
